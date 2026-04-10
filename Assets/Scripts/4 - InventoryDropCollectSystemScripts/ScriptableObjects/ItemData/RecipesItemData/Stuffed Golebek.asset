@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b208d526de364b459c1032232d8fd60, type: 3}
+  m_Name: Stuffed Golebek
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  healAmount: 0
+  speedBoost: 3
+  duration: 7
+  id: Stuffed Gobelek
+  itemName: Stuffed Gobelek
+  icon: {fileID: 21300000, guid: 471df8513d0097f47a1bafbab28a7d89, type: 3}
+  maxStack: 99
+  type: 0
+  worldPrefab: {fileID: 6877927139474321328, guid: afac885b58e92a9428f8976cbc35b94c, type: 3}
+  pointValue: 0
+  collectionEffect: {fileID: 0}
+  collectionSound: {fileID: 8300000, guid: da4a2622abe334cb488e9a1baf0c8349, type: 3}
