@@ -1,0 +1,79 @@
+# ========== PASTAS E ARQUIVOS GERADOS LOCALMENTE ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+sysinfo.txt
+
+# ========== USER SETTINGS ==========
+UserSettings/
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.unityproj
+
+# ========== VS CODE ==========
+.vscode/
+.vs/
+
+# ========== RIDER ==========
+.idea/
+*.sln.iml
+
+# ========== MONODEVELOP ==========
+*.pidb
+*.booproj
+
+# ========== VISUAL STUDIO ==========
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+
+# ========== UNITY CRASH & BACKUP FILES ==========
+*.stacktrace
+*.bak
+*.old
+*.backup
+*.tmp
+*.temp
+*.swp
+
+# ========== SISTEMAS OPERACIONAIS ==========
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========== UNITY CLOUD BUILD ==========
+.projectid
+
+# ========== GRADLE / ANDROID BUILD (CASO USE) ==========
+.gradle/
+build/
+*.apk
+*.aar
+*.jks
+local.properties
+
+# ========== PLUGINS NATIVOS ==========
+*.so
+*.dll
+*.dylib
+*.bundle
+*.a
+*.lib
+
+# ========== OUTROS ==========
+# Logs gerados por testes ou ferramentas
+*.log
+*.log.*
+
+# Arquivos temporários de lock
+*.lock
