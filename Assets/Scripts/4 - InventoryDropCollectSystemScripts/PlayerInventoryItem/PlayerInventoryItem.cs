@@ -25,7 +25,7 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
     private Camera mainCamera;
 
     private Rigidbody2D rb;  
-    private InputSystem_Actions playerControls; 
+    //private InputSystem_Actions playerControls; 
     private Vector2 moveInput;  
     private LifeSystem lifeSystem;
     private Animator animator;
@@ -38,10 +38,10 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
     private const string ANIM_ATTACK = "Attack";
     private const string ANIM_DEAD = "Dead";
 
-    void Awake()
-    {
-        playerControls = new InputSystem_Actions();
-    }
+    //void Awake()
+    //{
+    //    playerControls = new InputSystem_Actions();
+    //}
 
     void Start()
     {
@@ -287,12 +287,12 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
     void OnDestroy()
     {
-        if (playerControls != null)
-        {
-            playerControls.Player.Move.performed -= OnMove;
-            playerControls.Player.Move.canceled -= OnMove;
-            //playerControls.Player.Attack.performed -= OnAttack;
-            playerControls.Dispose();
-        }
+        //if (playerControls != null)
+        //{
+        //    playerControls.Player.Move.performed -= OnMove;
+        //    playerControls.Player.Move.canceled -= OnMove;
+        //    //playerControls.Player.Attack.performed -= OnAttack;
+        //    playerControls.Dispose();
+        //}
     }
 }

@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class MultipleLifeBars : MonoBehaviour
 {
     public Slider healthSlider;
     public List<Image> fillImages;
     public SpriteRenderer fillSpriteRenderer;
-    public Text healthText;
+    public TextMeshProUGUI healthText;
 
     private int segmentCount;
     private float segmentValue;
@@ -38,9 +39,9 @@ public class MultipleLifeBars : MonoBehaviour
                 if (fillImages[i] != null)
                 {
                     fillImages[i].fillAmount = 1f;
-                    fillImages[i].type = Image.Type.Filled;
-                    fillImages[i].fillMethod = Image.FillMethod.Horizontal;
-                    fillImages[i].fillOrigin = 0; // Starts filling from the left
+                    //fillImages[i].type = Image.Type.Filled;
+                    //fillImages[i].fillMethod = Image.FillMethod.Horizontal;
+                    //fillImages[i].fillOrigin = 0; // Starts filling from the left
 
                     Debug.Log($"Segment {i} configured with fillAmount = 1f");
                 }
