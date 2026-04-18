@@ -17,6 +17,7 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
 
     [Header("Components")]
     [SerializeField] private Transform playerTarget;
+    [SerializeField] private bool pursueTarget = false;
 
     private LifeSystem lifeSystem;
     private Animator animator;
@@ -25,11 +26,15 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
+    private GameObject lifeBarSlider;
+
     void Start()
     {
         lifeSystem = GetComponent<LifeSystem>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        lifeBarSlider = GetComponent<LifeBar>().healthSlider.gameObject;
 
         if (playerTarget == null)
         {
@@ -53,7 +58,7 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
             {
                 Attack();
             }
-            else if (distanceToPlayer <= detectionRange)
+            else if (distanceToPlayer <= detectionRange && pursueTarget)
             {
                 MoveTowardsPlayer();
             }
@@ -70,6 +75,9 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
 
         Vector2 direction = (playerTarget.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
+        //transform.Translate(direction * moveSpeed * Time.deltaTime);
+        lifeBarSlider.transform.position = new Vector3(transform.position.x, lifeBarSlider.transform.position.y, transform.position.z); // Keep life bar position synced with enemy, becauserb.linearVelocity moves the enemy, but its life bar stays in the same position, so I changed to transform.Translate. 
+
         FlipSprite(direction.x);
 
         if (animator != null)
@@ -78,7 +86,7 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
 
     void Idle()
     {
-        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        //rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         if (animator != null)
             animator.SetBool("Walk", false);
     }
@@ -95,7 +103,7 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
     IEnumerator AttackCoroutine()
     {
         isAttacking = true;
-        rb.linearVelocity = Vector2.zero;
+        //rb.linearVelocity = Vector2.zero;
 
         if (animator != null)
             animator.SetTrigger("Attack");
@@ -117,6 +125,26 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
 
         yield return new WaitForSeconds(attackCooldown - 0.3f);
         isAttacking = false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        //if (attackPoint != null)
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        //}
+
+        //// Visualiza o range de coleta
+        //if (mainCamera != null && Application.isPlaying)
+        //{
+        //    Vector3 playerWorldPos = mainCamera.ScreenToWorldPoint(transform.position);
+        //    Gizmos.color = Color.green;
+        //    Gizmos.DrawWireSphere(playerWorldPos, collectionRange);
+        //}
     }
 
     void FlipSprite(float direction)
@@ -151,7 +179,7 @@ public class EnemyInventoryItem : MonoBehaviour, IDamageable
         isDead = true;
         Debug.Log($"Enemy {gameObject.name} died! Dropping items...");
 
-        rb.linearVelocity = Vector2.zero;
+        //rb.linearVelocity = Vector2.zero;
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)

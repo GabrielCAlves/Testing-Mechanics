@@ -10,10 +10,22 @@ public class Collectable : MonoBehaviour
     [SerializeField] private float floatAmplitude = 30f;
     [SerializeField] private float floatSpeed = 1.5f;
 
+    [Header("Debug")]
     private RectTransform rectTransform;
     private Image image;
     private Vector3 startPosition;
     private float floatOffset;
+
+    [Header("Collection")] [SerializeField]
+    private float time;
+    private float sinValue;
+    private float newY;
+    private Vector3 newPosition;
+
+    [Header("Inventory Interaction")] [SerializeField]
+    private InventorySystem inventory;
+    private Item item;
+    private bool added;
 
     void Awake()
     {
@@ -41,12 +53,12 @@ public class Collectable : MonoBehaviour
     {
         if (rectTransform != null)
         {
-            float time = Time.time * floatSpeed;
-            float sinValue = Mathf.Sin(time + floatOffset);
+            time = Time.time * floatSpeed;
+            sinValue = Mathf.Sin(time + floatOffset);
 
-            float newY = startPosition.y + (sinValue * floatAmplitude);
+            newY = startPosition.y + (sinValue * floatAmplitude);
 
-            Vector3 newPosition = new Vector3(startPosition.x, newY, startPosition.z);
+            newPosition = new Vector3(startPosition.x, newY, startPosition.z);
             rectTransform.localPosition = newPosition;
         }
     }
@@ -83,7 +95,7 @@ public class Collectable : MonoBehaviour
 
     public void Collect(Collider2D other)
     {
-        InventorySystem inventory = other.GetComponent<InventorySystem>();
+        inventory = other.GetComponent<InventorySystem>();
         if (inventory != null && itemData != null)
         {
             if (inventory.items.Count >= inventory.maxCapacity && !inventory.CanStack(new Item(itemData)))
@@ -92,8 +104,8 @@ public class Collectable : MonoBehaviour
                 return;
             }
 
-            Item item = new Item(itemData);
-            bool added = inventory.AddItem(item, 1);
+            item = new Item(itemData);
+            added = inventory.AddItem(item, 1);
 
             if (added)
             {

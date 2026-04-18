@@ -1623,11 +1623,10 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  attackPoint: {fileID: 0}
-  collectionRange: 0.75
-  itemLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  worldItems: []
+  screenPos: {x: 0, y: 0, z: 0}
+  playerRect: {fileID: 0}
+  collectionRange: 120
 --- !u!114 &1651044929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,10 +1641,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LifeBar
   healthSlider: {fileID: 1170130635}
   fillImage: {fileID: 1863912714}
+  fillSpriteRenderer: {fileID: 0}
+  lifeDecreaseBackground: {fileID: 0}
+  healthText: {fileID: 0}
   fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   mediumHealthColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  healthText: {fileID: 0}
 --- !u!114 &1651044930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,6 +1662,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1651044929}
+  multipleLifeBar: {fileID: 0}
 --- !u!114 &1651044931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,6 +2197,7 @@ MonoBehaviour:
     maxQuantity: 1
   dropPrefab: {fileID: 0}
   playerTarget: {fileID: 1651044924}
+  pursueTarget: 0
 --- !u!114 &1852553540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,10 +2212,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LifeBar
   healthSlider: {fileID: 1387788488}
   fillImage: {fileID: 1669067627}
+  fillSpriteRenderer: {fileID: 0}
+  lifeDecreaseBackground: {fileID: 0}
+  healthText: {fileID: 0}
   fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   mediumHealthColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  healthText: {fileID: 0}
 --- !u!114 &1852553541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2228,6 +2233,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1852553540}
+  multipleLifeBar: {fileID: 0}
 --- !u!114 &1852553542
 MonoBehaviour:
   m_ObjectHideFlags: 0

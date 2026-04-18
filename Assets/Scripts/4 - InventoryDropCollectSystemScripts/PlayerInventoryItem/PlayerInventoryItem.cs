@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerInventoryItem : MonoBehaviour, IDamageable
 {
+    [Header("General Settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
@@ -14,19 +15,18 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private LayerMask enemyLayer;
 
-    [Header("Components")]
-    [SerializeField] private Transform attackPoint;
+    //[Header("Components")]
+    //[SerializeField] private Transform attackPoint;
 
+    [Header("Collection Settings")]
+    [SerializeField] private Collectable[] worldItems;
+    [SerializeField] private Vector3 screenPos;
+    [SerializeField] private RectTransform playerRect;
+    [SerializeField] private float collectionRange = 100f;
 
-    [Header("Item Collection")]
-    [SerializeField] private float collectionRange = 2f;
-    [SerializeField] private LayerMask itemLayer; //
-
-    private Camera mainCamera;
-
-    private Rigidbody2D rb;  
-    //private InputSystem_Actions playerControls; 
-    private Vector2 moveInput;  
+    private Rigidbody2D rb;
+    private InputSystem_Actions playerControls;
+    private Vector2 moveInput;
     private LifeSystem lifeSystem;
     private Animator animator;
     private float lastAttackTime = 0f;
@@ -38,10 +38,16 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
     private const string ANIM_ATTACK = "Attack";
     private const string ANIM_DEAD = "Dead";
 
-    //void Awake()
-    //{
-    //    playerControls = new InputSystem_Actions();
-    //}
+    private Vector3 movement;
+    private bool isMoving;
+    private Collider2D col;
+    private SpriteRenderer sprite;
+    private Color originalColor;
+
+    void Awake()
+    {
+        playerControls = new InputSystem_Actions();
+    }
 
     void Start()
     {
@@ -62,57 +68,55 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
             currentHealth = maxHealth;
         }
 
-        if (attackPoint == null)
-        {
-            GameObject point = new GameObject("AttackPoint");
-            point.transform.parent = transform;
-            point.transform.localPosition = new Vector3(1f, 0, 0);
-            attackPoint = point.transform;
-        }
-
-        mainCamera = Camera.main;
+        //if (attackPoint == null)
+        //{
+        //    GameObject point = new GameObject("AttackPoint");
+        //    point.transform.parent = transform;
+        //    point.transform.localPosition = new Vector3(1f, 0, 0);
+        //    attackPoint = point.transform;
+        //}
     }
 
-    //void OnEnable()
-    //{
-    //    playerControls.Player.Enable();
+    void OnEnable()
+    {
+        playerControls.Player.Enable();
 
-    //    playerControls.Player.Move.performed += OnMove;
-    //    playerControls.Player.Move.canceled += OnMove;
+        playerControls.Player.Move.performed += OnMove;
+        playerControls.Player.Move.canceled += OnMove;
 
-    //    //playerControls.Player.Attack.performed += OnAttack;
-    //}
+        playerControls.Player.Attack.performed += OnAttack;
+    }
 
-    //void OnDisable()
-    //{
-    //    playerControls.Player.Move.performed -= OnMove;
-    //    playerControls.Player.Move.canceled -= OnMove;
-    //    //playerControls.Player.Attack.performed -= OnAttack;
-    //    playerControls.Player.Disable();
-    //}
+    void OnDisable()
+    {
+        playerControls.Player.Move.performed -= OnMove;
+        playerControls.Player.Move.canceled -= OnMove;
+        playerControls.Player.Attack.performed -= OnAttack;
+        playerControls.Player.Disable();
+    }
 
     void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
 
-    //void OnAttack(InputAction.CallbackContext context)
-    //{
-    //    if (!isDead && !isAttacking && Time.time >= lastAttackTime + attackCooldown)
-    //    {
-    //        StartCoroutine(AttackCoroutine());
-    //    }
-    //}
+    void OnAttack(InputAction.CallbackContext context)
+    {
+        if (!isDead && !isAttacking && Time.time >= lastAttackTime + attackCooldown)
+        {
+            StartCoroutine(AttackCoroutine());
+        }
+    }
 
     void Update()
     {
         if (isDead) return;
 
-        Vector3 movement = new Vector3(moveInput.x, 0, moveInput.y);
+        movement = new Vector3(moveInput.x, 0, moveInput.y);
 
         if (animator != null)
         {
-            bool isMoving = movement.magnitude > 0.1f;
+            isMoving = movement.magnitude > 0.1f;
             animator.SetBool(ANIM_WALK, isMoving);
 
             if (!isMoving)
@@ -128,9 +132,61 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
         transform.Translate(movement * speed * Time.deltaTime);
 
-        // Verifica itens para coletar
-        CheckForNearbyItems(); // Só para caso de o Player e o Collectable não estiverem no mesmo espaço no mundo (Um no World Space e o outro no Canvas)
+        //CheckForNearbyItems(); // Só para caso de o Player e o Collectable não estiverem no mesmo espaço no mundo (Um no World Space e o outro no Canvas)
+
+        WorldCollection();
     }
+
+    void WorldCollection()
+    {
+        worldItems = GameObject.FindObjectsOfType<Collectable>();
+
+        foreach (Collectable item in worldItems)
+        {
+            screenPos = Camera.main.WorldToScreenPoint(item.transform.position);
+            playerRect = GetComponent<RectTransform>();
+
+            float distance = Vector2.Distance(screenPos, playerRect.position);
+            if (distance < collectionRange)
+            {
+                item.Collect(GetComponent<Collider2D>());
+            }
+        }
+    }
+
+    //void CheckForNearbyItems()
+    //{
+    //    // Converte a posição do player (UI) para mundo
+    //    if (mainCamera == null) return;
+
+    //    Vector3 playerWorldPos = mainCamera.ScreenToWorldPoint(transform.position);
+    //    playerWorldPos.z = 0;
+
+    //    // Busca itens próximos
+    //    Collider2D[] nearbyItems = Physics2D.OverlapCircleAll(playerWorldPos, collectionRange, itemLayer);
+
+    //    foreach (Collider2D item in nearbyItems)
+    //    {
+    //        Collectable collectable = item.GetComponent<Collectable>();
+    //        if (collectable != null)
+    //        {
+    //            CollectItem(collectable);
+    //            break; // Coleta um item por vez (opcional)
+    //        }
+    //    }
+    //}
+
+    //void CollectItem(Collectable collectable)
+    //{
+    //    ItemData itemData = collectable.GetItemData();
+    //    if (itemData == null) return;
+
+    //    // Adiciona ao inventário
+    //    Debug.Log($"Collected: {itemData.itemName}");
+
+    //    collectable.Collect(GetComponent<Collider2D>());
+    //    Destroy(collectable.gameObject);
+    //}
 
     IEnumerator AttackCoroutine()
     {
@@ -142,26 +198,26 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
         yield return new WaitForSeconds(0.2f);
 
-        PerformAttack();
+        //PerformAttack();
 
         yield return new WaitForSeconds(0.3f);
 
         isAttacking = false;
     }
 
-    void PerformAttack()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+    //void PerformAttack()
+    //{
+    //    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            IDamageable damageable = enemy.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                damageable.TakeDamage(attackDamage);
-            }
-        }
-    }
+    //    foreach (Collider2D enemy in hitEnemies)
+    //    {
+    //        IDamageable damageable = enemy.GetComponent<IDamageable>();
+    //        if (damageable != null)
+    //        {
+    //            damageable.TakeDamage(attackDamage);
+    //        }
+    //    }
+    //}
 
     void FlipSprite(float direction)
     {
@@ -169,12 +225,12 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
         scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction);
         transform.localScale = scale;
 
-        if (attackPoint != null)
-        {
-            Vector3 attackPointPos = attackPoint.localPosition;
-            attackPointPos.x = Mathf.Abs(attackPointPos.x) * Mathf.Sign(direction);
-            attackPoint.localPosition = attackPointPos;
-        }
+        //if (attackPoint != null)
+        //{
+        //    Vector3 attackPointPos = attackPoint.localPosition;
+        //    attackPointPos.x = Mathf.Abs(attackPointPos.x) * Mathf.Sign(direction);
+        //    attackPoint.localPosition = attackPointPos;
+        //}
     }
 
     public void TakeDamage(int damage)
@@ -212,7 +268,7 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
         moveInput = Vector2.zero;
 
-        Collider2D col = GetComponent<Collider2D>();
+        col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
 
@@ -224,75 +280,37 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
     IEnumerator DamageFlash()
     {
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         if (sprite != null)
         {
-            Color originalColor = sprite.color;
+            originalColor = sprite.color;
             sprite.color = Color.red;
             yield return new WaitForSeconds(0.1f);
             sprite.color = originalColor;
         }
     }
 
-    void CheckForNearbyItems()
-    {
-        // Converte a posição do player (UI) para mundo
-        if (mainCamera == null) return;
-
-        Vector3 playerWorldPos = mainCamera.ScreenToWorldPoint(transform.position);
-        playerWorldPos.z = 0;
-
-        // Busca itens próximos
-        Collider2D[] nearbyItems = Physics2D.OverlapCircleAll(playerWorldPos, collectionRange, itemLayer);
-
-        foreach (Collider2D item in nearbyItems)
-        {
-            Collectable collectable = item.GetComponent<Collectable>();
-            if (collectable != null)
-            {
-                CollectItem(collectable);
-                break; // Coleta um item por vez (opcional)
-            }
-        }
-    }
-
-    void CollectItem(Collectable collectable)
-    {
-        ItemData itemData = collectable.GetItemData();
-        if (itemData == null) return;
-
-        // Adiciona ao inventário
-        Debug.Log($"Collected: {itemData.itemName}");
-
-        collectable.Collect(GetComponent<Collider2D>());
-        Destroy(collectable.gameObject);
-    }
-
     void OnDrawGizmosSelected()
     {
-        if (attackPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
+        //if (attackPoint != null)
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        //}
 
-        // Visualiza o range de coleta
-        if (mainCamera != null && Application.isPlaying)
-        {
-            Vector3 playerWorldPos = mainCamera.ScreenToWorldPoint(transform.position);
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(playerWorldPos, collectionRange);
-        }
+        Gizmos.color = Color.blue;
+        //Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Gizmos.DrawWireSphere(transform.position, collectionRange);
     }
 
     void OnDestroy()
     {
-        //if (playerControls != null)
-        //{
-        //    playerControls.Player.Move.performed -= OnMove;
-        //    playerControls.Player.Move.canceled -= OnMove;
-        //    //playerControls.Player.Attack.performed -= OnAttack;
-        //    playerControls.Dispose();
-        //}
+        if (playerControls != null)
+        {
+            playerControls.Player.Move.performed -= OnMove;
+            playerControls.Player.Move.canceled -= OnMove;
+            playerControls.Player.Attack.performed -= OnAttack;
+            playerControls.Dispose();
+        }
     }
 }

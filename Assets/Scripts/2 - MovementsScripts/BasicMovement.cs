@@ -30,5 +30,14 @@ public class BasicMovement : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime);
         //transform.Translate(movement * speed * Time.deltaTime, Space.World);
+
+        FlipSprite(horizontal);
+    }
+
+    void FlipSprite(float direction)
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction);
+        transform.localScale = scale;
     }
 }
