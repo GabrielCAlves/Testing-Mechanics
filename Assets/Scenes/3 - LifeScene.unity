@@ -18853,6 +18853,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule (SectionedVerticalMultipleLifeBars) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2013172346895762349, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354163689775983822, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5090071070331638438, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.74
@@ -18901,6 +18909,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5196993715778781851, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146032904058510620, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063846577271968257, guid: ee322b18adc8bcc48a0cfe4685d91c18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18932,6 +18952,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7006276606779805594, guid: 15d6611912559ec4aacf1e7788af19ac, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006276606779805594, guid: 15d6611912559ec4aacf1e7788af19ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9148742465746604937, guid: 15d6611912559ec4aacf1e7788af19ac, type: 3}
