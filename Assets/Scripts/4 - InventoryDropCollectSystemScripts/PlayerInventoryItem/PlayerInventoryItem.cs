@@ -84,14 +84,14 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
         playerControls.Player.Move.performed += OnMove;
         playerControls.Player.Move.canceled += OnMove;
 
-        playerControls.Player.Attack.performed += OnAttack;
+        //playerControls.Player.Attack.performed += OnAttack;
     }
 
     void OnDisable()
     {
         playerControls.Player.Move.performed -= OnMove;
         playerControls.Player.Move.canceled -= OnMove;
-        playerControls.Player.Attack.performed -= OnAttack;
+        //playerControls.Player.Attack.performed -= OnAttack;
         playerControls.Player.Disable();
     }
 
@@ -100,13 +100,13 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
         moveInput = context.ReadValue<Vector2>();
     }
 
-    void OnAttack(InputAction.CallbackContext context)
-    {
-        if (!isDead && !isAttacking && Time.time >= lastAttackTime + attackCooldown)
-        {
-            StartCoroutine(AttackCoroutine());
-        }
-    }
+    //void OnAttack(InputAction.CallbackContext context)
+    //{
+    //    if (!isDead && !isAttacking && Time.time >= lastAttackTime + attackCooldown)
+    //    {
+    //        StartCoroutine(AttackCoroutine());
+    //    }
+    //}
 
     void Update()
     {
@@ -309,7 +309,7 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
         {
             playerControls.Player.Move.performed -= OnMove;
             playerControls.Player.Move.canceled -= OnMove;
-            playerControls.Player.Attack.performed -= OnAttack;
+            //playerControls.Player.Attack.performed -= OnAttack;
             playerControls.Dispose();
         }
     }

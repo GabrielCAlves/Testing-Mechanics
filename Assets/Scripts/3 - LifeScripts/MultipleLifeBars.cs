@@ -6,13 +6,24 @@ using TMPro;
 
 public class MultipleLifeBars : MonoBehaviour
 {
+    [Header("UI Components")]
     public Slider healthSlider;
     public List<Image> fillImages;
     public SpriteRenderer fillSpriteRenderer;
     public TextMeshProUGUI healthText;
 
+    [Header("Health Colors")]
+    public bool useHealthColors = false;
+    public Color fullHealthColor = Color.green;
+    public Color mediumHealthColor = Color.yellow;
+    public Color lowHealthColor = Color.red;
+    private LifeSystem lifeSystem;
+
     private int segmentCount;
     private float segmentValue;
+
+    private float remainingHealth;
+    private float percent;
 
     void Start()
     {
@@ -24,6 +35,12 @@ public class MultipleLifeBars : MonoBehaviour
             Debug.LogWarning("MultipleLifeBars: No fillImage attributed to the list!");
 
             return;
+        }
+
+        if(lifeSystem  == null) { 
+            lifeSystem = GetComponentInParent<LifeSystem>();
+            if (lifeSystem == null)
+                Debug.LogWarning("MultipleLifeBars: No LifeSystem found in parent objects!");
         }
 
         ConfiguringImageList();
@@ -105,7 +122,7 @@ public class MultipleLifeBars : MonoBehaviour
             healthSlider.value = currentHealth;
 
             // Calculates the remaining life
-            float remainingHealth = currentHealth;
+            remainingHealth = currentHealth;
 
             Debug.Log($"=== UpdateBar: currentHealth = {currentHealth}, remainingHealth = {remainingHealth} ===");
 
@@ -124,7 +141,7 @@ public class MultipleLifeBars : MonoBehaviour
                 else if (remainingHealth > 0)
                 {
                     // This segment is partially filled
-                    float percent = remainingHealth / segmentValue;
+                    percent = remainingHealth / segmentValue;
                     fillImages[(fillImages.Count - 1) - i].fillAmount = Mathf.Clamp01(percent);
                     Debug.Log($"Segment {i}: PARCIAL (fillAmount = {fillImages[i].fillAmount}), percent = {percent}");
                     remainingHealth = 0;
@@ -138,6 +155,8 @@ public class MultipleLifeBars : MonoBehaviour
             }
         }
 
+        SetHealthColors();
+
         //if (healthText != null)
         //{
         //    int maxHealth = healthSlider != null ? (int)healthSlider.maxValue : 100;
@@ -145,6 +164,28 @@ public class MultipleLifeBars : MonoBehaviour
         //}
 
         SetHealthText(currentHealth);
+    }
+
+    private void SetHealthColors() { 
+        if (useHealthColors)
+        {
+            percent = lifeSystem != null ? (float)lifeSystem.currentHealth / lifeSystem.maxHealth : 1f;
+
+            Debug.Log($"Setting health colors based on percent: {percent} = {lifeSystem.currentHealth} / {lifeSystem.maxHealth}");
+                
+            for (int i = 0; i < fillImages.Count; i++)
+            {
+                if (fillImages[i] != null)
+                {
+                    if (percent > 0.6f)
+                        fillImages[i].color = fullHealthColor;
+                    else if (percent > 0.3f)
+                        fillImages[i].color = mediumHealthColor;
+                    else
+                        fillImages[i].color = lowHealthColor;
+                }
+            }
+        }
     }
 
     public void DamageAnimation()
