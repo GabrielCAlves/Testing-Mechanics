@@ -738,8 +738,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16018233, y: -1.1606236e-10, z: 1.8834337e-11, w: 0.9870875}
-  m_LocalPosition: {x: 0, y: 2.78, z: -7.6}
+  m_LocalRotation: {x: 0.7009093, y: -8.386474e-11, z: 8.241365e-11, w: 0.71325046}
+  m_LocalPosition: {x: 0, y: 2.98, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1001,7 +1001,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1934,12 +1934,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
-    BindingMode: 4
+    BindingMode: 3
     PositionDamping: {x: 1, y: 1, z: 1}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 0.2, z: -0.6}
+  FollowOffset: {x: 0, y: 0.4, z: 0}
 --- !u!114 &1760618995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,8 +1991,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760618992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16018231, y: -1.16062354e-10, z: 1.8834335e-11, w: 0.9870875}
-  m_LocalPosition: {x: 0, y: 2.78, z: -7.6}
+  m_LocalRotation: {x: 0.70090926, y: -8.3864436e-11, z: 8.241335e-11, w: 0.7132505}
+  m_LocalPosition: {x: 0, y: 2.98, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2066,6 +2066,8 @@ MonoBehaviour:
   inclinationRad: 0
   orbitAroundPoint: 1
   rotationSpeed: 60
+  orbitAroundPointFunction: 0
+  orbitAroundPointBetterFunction: 0
 --- !u!65 &1882467402
 BoxCollider:
   m_ObjectHideFlags: 0
