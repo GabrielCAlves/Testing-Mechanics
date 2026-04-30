@@ -1,4 +1,5 @@
 ﻿<Solution>
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="CrashKonijn.Goap.Runtime.csproj" />
   <Project Path="CrashKonijn.Goap.Core.csproj" />
@@ -7,9 +8,8 @@
   <Project Path="skner.DualGrid.Editor.csproj" />
   <Project Path="skner.DualGrid.csproj" />
   <Project Path="CrashKonijn.Goap.Resolver.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="CrashKonijn.Agent.Core.csproj" />
   <Project Path="Assembly-CSharp-firstpass.csproj" />
-  <Project Path="BattleText.csproj" />
   <Project Path="AnimatedBattleText.Example.Damage.csproj" />
+  <Project Path="BattleText.csproj" />
 </Solution>
