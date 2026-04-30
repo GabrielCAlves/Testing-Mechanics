@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f76f6987377a4a34aaceeaaa2bb0714d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Sample Scenes/Scripts/IHealable.cs
+  uploadId: 729806

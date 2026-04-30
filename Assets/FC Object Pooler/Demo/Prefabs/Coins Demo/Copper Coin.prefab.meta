@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 446cafa792136084aa1cb7aae6525442
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Prefabs/Coins Demo/Copper Coin.prefab
+  uploadId: 457906

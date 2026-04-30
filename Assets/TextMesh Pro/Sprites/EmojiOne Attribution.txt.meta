@@ -5,3 +5,10 @@ TextScriptImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
+  uploadId: 457906

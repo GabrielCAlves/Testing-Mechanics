@@ -6,3 +6,10 @@ TextScriptImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+  uploadId: 457906

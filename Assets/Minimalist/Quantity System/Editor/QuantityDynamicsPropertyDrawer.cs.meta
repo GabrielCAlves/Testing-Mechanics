@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5008921747dad7844bedfae9db93feae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Quantity System/Editor/QuantityDynamicsPropertyDrawer.cs
+  uploadId: 729806

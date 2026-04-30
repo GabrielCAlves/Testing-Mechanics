@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ed29cae8e0a1a494f9ce225a75c3d41f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 350974
+  packageName: Acoustics Lite
+  packageVersion: 1.0
+  assetPath: Assets/AcousticsLite/Prefabs/AcousticSource.prefab
+  uploadId: 870782

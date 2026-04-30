@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5461441a05bd5cf45948a72554e64f05
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 24100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 350974
+  packageName: Acoustics Lite
+  packageVersion: 1.0
+  assetPath: Assets/AcousticsLite/AudioMixer.mixer
+  uploadId: 870782

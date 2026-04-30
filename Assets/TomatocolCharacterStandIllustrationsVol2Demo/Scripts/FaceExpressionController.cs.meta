@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a38015920054eb449a9319ac17604dad
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 323042
+  packageName: Tomatocol Character Stand Illustrations Vol.2 DEMO - 1 Image
+  packageVersion: 1.0
+  assetPath: Assets/TomatocolCharacterStandIllustrationsVol2Demo/Scripts/FaceExpressionController.cs
+  uploadId: 763571

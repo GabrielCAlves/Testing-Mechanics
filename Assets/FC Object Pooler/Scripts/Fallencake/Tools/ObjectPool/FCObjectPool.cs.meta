@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e92fc573c8589184eb78d808ef3030d2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Scripts/Fallencake/Tools/ObjectPool/FCObjectPool.cs
+  uploadId: 457906

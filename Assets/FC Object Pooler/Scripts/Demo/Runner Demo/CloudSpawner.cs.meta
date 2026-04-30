@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5867340ba006ed44d8f346de62b21c3a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Scripts/Demo/Runner Demo/CloudSpawner.cs
+  uploadId: 457906

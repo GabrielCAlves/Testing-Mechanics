@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 14e5b6ac99d054d4fa9e6ed2c3e4c3f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Scripts/Demo/Coins Demo/ChestSpawner.cs
+  uploadId: 457906

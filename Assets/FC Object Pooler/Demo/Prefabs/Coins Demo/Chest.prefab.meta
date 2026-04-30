@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd3878cab54eef24d9050fe8b6e61a24
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Prefabs/Coins Demo/Chest.prefab
+  uploadId: 457906

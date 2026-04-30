@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 57415b0941a476145ab1864f5df69cde
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Animations/Runner Demo/Player Jump 2.anim
+  uploadId: 457906

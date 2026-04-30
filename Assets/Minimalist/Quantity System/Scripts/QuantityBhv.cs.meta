@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9e3961e20c2aabd42bf72e1a08468e79
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Quantity System/Scripts/QuantityBhv.cs
+  uploadId: 729806

@@ -1,0 +1,869 @@
+{
+  "presets": [
+    {
+      "keyword": "default",
+      "cheeks": "1",
+      "mouth": "a_1",
+      "eyes": "a_1",
+      "tears": "",
+      "eyebrows": "b_1",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "happy_strong",
+      "cheeks": "1",
+      "mouth": "a_4",
+      "eyes": "b_1",
+      "tears": "",
+      "eyebrows": "c_1",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "happy_normal",
+      "cheeks": "1",
+      "mouth": "a_4",
+      "eyes": "a_1",
+      "tears": "",
+      "eyebrows": "b_1",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "happy_soft",
+      "cheeks": "1",
+      "mouth": "a_4",
+      "eyes": "f_1",
+      "tears": "",
+      "eyebrows": "b_1",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "happy_strong_gag",
+      "cheeks": "1",
+      "mouth": "a_3",
+      "eyes": "c1_2",
+      "tears": "c_3",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "5"
+      ]
+    },
+    {
+      "keyword": "happy_normal_gag",
+      "cheeks": "3",
+      "mouth": "a_3",
+      "eyes": "g_2",
+      "tears": "",
+      "eyebrows": "c_1",
+      "graphic_symbols": [
+        "5"
+      ]
+    },
+    {
+      "keyword": "happy_soft_gag",
+      "cheeks": "3",
+      "mouth": "a_4",
+      "eyes": "g_1",
+      "tears": "",
+      "eyebrows": "c_1",
+      "graphic_symbols": [
+        "5"
+      ]
+    },
+    {
+      "keyword": "angry_strong",
+      "cheeks": "1",
+      "mouth": "a_15",
+      "eyes": "b_2",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "angry_normal",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "d_2",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "angry_soft",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "c2_3",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "angry_strong_gag",
+      "cheeks": "1",
+      "mouth": "c_5",
+      "eyes": "g_10",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "1",
+        "6"
+      ]
+    },
+    {
+      "keyword": "angry_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_3",
+      "eyes": "c2_3",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "1"
+      ]
+    },
+    {
+      "keyword": "angry_soft_gag",
+      "cheeks": "1",
+      "mouth": "c_5",
+      "eyes": "g_2",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "1"
+      ]
+    },
+    {
+      "keyword": "sad_strong",
+      "cheeks": "1",
+      "mouth": "a_11",
+      "eyes": "b_2",
+      "tears": "ab_2",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_normal",
+      "cheeks": "1",
+      "mouth": "a_12",
+      "eyes": "f_3",
+      "tears": "c_1",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_soft",
+      "cheeks": "1",
+      "mouth": "a_7",
+      "eyes": "c1_3",
+      "tears": "c_1",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_strong_gag",
+      "cheeks": "1",
+      "mouth": "a_13",
+      "eyes": "f_4",
+      "tears": "f4_3",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_11",
+      "eyes": "g_8",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_soft_gag",
+      "cheeks": "1",
+      "mouth": "b_10",
+      "eyes": "g_4",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_strong",
+      "cheeks": "1",
+      "mouth": "a_11",
+      "eyes": "b_2",
+      "tears": "ab_2",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_normal",
+      "cheeks": "1",
+      "mouth": "a_12",
+      "eyes": "f_3",
+      "tears": "c_1",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_soft",
+      "cheeks": "1",
+      "mouth": "a_7",
+      "eyes": "c1_3",
+      "tears": "c_1",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_strong_gag",
+      "cheeks": "1",
+      "mouth": "a_13",
+      "eyes": "f_4",
+      "tears": "f4_3",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_11",
+      "eyes": "g_8",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sad_soft_gag",
+      "cheeks": "1",
+      "mouth": "b_10",
+      "eyes": "g_4",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "think_normal",
+      "cheeks": "1",
+      "mouth": "a_7",
+      "eyes": "a_3",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "think_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_5",
+      "eyes": "g_4",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "13"
+      ]
+    },
+    {
+      "keyword": "idea_normal",
+      "cheeks": "1",
+      "mouth": "a_4",
+      "eyes": "b_1",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "12"
+      ]
+    },
+    {
+      "keyword": "idea_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_3",
+      "eyes": "b_2",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "14"
+      ]
+    },
+    {
+      "keyword": "irritated_normal",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "a_4",
+      "tears": "",
+      "eyebrows": "b_6",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "irritated_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_4",
+      "eyes": "g_9",
+      "tears": "",
+      "eyebrows": "a_6",
+      "graphic_symbols": [
+        "1",
+        "6"
+      ]
+    },
+    {
+      "keyword": "endure_normal",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "b_4",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "endure_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "g_3",
+      "tears": "",
+      "eyebrows": "a_6",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "smug_normal",
+      "cheeks": "1",
+      "mouth": "a_2",
+      "eyes": "b_1",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "smug_normal_gag",
+      "cheeks": "3",
+      "mouth": "b_2",
+      "eyes": "c2_1",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "5"
+      ]
+    },
+    {
+      "keyword": "bored_normal",
+      "cheeks": "1",
+      "mouth": "a_12",
+      "eyes": "c1_3",
+      "tears": "",
+      "eyebrows": "b_6",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "bored_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_8",
+      "eyes": "c2_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "9"
+      ]
+    },
+    {
+      "keyword": "frustrated_normal",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "c1_1",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "frustrated_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_13",
+      "eyes": "c2_3",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "11"
+      ]
+    },
+    {
+      "keyword": "shy_normal",
+      "cheeks": "2",
+      "mouth": "a_5",
+      "eyes": "f_1",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "shy_normal_gag",
+      "cheeks": "2",
+      "mouth": "c_1",
+      "eyes": "g_3",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "4"
+      ]
+    },
+    {
+      "keyword": "contempt_normal",
+      "cheeks": "1",
+      "mouth": "a_7",
+      "eyes": "c2_1",
+      "tears": "",
+      "eyebrows": "b_2",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "contempt_normal_gag",
+      "cheeks": "1",
+      "mouth": "b_6",
+      "eyes": "g_9",
+      "tears": "",
+      "eyebrows": "a_2",
+      "graphic_symbols": [
+        "6",
+        "9"
+      ]
+    },
+    {
+      "keyword": "awkward_normal",
+      "cheeks": "1",
+      "mouth": "a_5",
+      "eyes": "c1_3",
+      "tears": "",
+      "eyebrows": "b_5",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "awkward_normal_gag",
+      "cheeks": "3",
+      "mouth": "c_1",
+      "eyes": "g_3",
+      "tears": "",
+      "eyebrows": "b_6",
+      "graphic_symbols": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "keyword": "anxious_normal",
+      "cheeks": "1",
+      "mouth": "a_1",
+      "eyes": "a_7",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "anxious_normal_gag",
+      "cheeks": "1",
+      "mouth": "b_10",
+      "eyes": "g_4",
+      "tears": "",
+      "eyebrows": "a_6",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "tired_normal",
+      "cheeks": "1",
+      "mouth": "a_12",
+      "eyes": "f_2",
+      "tears": "",
+      "eyebrows": "a_6",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "tired_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_6",
+      "eyes": "g_5",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "sick_normal",
+      "cheeks": "5",
+      "mouth": "a_9",
+      "eyes": "c1_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "sick_normal_gag",
+      "cheeks": "5",
+      "mouth": "a_12",
+      "eyes": "c1_5",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "disgust_normal",
+      "cheeks": "1",
+      "mouth": "b_7",
+      "eyes": "c2_1",
+      "tears": "",
+      "eyebrows": "a_6",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "disgust_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_13",
+      "eyes": "g_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "blank_normal",
+      "cheeks": "1",
+      "mouth": "b_5",
+      "eyes": "c2_1",
+      "tears": "",
+      "eyebrows": "a_2",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "blank_normal_gag",
+      "cheeks": "1",
+      "mouth": "b_5",
+      "eyes": "g_9",
+      "tears": "",
+      "eyebrows": "a_2",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "worry_normal",
+      "cheeks": "1",
+      "mouth": "a_7",
+      "eyes": "c1_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "worry_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_13",
+      "eyes": "c2_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "hurt_normal",
+      "cheeks": "1",
+      "mouth": "a_14",
+      "eyes": "e2_1",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "6"
+      ]
+    },
+    {
+      "keyword": "hurt_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_5",
+      "eyes": "g_5",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "keyword": "embarrassed_normal",
+      "cheeks": "2",
+      "mouth": "a_4",
+      "eyes": "b_1",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "embarrassed_normal_gag",
+      "cheeks": "2",
+      "mouth": "a_11",
+      "eyes": "g_2",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "love_normal",
+      "cheeks": "2",
+      "mouth": "a_9",
+      "eyes": "a_1",
+      "tears": "",
+      "eyebrows": "b_1",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "love_normal_gag",
+      "cheeks": "2",
+      "mouth": "a_6",
+      "eyes": "g_8",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "15"
+      ]
+    },
+    {
+      "keyword": "excited_normal",
+      "cheeks": "2",
+      "mouth": "a_3",
+      "eyes": "b_2",
+      "tears": "",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "excited_normal_gag",
+      "cheeks": "2",
+      "mouth": "c_1",
+      "eyes": "g_9",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "confused_normal",
+      "cheeks": "1",
+      "mouth": "a_4",
+      "eyes": "b_4",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "18"
+      ]
+    },
+    {
+      "keyword": "confused_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_3",
+      "eyes": "g_6",
+      "tears": "",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "18"
+      ]
+    },
+    {
+      "keyword": "sleep_normal",
+      "cheeks": "1",
+      "mouth": "a_5",
+      "eyes": "f_3",
+      "tears": "",
+      "eyebrows": "b_1",
+      "graphic_symbols": [
+        "10"
+      ]
+    },
+    {
+      "keyword": "sleep_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_7",
+      "eyes": "f_2",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "10"
+      ]
+    },
+    {
+      "keyword": "sulk_normal",
+      "cheeks": "1",
+      "mouth": "c_4",
+      "eyes": "c1_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "sulk_normal_gag",
+      "cheeks": "1",
+      "mouth": "c_2",
+      "eyes": "g_3",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "dizzy_normal_gag",
+      "cheeks": "1",
+      "mouth": "a_11",
+      "eyes": "g_6",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    {
+      "keyword": "teary_normal_gag",
+      "cheeks": "4",
+      "mouth": "c_1",
+      "eyes": "g_8",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "happy_extreme_gag",
+      "cheeks": "2",
+      "mouth": "a_3",
+      "eyes": "g_2",
+      "tears": "",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "5"
+      ]
+    },
+    {
+      "keyword": "stunned_strong_gag",
+      "cheeks": "1",
+      "mouth": "b_5",
+      "eyes": "g_7",
+      "tears": "",
+      "eyebrows": "a_2",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "stunned_normal_gag",
+      "cheeks": "1",
+      "mouth": "b_5",
+      "eyes": "g_10",
+      "tears": "",
+      "eyebrows": "b_2",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "collapse_normal_gag",
+      "cheeks": "2",
+      "mouth": "a_11",
+      "eyes": "g_5",
+      "tears": "",
+      "eyebrows": "a_4",
+      "graphic_symbols": []
+    },
+    {
+      "keyword": "nsfw_1",
+      "cheeks": "2",
+      "mouth": "a_15",
+      "eyes": "b_2",
+      "tears": "ab_2",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3",
+        "6"
+      ]
+    },
+    {
+      "keyword": "nsfw_2",
+      "cheeks": "2",
+      "mouth": "a_14",
+      "eyes": "f_1",
+      "tears": "f1_2",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "nsfw_3",
+      "cheeks": "2",
+      "mouth": "a_8",
+      "eyes": "b_3",
+      "tears": "ab_2",
+      "eyebrows": "b_3",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "nsfw_ahegao1",
+      "cheeks": "2",
+      "mouth": "c_9",
+      "eyes": "b_3",
+      "tears": "ab_2",
+      "eyebrows": "b_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "nsfw_ahegao2",
+      "cheeks": "2",
+      "mouth": "c_10",
+      "eyes": "a_8",
+      "tears": "ab_2",
+      "eyebrows": "a_3",
+      "graphic_symbols": [
+        "3"
+      ]
+    },
+    {
+      "keyword": "nsfw_ahegao3",
+      "cheeks": "2",
+      "mouth": "c_9",
+      "eyes": "c2_4",
+      "tears": "c_2",
+      "eyebrows": "a_4",
+      "graphic_symbols": [
+        "3"
+      ]
+    }
+  ]
+}

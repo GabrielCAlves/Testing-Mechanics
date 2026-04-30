@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 700070013c6039e4489cf59e5747c1cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Quantity System/Editor/QuantityEditor.cs
+  uploadId: 729806

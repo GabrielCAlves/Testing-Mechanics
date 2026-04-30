@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3db0d7415a044034ba3d15657e371a43
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 323042
+  packageName: Tomatocol Character Stand Illustrations Vol.2 DEMO - 1 Image
+  packageVersion: 1.0
+  assetPath: Assets/TomatocolCharacterStandIllustrationsVol2Demo/Shaders/SpriteHueShift.shader
+  uploadId: 763571

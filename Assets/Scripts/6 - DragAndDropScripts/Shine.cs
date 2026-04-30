@@ -16,6 +16,8 @@ public class Shine : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private float elapsedTime = 0f;
     [SerializeField] private float intensity = 0f;
+    [SerializeField] private float t = 0f;
+    [SerializeField] private float smoothT = 0f;
 
     void Start()
     {
@@ -54,8 +56,8 @@ public class Shine : MonoBehaviour
         elapsedTime = 0f;
         while (elapsedTime < shineDuration)
         {
-            float t = elapsedTime / shineDuration; // Normalizes the time (0 to 1)
-            float smoothT = Mathf.SmoothStep(0, 1, t); // Applies easing
+            t = elapsedTime / shineDuration; // Normalizes the time (0 to 1)
+            smoothT = Mathf.SmoothStep(0, 1, t); // Applies easing
             intensity = Mathf.Lerp(start, end, smoothT);
             material.SetColor("_EmissionColor", shineColor * intensity);
             elapsedTime += Time.deltaTime;

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2dd2dbe866b0d0d4e879e651930816f7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Quantity System/Scripts/QuantityDynamicsDeltaAmountType.cs
+  uploadId: 729806

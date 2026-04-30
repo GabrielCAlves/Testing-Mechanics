@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b4a6c8878eb5ffc4b8f344420aed6418
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Scenes/Runner Demo/Global Volume Profile.asset
+  uploadId: 457906

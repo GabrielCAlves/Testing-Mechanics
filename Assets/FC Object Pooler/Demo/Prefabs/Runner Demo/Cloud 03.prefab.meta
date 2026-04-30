@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d4a8798e67150d44a481558865227c8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Prefabs/Runner Demo/Cloud 03.prefab
+  uploadId: 457906

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0965961dea120cd4e9685bae06b5a033
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Prefabs/Runner Demo/Cactus Obstacle 03.prefab
+  uploadId: 457906

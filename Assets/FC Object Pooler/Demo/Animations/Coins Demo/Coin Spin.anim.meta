@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce2e2100400ae5e4bbd03af827e2712e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Animations/Coins Demo/Coin Spin.anim
+  uploadId: 457906

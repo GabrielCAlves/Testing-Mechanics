@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5b5d6f33f721356418ef7e2be8aaea21
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Animations/Runner Demo/Player Idle.anim
+  uploadId: 457906

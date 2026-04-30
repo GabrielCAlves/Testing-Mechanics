@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b476f0f74a3d14542a7802bb5b803a03
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Animations/Runner Demo/Player AC.controller
+  uploadId: 457906

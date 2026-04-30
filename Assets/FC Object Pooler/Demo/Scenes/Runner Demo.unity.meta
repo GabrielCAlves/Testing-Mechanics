@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ebbb490d603707741802e8a60fce50bc
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Scenes/Runner Demo.unity
+  uploadId: 457906

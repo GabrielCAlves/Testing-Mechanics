@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4dc81825f93c0a64c911e65c433717f3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244147
+  packageName: Minimalist Quantity System
+  packageVersion: 1.0.1
+  assetPath: Assets/Minimalist/Quantity System/Scripts/QuantityDynamicsType.cs
+  uploadId: 729806

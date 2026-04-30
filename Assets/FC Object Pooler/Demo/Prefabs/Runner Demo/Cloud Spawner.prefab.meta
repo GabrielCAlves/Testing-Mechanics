@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c65a85b7e0a7c9444b87d68976553017
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Prefabs/Runner Demo/Cloud Spawner.prefab
+  uploadId: 457906

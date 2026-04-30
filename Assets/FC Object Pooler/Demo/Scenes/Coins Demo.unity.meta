@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cfbdbbd312b5c944d99e58135a73fbb3
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204643
+  packageName: Object Pool - multitype pooling system
+  packageVersion: 1.0
+  assetPath: Assets/FC Object Pooler/Demo/Scenes/Coins Demo.unity
+  uploadId: 457906
