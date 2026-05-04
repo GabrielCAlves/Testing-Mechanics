@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class LifeSystem : MonoBehaviour
+public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas gameobject added, otherwise the events won't work, and the health bars won't update.]
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -10,21 +10,21 @@ public class LifeSystem : MonoBehaviour
     public event Action OnDeath;
 
     [Header("Health Bars")]
-    public LifeBar healthBar; // Mantido o original
-    public MultipleLifeBars multipleLifeBar; // Adicionado o novo MultipleLifeBars
+    public LifeBar healthBar; // One Life Bar
+    public MultipleLifeBars multipleLifeBar; // Multiple Life Bars
 
     void Start()
     {
         currentHealth = maxHealth;
 
-        // Inicializa a LifeBar original (se existir)
+        // Inicializa a LifeBar original
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);
             healthBar.UpdateBar(currentHealth);
         }
 
-        // Inicializa a MultipleLifeBars (se existir)
+        // Inicializa a MultipleLifeBars
         if (multipleLifeBar != null)
         {
             multipleLifeBar.SetMaxHealth(maxHealth);

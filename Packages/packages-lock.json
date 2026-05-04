@@ -8,6 +8,12 @@
         "com.unity.collections": "1.2.4"
       }
     },
+    "com.merry-yellow.code-assist": {
+      "version": "file:com.merry-yellow.code-assist",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.skner.dualgrid": {
       "version": "file:com.skner.dualgrid",
       "depth": 0,

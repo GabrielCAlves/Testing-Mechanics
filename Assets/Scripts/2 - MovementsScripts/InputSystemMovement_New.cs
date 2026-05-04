@@ -26,6 +26,8 @@ public class InputSystemMovement_New : MonoBehaviour
     private void Update()
     {
         MovePlayer();
+
+        Shadows.me.ShadowsSkill();
     }
 
     void MovePlayer()

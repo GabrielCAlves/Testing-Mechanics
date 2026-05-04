@@ -1,8 +1,9 @@
 ﻿<Solution>
-  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="MerryYellow.CodeAssist.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="CrashKonijn.Goap.Runtime.csproj" />
   <Project Path="CrashKonijn.Goap.Core.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="CrashKonijn.Goap.Editor.csproj" />
   <Project Path="CrashKonijn.Agent.Runtime.csproj" />
   <Project Path="skner.DualGrid.Editor.csproj" />

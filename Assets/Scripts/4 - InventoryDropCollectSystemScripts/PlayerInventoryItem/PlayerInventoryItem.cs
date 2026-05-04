@@ -31,7 +31,7 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
     private Animator animator;
     private float lastAttackTime = 0f;
     private bool isAttacking = false;
-    private bool isDead = false;
+    [SerializeField] private bool isDead = false;
 
     private const string ANIM_IDLE = "Idle";
     private const string ANIM_WALK = "Walk";
@@ -56,7 +56,7 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
 
         if (rb == null)
-            Debug.LogError("Rigidbody not found!");
+            Debug.LogWarning("Rigidbody not found!");
 
         if (lifeSystem != null)
         {
@@ -235,6 +235,8 @@ public class PlayerInventoryItem : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("Função TakeDamage chamada");
+
         if (isDead) return;
 
         if (lifeSystem != null)
