@@ -10,7 +10,7 @@ public class Solid : MonoBehaviour
 
     [SerializeField] private SpriteRenderer myRenderer;
     [SerializeField] private Shader myShader;
-    [SerializeField] public Color myColor = Color.white;
+    public Color _color;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class Solid : MonoBehaviour
     private void ColorSprite()
     {
         myRenderer.material.shader = myShader;
-        myRenderer.color = myColor;
+        myRenderer.color = _color; // Name of the variable is "_color" because it is set by the Shadows script, so it needs to be public and have a different name than "color" to avoid confusion with the SpriteRenderer's color property
     }
 
     public void Finish() 

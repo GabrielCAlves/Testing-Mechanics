@@ -8,17 +8,17 @@ public class Shadows : MonoBehaviour
     // - Shadow prefab (with the Solid script attached)
     // Note: The color of the shadow will be set by this script, so no need to set it in the prefab. Also make sure that this' sprite renderer's order in layer is bigger than the shadow's
 
-    public static Shadows me;
+    //public static Shadows me;
     public GameObject shadow;
     public List<GameObject> pool = new List<GameObject>();
     private float cronometer;
     public float speed = 10f;
-    public Color color = Color.white;
+    public Color _color;
 
-    private void Awake()
-    {
-        me = this;
-    }
+    //private void Awake()
+    //{
+    //    me = this;
+    //}
 
     public GameObject GetShadows()
     {
@@ -30,14 +30,18 @@ public class Shadows : MonoBehaviour
                 pool[i].transform.position = transform.position;
                 pool[i].transform.rotation = transform.rotation;
                 pool[i].GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
-                pool[i].GetComponent<Solid>().myColor = color;
+                pool[i].GetComponent<Solid>()._color = _color;
+                pool[i].GetComponent<Solid>()._color = _color;
+                pool[i].transform.localScale = transform.localScale;
                 return pool[i];
             }
         }
 
         GameObject newShadow = Instantiate(shadow, transform.position, transform.rotation) as GameObject;
         newShadow.GetComponent<SpriteRenderer>().sprite = GetComponent<SpriteRenderer>().sprite;
-        newShadow.GetComponent<Solid>().myColor = color;
+        newShadow.GetComponent<Solid>()._color = _color;
+        newShadow.GetComponent<Solid>()._color = _color;
+        newShadow.transform.localScale = transform.localScale;
         pool.Add(newShadow);
         return newShadow;
     }

@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3824480761413816990}
   - component: {fileID: 5731856473999594935}
   - component: {fileID: 233945710172434617}
-  - component: {fileID: 8237323318348701516}
+  - component: {fileID: 2425601359747409018}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -230,7 +230,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8237323318348701516
+--- !u!114 &2425601359747409018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,4 +244,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Solid
   myRenderer: {fileID: 0}
   myShader: {fileID: 0}
-  myColor: {r: 0.956295, g: 1, b: 0, a: 0}
+  myColor: {r: 1, g: 1, b: 1, a: 1}

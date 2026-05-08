@@ -39,8 +39,12 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
 
     private bool isDead = false;
 
+    [SerializeField] private bool invertedSprite = false;
     private const string ANIM_RUN = "Run";
+    private const string ANIM_JUMP = "Jump";
     private const string ANIM_DIE = "Die";
+    private const string ANIM_ATTACK_1 = "Attack_1";
+    private const string ANIM_ATTACK_2 = "Attack_2";
 
     private bool isMoving;
     private Collider2D col;
@@ -77,7 +81,21 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
 
         MovePlayer();
 
-        WorldCollection();
+        Inputs();
+        //WorldCollection();
+    }
+
+    void Inputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetTrigger(ANIM_ATTACK_1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            animator.SetTrigger(ANIM_ATTACK_2);
+        }
     }
 
     void MovePlayer()
@@ -112,6 +130,7 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             isJumping = true;
+            animator.SetBool(ANIM_JUMP, isJumping);
             Debug.Log("Pulo executado! Velocidade Y: " + velocity.y);
         }
 
@@ -130,6 +149,7 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         {
             isGrounded = true;
             isJumping = false;
+            animator.SetBool(ANIM_JUMP, isJumping);
         }
     }
 
@@ -176,7 +196,17 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
     void FlipSprite(float direction)
     {
         Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction);
+        //scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction);
+
+        if (invertedSprite)
+        {
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction) * -1;
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(direction);
+        }
+
         transform.localScale = scale;
     }
 
