@@ -16,26 +16,16 @@ public class InputSystemMovement_New : MonoBehaviour
 
     private Vector2 direction;
 
-    [SerializeField] private Shadows myShadows;
-
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
-
-        if(myShadows == null)
-        {
-            myShadows = GetComponent<Shadows>();
-        }
     }
 
     private void Update()
     {
         MovePlayer();
-
-        if (myShadows != null)
-            myShadows.ShadowsSkill(); //Shadows.me.ShadowsSkill();
     }
 
     void MovePlayer()
