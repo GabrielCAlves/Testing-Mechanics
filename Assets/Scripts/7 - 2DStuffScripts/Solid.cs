@@ -10,24 +10,26 @@ public class Solid : MonoBehaviour
 
     [SerializeField] private SpriteRenderer myRenderer;
     [SerializeField] private Shader myShader;
-    public Color _color;
+    public Color myColor;
 
     private void Start()
     {
-        if(myRenderer == null)
+        if (myRenderer == null)
             myRenderer = GetComponent<SpriteRenderer>();
-        
-        if(myShader == null)
+
+        if (myShader == null)
             myShader = Shader.Find("GUI/Text Shader");
     }
 
     private void ColorSprite()
     {
         myRenderer.material.shader = myShader;
-        myRenderer.color = _color; // Name of the variable is "_color" because it is set by the Shadows script, so it needs to be public and have a different name than "color" to avoid confusion with the SpriteRenderer's color property
+
+        Debug.Log("(Solid) myRenderer.color = "+ myRenderer.color+"; _color = " + myColor);
+        myRenderer.color = myColor; // Name of the variable is "_color" because it is set by the Shadows script, so it needs to be public and have a different name than "color" to avoid confusion with the SpriteRenderer's color property
     }
 
-    public void Finish() 
+    public void Finish()
     {
         gameObject.SetActive(false);
     }
