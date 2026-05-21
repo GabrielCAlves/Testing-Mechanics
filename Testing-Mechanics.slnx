@@ -11,6 +11,6 @@
   <Project Path="CrashKonijn.Goap.Resolver.csproj" />
   <Project Path="CrashKonijn.Agent.Core.csproj" />
   <Project Path="Assembly-CSharp-firstpass.csproj" />
-  <Project Path="AnimatedBattleText.Example.Damage.csproj" />
   <Project Path="BattleText.csproj" />
+  <Project Path="AnimatedBattleText.Example.Damage.csproj" />
 </Solution>
