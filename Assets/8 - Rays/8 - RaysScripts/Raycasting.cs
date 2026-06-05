@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 
+//More about Raycasting: https://docs.unity3d.com/ScriptReference/Physics.Raycast.html and https://www.youtube.com/watch?v=fJyi7l2tWKo&t=408s
 public class Raycasting : MonoBehaviour
 {
     [Header("RayCat Configurations")]
@@ -23,6 +24,7 @@ public class Raycasting : MonoBehaviour
     [SerializeField] private bool capsuleCast = false;
     [SerializeField] private bool screenPointToRay = false;
     [SerializeField] private bool viewportPointToRay = false;
+    [SerializeField] private bool overlapSphereAll3D = false;
 
     [Header("Additional Configurations")]
     [SerializeField] private Color color = Color.black;
@@ -52,12 +54,19 @@ public class Raycasting : MonoBehaviour
     [SerializeField] private bool left = false;
     [SerializeField] private Plane plane;
     [SerializeField] private TextMeshProUGUI objectLabel;
+    [SerializeField] private int maxNumberOfColliders;
+    [SerializeField] private Collider[] colliderOverlapSphereAll;
 
     [Header("Debug")]
     [SerializeField] private float elapsedTime = 0f;
     [SerializeField] private float intensity = 0f;
     [SerializeField] private float t = 0f;
     [SerializeField] private float smoothT = 0f;
+
+    private void Start()
+    {
+        colliderOverlapSphereAll = new Collider[maxNumberOfColliders];
+    }
 
     void Update()
     {
@@ -91,6 +100,12 @@ public class Raycasting : MonoBehaviour
             }
 
             previousObject = hit.transform.gameObject;
+
+            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.green);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
         }
 
         //RaycastAll
@@ -113,6 +128,8 @@ public class Raycasting : MonoBehaviour
         //RaycastNonAlloc
         if (raycastNonAlloc)
         {
+            ClearHits();
+
             int numHits = Physics.RaycastNonAlloc(transform.position, transform.forward, hitsNonAlloc);
 
             // Sometimes the hit objects in the array aren't in order of first hit
@@ -215,6 +232,28 @@ public class Raycasting : MonoBehaviour
                 Debug.Log(hit3.collider.gameObject.name + " is in the Aim!");
             }
         }
+
+        if(overlapSphereAll3D)
+        {
+            //Physics.OverlapSphere(transform.position, sphereRadius, layerMask) as RaycastHit[];
+            int collidersHit= Physics.OverlapSphereNonAlloc(transform.position, sphereRadius, colliderOverlapSphereAll, layerMask);
+            
+            for(int i = 0; i < colliderOverlapSphereAll.Length; ++i)
+            {
+                //if(colliderOverlapSphereAll[i] != null && colliderOverlapSphereAll[i].gameObject.activeSelf)
+                //{
+                //    colliderOverlapSphereAll[i].gameObject.SetActive(false);
+                //}
+                //else if(colliderOverlapSphereAll[i] != null)
+                //{
+                //    colliderOverlapSphereAll[i].gameObject.SetActive(true);
+                //}
+                if(colliderOverlapSphereAll[i] != null)
+                {
+                    Shine(colliderOverlapSphereAll[i].gameObject);
+                }
+            }
+        }
     }
 
     #region ChangeColor
@@ -263,6 +302,13 @@ public class Raycasting : MonoBehaviour
         {
             objectLabel.text = $"Clicked object's name: {hitObject.collider.gameObject.name}";
         }
+    }
+    #endregion
+
+    #region NonAlloc Clear
+    private void ClearHits()
+    {
+        System.Array.Clear(hitsNonAlloc, 0, hitsNonAlloc.Length);
     }
     #endregion
 
