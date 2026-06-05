@@ -25,7 +25,7 @@ public class Solid : MonoBehaviour
     {
         myRenderer.material.shader = myShader;
 
-        Debug.Log("(Solid) myRenderer.color = "+ myRenderer.color+"; _color = " + myColor);
+        //Debug.Log("(Solid) myRenderer.color = "+ myRenderer.color+"; _color = " + myColor);
         myRenderer.color = myColor; // Name of the variable is "_color" because it is set by the Shadows script, so it needs to be public and have a different name than "color" to avoid confusion with the SpriteRenderer's color property
     }
 
