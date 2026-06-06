@@ -9,11 +9,22 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
 
+    [SerializeField] GameObject groundRayObject;
+    [SerializeField] private bool jumpAvailable = false;
+
     [Header("Attack Settings")]
     [SerializeField] private int attackDamage = 15;
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private GameObject hitBox2D;
+    [SerializeField] private GameObject areaHitBox2D;
+    [SerializeField] private GameObject vfx;
+    [SerializeField] private GameObject areaVfx;
+    [SerializeField] private bool useVfx;
+    [SerializeField] private bool useAreaVfx;
+    [SerializeField] private bool useOverlapSphereAll;
+    [SerializeField] private Collider2D[] hits2D;
 
     [Header("Collection Settings")]
     [SerializeField] private Collectable[] worldItems;
@@ -33,7 +44,7 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
 
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private bool isGrounded;
+    [SerializeField] private bool isGrounded = true;
     [SerializeField] private Vector3 velocity;
     [SerializeField] private bool isJumping;
 
@@ -73,6 +84,8 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         {
             currentHealth = maxHealth;
         }
+
+        velocity.y = -2f;
     }
 
     void Update()
@@ -85,16 +98,65 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         //WorldCollection();
     }
 
+    private void FixedUpdate()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(groundRayObject.transform.position, Vector2.down);
+
+        Debug.DrawRay(groundRayObject.transform.position, Vector2.down * hit.distance, Color.red);
+
+        if(hit.collider != null)
+        {
+            if(hit.distance <= .2f)
+            {
+                jumpAvailable = true;
+            }
+            else
+            {
+                jumpAvailable = false;
+            }
+        }
+    }
+
     void Inputs()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetTrigger(ANIM_ATTACK_1);
+
+            if (vfx != null && useVfx)
+            {
+                GameObject vfxInstance = Instantiate(vfx, hitBox2D.transform.position, Quaternion.identity);
+                Destroy(vfxInstance, 1f);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
             animator.SetTrigger(ANIM_ATTACK_2);
+
+            if(useOverlapSphereAll)
+            {
+                hits2D = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+
+                foreach (Collider2D hit in hits2D)
+                {
+                    if (hit.gameObject.GetComponent<LifeSystem>())
+                    {
+                        hit.gameObject.GetComponent<LifeSystem>().TakeDamage(attackDamage);
+                    }
+                }
+            }
+
+            if (areaVfx != null && useAreaVfx)
+            {
+                GameObject vfxInstance = Instantiate(areaVfx, new Vector3(transform.position.x, transform.position.y+1, transform.position.z), Quaternion.identity);
+                Destroy(vfxInstance, 1f);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAvailable && groundRayObject != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), speed * Time.deltaTime);
         }
     }
 
@@ -119,8 +181,8 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
                 animator.SetBool(ANIM_RUN, true);
         }
 
-        // Verifica se está no chão e reseta a velocidade vertical
         if (isGrounded && velocity.y < 0)
+        // Verifica se está no chão e reseta a velocidade vertical
         {
             velocity.y = -2f; // Pequeno valor para manter no chão
             isJumping = false;
@@ -269,9 +331,42 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         }
     }
 
+    public void ActivateHitBox2D()
+    {
+        if(hitBox2D != null)
+        {
+            hitBox2D.SetActive(true);
+            StartCoroutine(DeactivateHitBox2D());
+        }
+    }
+
+    IEnumerator DeactivateHitBox2D()
+    {
+        yield return new WaitForSeconds(.5f);
+        hitBox2D.SetActive(false);
+    }
+
+    public void ActivateAreaHitBox2D()
+    {
+        if (areaHitBox2D != null)
+        {
+            areaHitBox2D.SetActive(true);
+            StartCoroutine(DeactivateAreaHitBox2D());
+        }
+    }
+
+    IEnumerator DeactivateAreaHitBox2D()
+    {
+        yield return new WaitForSeconds(.5f);
+        areaHitBox2D.SetActive(false);
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, collectionRange);
+
+        Gizmos.color = Color.purple;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
