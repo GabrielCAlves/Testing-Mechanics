@@ -240,6 +240,12 @@ MonoBehaviour:
   jumpForce: 8
   groundRayObject: {fileID: 6195471068508953789}
   jumpAvailable: 0
+  shootPoint: {fileID: 2313696537939960212}
+  attack1Prefab: {fileID: 1860706049015914, guid: 0b0c27137eb4d504096874b80ace66bd, type: 3}
+  attack2Prefab: {fileID: 1973797488871700, guid: 48e06088b7e195f40898a828bd389ec3, type: 3}
+  attackRotation: {x: 0, y: 0, z: 0, w: 0}
+  attack1SpeedForce: 5
+  attack2SpeedForce: 5
 --- !u!1 &7491898902523863747
 GameObject:
   m_ObjectHideFlags: 0

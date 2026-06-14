@@ -1,30 +1,38 @@
 using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class WizardCharacter : MonoBehaviour
 {
+    [Header("Speed")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private bool invertedSprite = false;
 
+    [Header("Jump Configurations")]
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] GameObject groundRayObject;
     [SerializeField] private bool jumpAvailable = false;
 
+    [Header("Shoot Attack Configurations")]
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject attack1Prefab;
     [SerializeField] GameObject attack2Prefab;
-    [SerializeField] Quaternion attack2Rotation;
+    [SerializeField] Quaternion attackRotation;
     [SerializeField] private float attack1SpeedForce = 5f;
     [SerializeField] private float attack2SpeedForce = 5f;
-    [SerializeField] private float rightRotation = 90;
-    [SerializeField] private float leftRotation = 270;
 
-    private Rigidbody2D rb;
-    private float directionInput;
+    [Header("Rigidbody and Input Set")]
+    private Rigidbody2D rb2D;
+    private Rigidbody rb3D;
+    private float horizontalDirectionInput;
+    private float verticalDirectionInput;
+
+    [Header("Animator Set")]
     private Animator animator;
     private bool alreadyTriggered;
 
+    [Header("Animations")]
     private const string ANIM_IDLE = "Idle";
     private const string ANIM_RUN = "Run";
     private const string ANIM_JUMP = "Jump";
@@ -33,11 +41,14 @@ public class WizardCharacter : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
+        rb3D = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        if (rb == null)
-            Debug.LogWarning("Rigidbody not found!");
+        if (rb2D == null)
+            Debug.LogWarning("Rigidbody (2D) not found!");
+        if (rb3D == null)
+            Debug.LogWarning("Rigidbody (3D) not found!");
     }
 
     void Update()
@@ -48,31 +59,81 @@ public class WizardCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //MovePlayer();
+        if (groundRayObject == null)
+            return;
 
-        RaycastHit2D hit = Physics2D.Raycast(groundRayObject.transform.position, Vector2.down);
-
-        Debug.DrawRay(groundRayObject.transform.position, Vector2.down * hit.distance, Color.red);
-
-        if (hit.collider != null)
+        // 2D physics
+        if (rb2D != null)
         {
-            if (hit.distance <= .2f)
-            {
-                jumpAvailable = true; 
-                
-                if (animator != null && !alreadyTriggered)
-                {
-                    animator.SetTrigger(ANIM_IDLE);
-                    alreadyTriggered = true;
-                }
-            }
-            else
-            {
-                jumpAvailable = false;
+            RaycastHit2D hit = Physics2D.Raycast(groundRayObject.transform.position, Vector2.down);
+            Debug.DrawRay(groundRayObject.transform.position, Vector2.down * (hit.collider != null ? hit.distance : 1f), Color.red);
 
-                alreadyTriggered = false;
+            JumpHandler(hit, null, true);
+        }
+        else // 3D physics
+        {
+            RaycastHit hit = new RaycastHit();
+            bool hasHit = Physics.Raycast(groundRayObject.transform.position, Vector3.down, out hit);
+            Debug.DrawRay(groundRayObject.transform.position, Vector3.down * (hasHit ? hit.distance : 1f), Color.red);
+            
+            JumpHandler(null, hit, hasHit);
+        }
+    }
+
+    private void JumpHandler(RaycastHit2D? hit2D, RaycastHit? hit3D, bool hasHit)
+    {
+        if ((rb2D != null && hit2D?.collider == null) || !hasHit)
+        {
+            jumpAvailable = false;
+            alreadyTriggered = false;
+            return;
+        }
+
+        if (hit2D?.distance <= .2f || hit3D?.distance <= .2f)
+        {
+            jumpAvailable = true;
+
+            if (!alreadyTriggered)
+            {
+                alreadyTriggered = true;
+            }
+
+            if (animator != null)
+            {
+                animator.SetTrigger(ANIM_IDLE);
             }
         }
+        else
+        {
+            jumpAvailable = false;
+            alreadyTriggered = false;
+        }
+
+        //bool hit2DNull = !hit2D.HasValue || hit2D.Value.collider == null;
+        //if (hit2DNull || !hasHit)
+        //{
+        //    jumpAvailable = false;
+        //    alreadyTriggered = false;
+        //    return;
+        //}
+
+        //float hit2DDistance = hit2D.Value.distance;
+        //float hit3DDistance = hit3D.HasValue ? hit3D.Value.distance : float.MaxValue;
+        //if (hit2DDistance <= .2f || hit3DDistance <= .2f)
+        //{
+        //    jumpAvailable = true;
+
+        //    if (animator != null && !alreadyTriggered)
+        //    {
+        //        animator.SetTrigger(ANIM_IDLE);
+        //        alreadyTriggered = true;
+        //    }
+        //}
+        //else
+        //{
+        //    jumpAvailable = false;
+        //    alreadyTriggered = false;
+        //}
     }
 
     void Inputs()
@@ -89,20 +150,42 @@ public class WizardCharacter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpAvailable && groundRayObject != null)
         {
-            animator.SetTrigger(ANIM_JUMP);
-            rb.linearVelocity = Vector2.up * jumpForce;
+            if (animator != null)
+                animator.SetTrigger(ANIM_JUMP);
+
+            if (rb2D != null)
+            {
+                rb2D.linearVelocity = Vector2.up * jumpForce;
+            }
+            else if (rb3D != null)
+            {
+                //Debug.Log("Space key pressed! rb3D.linearVelocity.y = "+ rb3D.linearVelocity.y + ". jumpForce = "+ jumpForce);
+                //rb3D.linearVelocity = new Vector3(rb3D.linearVelocity.x, jumpForce, rb3D.linearVelocity.z);
+                rb3D.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
         }
     }
 
     void MovePlayer()
     {
-        // Movimento horizontal
-        directionInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(directionInput * speed, rb.linearVelocity.y);
-
-        if (directionInput != 0)
+        horizontalDirectionInput = Input.GetAxis("Horizontal");
+        if (rb2D != null)
         {
-            FlipSprite(directionInput);
+            rb2D.linearVelocity = new Vector2(horizontalDirectionInput * speed, rb2D.linearVelocity.y);
+        }
+        else if (rb3D != null)
+        {
+            verticalDirectionInput = Input.GetAxis("Vertical");
+            //Vector3 movement = new Vector3(horizontal, 0, vertical) * forceMovement;
+
+            //rb3D.linearVelocity = new Vector3(horizontalDirectionInput * speed, rb3D.linearVelocity.y, verticalDirectionInput * speed).normalized;
+            rb3D.AddForce(new Vector3(0, 0, verticalDirectionInput) * speed);
+        }
+
+        if (horizontalDirectionInput != 0)
+        {
+            if(rb2D != null)
+                FlipSprite(horizontalDirectionInput);
 
             if (animator != null)
             {
@@ -136,29 +219,25 @@ public class WizardCharacter : MonoBehaviour
 
     public void Attack1()
     {
-        GameObject shootAttack = Instantiate(attack1Prefab, shootPoint);
-        shootAttack.transform.SetParent(null);
-
-        float directionMultiplier = transform.localScale.x < 0 ? -1 : 1;
-
-        shootAttack.transform.localRotation = new Quaternion(attack2Rotation.x, attack2Rotation.y, attack2Rotation.z * directionMultiplier, attack2Rotation.w);
-
-        shootAttack.GetComponent<Rigidbody2D>().linearVelocity = shootPoint.right * transform.localScale.x * attack1SpeedForce;
-
-        Destroy(shootAttack, 1.5f);
+        ShootAttack(attack1Prefab, attack1SpeedForce, 1.5f);
     }
 
     public void Attack2()
     {
-        GameObject shootAttack = Instantiate(attack2Prefab, shootPoint);
+        ShootAttack(attack2Prefab, attack2SpeedForce, 2f);
+    }
+
+    public void ShootAttack(GameObject attackPrefab, float attackSpeedForce, float timeToDestroy)
+    {
+        GameObject shootAttack = Instantiate(attackPrefab, shootPoint);
         shootAttack.transform.SetParent(null);
 
         float directionMultiplier = transform.localScale.x < 0 ? -1 : 1;
+                                                             // 0              //0               // 90 in inspector
+        shootAttack.transform.localRotation = new Quaternion(attackRotation.x, attackRotation.y, attackRotation.z * directionMultiplier, attackRotation.w);
 
-        shootAttack.transform.localRotation = new Quaternion(attack2Rotation.x, attack2Rotation.y, attack2Rotation.z * directionMultiplier, attack2Rotation.w);
+        shootAttack.GetComponent<Rigidbody2D>().linearVelocity = shootPoint.right * transform.localScale.x * attackSpeedForce;
 
-        shootAttack.GetComponent<Rigidbody2D>().linearVelocity = shootPoint.right * transform.localScale.x * attack2SpeedForce;
-
-        Destroy(shootAttack, 2f);
+        Destroy(shootAttack, timeToDestroy);
     }
 }
