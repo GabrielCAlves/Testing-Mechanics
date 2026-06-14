@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Cainos.LucidEditor;
 
 public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas gameobject added, otherwise the events won't work, and the health bars won't update.]
 {
@@ -12,6 +13,11 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
     [Header("Health Bars")]
     public LifeBar healthBar; // One Life Bar
     public MultipleLifeBars multipleLifeBar; // Multiple Life Bars
+
+    [Header("Animations")]
+    [SerializeField] private Animator animator;
+    private const string ANIM_TAKEHIT = "TakeHit";
+    private const string ANIM_DIE = "Die";
 
     void Start()
     {
@@ -30,10 +36,16 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
             multipleLifeBar.SetMaxHealth(maxHealth);
             multipleLifeBar.UpdateBar(currentHealth);
         }
+
+        if(animator == null)
+            animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
     {
+        if (animator != null)
+            animator.SetTrigger(ANIM_TAKEHIT);
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -82,6 +94,9 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
         }
         else
         {
+            if (animator != null)
+                animator.SetTrigger(ANIM_DIE);
+
             Destroy(gameObject, 2f);
         }
     }
