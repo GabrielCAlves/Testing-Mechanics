@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using Unity.Android.Gradle.Manifest;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
@@ -136,7 +140,7 @@ public class WizardCharacter : MonoBehaviour
         //}
     }
 
-    void Inputs()
+        void Inputs()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
