@@ -289,7 +289,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 0}
-  multipleLifeBar: {fileID: 4086313614075475080}
+  multipleLifeBar: {fileID: 0}
+  myMultipleLifeBar: {fileID: 4086313614075475080}
+  animator: {fileID: 0}
 --- !u!114 &4086313614075475080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +347,7 @@ MonoBehaviour:
   screenPos: {x: 0, y: 0, z: 0}
   playerRect: {fileID: 0}
   collectionRange: 2
+  isDead: 0
 --- !u!1 &2993318585521230728
 GameObject:
   m_ObjectHideFlags: 0

@@ -654,6 +654,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6288051446639711360}
     m_Modifications:
+    - target: {fileID: 322024969704384649, guid: 1ab347129be76a94784fa9b7204c6507, type: 3}
+      propertyPath: m_fontSize
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5254181272941155874, guid: 1ab347129be76a94784fa9b7204c6507, type: 3}
       propertyPath: m_Name
       value: HealthText

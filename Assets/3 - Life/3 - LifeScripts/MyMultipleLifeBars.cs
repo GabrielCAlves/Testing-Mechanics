@@ -3,9 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using System;
 
-public class MultipleLifeBars : MonoBehaviour
+public class MyMultipleLifeBars : MonoBehaviour
 {
     [Header("UI Components")]
     public Slider healthSlider;
@@ -25,7 +24,6 @@ public class MultipleLifeBars : MonoBehaviour
 
     private float remainingHealth;
     private float percent;
-    private float totalHealth;
 
     void Start()
     {
@@ -72,7 +70,7 @@ public class MultipleLifeBars : MonoBehaviour
         if (fillImages == null || fillImages.Count == 0)
         {
             segmentCount = 1;
-            segmentValue = healthSlider != null ? healthSlider.maxValue : 10;
+            segmentValue = healthSlider != null ? healthSlider.maxValue : 100;
 
             return;
         }
@@ -100,9 +98,10 @@ public class MultipleLifeBars : MonoBehaviour
                 fillImages[i].fillAmount = 1f;
         }
 
-        totalHealth = maxHealth;
-
         UpdateBar(maxHealth);
+
+        //if (healthText != null)
+        //    healthText.text = $"{maxHealth} / {maxHealth}";
 
         SetHealthText(maxHealth);
     }
@@ -120,26 +119,49 @@ public class MultipleLifeBars : MonoBehaviour
     {
         if (healthSlider != null)
         {
-            //healthSlider.value = currentHealth;
+            healthSlider.value = currentHealth;
 
             // Calculates the remaining life
             remainingHealth = currentHealth;
 
-            int index = (int)segmentValue - (int)(remainingHealth / segmentValue);
-            --index;
+            Debug.Log($"=== UpdateBar: currentHealth = {currentHealth}, remainingHealth = {remainingHealth} ===");
 
-            if ((int)(remainingHealth % segmentValue) == 0)
+            // Goes through the fillImages from the FIRST till the LAST (index 0, 1, 2, 3...)
+            for (int i = 0; i < fillImages.Count; i++)
             {
-                if(index >= 0)
-                    fillImages[index].fillAmount = 0f;
-            }
-            else
-            {
-                fillImages[index].fillAmount = Mathf.Clamp01((remainingHealth % segmentValue) / segmentValue);
+                if (fillImages[(fillImages.Count - 1) - i] == null) continue;
+
+                if (remainingHealth >= segmentValue)
+                {
+                    // This segment is completely filled
+                    fillImages[(fillImages.Count - 1) - i].fillAmount = 1f;
+                    remainingHealth -= segmentValue;
+                    Debug.Log($"Segment {i}: FULL (fillAmount = 1f), remainingHealth now = {remainingHealth}");
+                }
+                else if (remainingHealth > 0)
+                {
+                    // This segment is partially filled
+                    percent = remainingHealth / segmentValue;
+                    fillImages[(fillImages.Count - 1) - i].fillAmount = Mathf.Clamp01(percent);
+                    Debug.Log($"Segment {i}: PARCIAL (fillAmount = {fillImages[(fillImages.Count - 1) - i].fillAmount}), percent = {percent}");
+                    remainingHealth = 0;
+                }
+                else
+                {
+                    // This segment is empty
+                    fillImages[(fillImages.Count - 1) - i].fillAmount = 0f;
+                    Debug.Log($"Segment {i}: EMPTY (fillAmount = 0f)");
+                }
             }
         }
 
         SetHealthColors();
+
+        //if (healthText != null)
+        //{
+        //    int maxHealth = healthSlider != null ? (int)healthSlider.maxValue : 100;
+        //    healthText.text = $"{currentHealth} / {maxHealth}";
+        //}
 
         SetHealthText(currentHealth);
     }

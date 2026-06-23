@@ -289,7 +289,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 0}
-  multipleLifeBar: {fileID: 9103277591157856109}
+  multipleLifeBar: {fileID: 0}
+  myMultipleLifeBar: {fileID: 9103277591157856109}
+  animator: {fileID: 0}
 --- !u!114 &9103277591157856109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +318,10 @@ MonoBehaviour:
   - {fileID: 2494511626943382713}
   fillSpriteRenderer: {fileID: 0}
   healthText: {fileID: 4967087420465376207}
+  useHealthColors: 0
+  fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
+  mediumHealthColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  lowHealthColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &712414199349534615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,11 +343,11 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  attackPoint: {fileID: 904683688857934061}
+  worldItems: []
+  screenPos: {x: 0, y: 0, z: 0}
+  playerRect: {fileID: 0}
   collectionRange: 2
-  itemLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  isDead: 0
 --- !u!1 &615911121459649703
 GameObject:
   m_ObjectHideFlags: 0
