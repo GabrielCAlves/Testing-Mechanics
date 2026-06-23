@@ -12,6 +12,8 @@ public class OrbitalMovement1 : MonoBehaviour
     [Header("Orbit Movement Option")]
     [SerializeField] private bool orbitAroundPoint = true;
     [SerializeField] private float rotationSpeed = 60f;
+    [SerializeField] private bool horizontalOrbit = true;
+    [SerializeField] private bool verticalOrbit = true;
 
     [Header("Debug")]
     [SerializeField] private float angle;
@@ -41,7 +43,16 @@ public class OrbitalMovement1 : MonoBehaviour
     // Needs to manually push the object away from the center, so the orbit works correctly, otherwise it will just rotate in place
     private void OrbitAroundPoint()
     {
-        transform.RotateAround(centerTransform.position, horizontalZ * transform.right /*transform.forward*/, orbitalSpeed * Time.deltaTime);
+        if(verticalOrbit)
+        {
+            transform.RotateAround(centerTransform.position, horizontalZ * transform.right /*transform.forward*/, orbitalSpeed * Time.deltaTime);
+
+        }
+        else if(horizontalOrbit)
+        {
+            transform.RotateAround(centerTransform.position, horizontalX * /*transform.right*/ -Vector3.up, orbitalSpeed * Time.deltaTime);
+            transform.LookAt(centerTransform.position);
+        }
         //Vector3.up : horizontal -> clockwise;
         //Vector3.down : horizontal -> counter-clockwise;
         //Vector3.right : vertical -> clockwise;
