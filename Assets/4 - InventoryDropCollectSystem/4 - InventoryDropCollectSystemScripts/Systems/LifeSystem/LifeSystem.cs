@@ -13,6 +13,7 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
     [Header("Health Bars")]
     public LifeBar healthBar; // One Life Bar
     public MultipleLifeBars multipleLifeBar; // Multiple Life Bars
+    public MyMultipleLifeBars myMultipleLifeBar; // Multiple Life Bars
 
     [Header("Animations")]
     [SerializeField] private Animator animator;
@@ -37,7 +38,13 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
             multipleLifeBar.UpdateBar(currentHealth);
         }
 
-        if(animator == null)
+        if (myMultipleLifeBar != null)
+        {
+            myMultipleLifeBar.SetMaxHealth(maxHealth);
+            myMultipleLifeBar.UpdateBar(currentHealth);
+        }
+
+        if (animator == null)
             animator = GetComponent<Animator>();
     }
 
@@ -63,6 +70,13 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
             //multipleLifeBar.DamageAnimation();
         }
 
+        // Atualiza a MyMultipleLifeBars (se existir)
+        if (myMultipleLifeBar != null)
+        {
+            myMultipleLifeBar.UpdateBar(currentHealth);
+            //multipleLifeBar.DamageAnimation();
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -81,6 +95,10 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
         // Atualiza a MultipleLifeBars (se existir)
         if (multipleLifeBar != null)
             multipleLifeBar.UpdateBar(currentHealth);
+
+        // Atualiza a MyMultipleLifeBars (se existir)
+        if (myMultipleLifeBar != null)
+            myMultipleLifeBar.UpdateBar(currentHealth);
     }
 
     void Die()
