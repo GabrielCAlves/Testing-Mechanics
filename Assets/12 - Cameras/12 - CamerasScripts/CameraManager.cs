@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private CinemachineCamera currentCam;
     [SerializeField] private CinemachineCamera startCam;
     [SerializeField] private CinemachineCamera thirdPersonCam;
+    [SerializeField] private CinemachineCamera shootCam;
     [SerializeField] private CinemachineCamera topDownCam;
     [SerializeField] private CinemachineCamera downTopCam;
 
@@ -20,29 +21,33 @@ public class CameraManager : MonoBehaviour
         {
             if(virtualCameras[i] == currentCam)
             {
-                virtualCameras[i].Priority = 20;
+                virtualCameras[i].Priority = 10;
             }else
             {
-                virtualCameras[i].Priority = 10;
+                virtualCameras[i].Priority = 0;
             }
         }
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchCamera(startCam);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchCamera(topDownCam);
+            SwitchCamera(shootCam);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SwitchCamera(thirdPersonCam);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SwitchCamera(topDownCam);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             SwitchCamera(downTopCam);
         }
@@ -50,17 +55,29 @@ public class CameraManager : MonoBehaviour
 
     private void SwitchCamera(CinemachineCamera newCam)
     {
-        currentCam.Priority = 10;
+        currentCam.GetComponent<Transform>().gameObject.SetActive(false);
+
+        newCam.GetComponent<Transform>().gameObject.SetActive(true);
 
         currentCam = newCam;
 
-        currentCam.Priority = 20;
+        //---------------------------------------------
 
-        //for (int i = 0; i < virtualCameras.Length; ++i)
+        //newCam.Priority = currentCam.Priority + 1;
+
+        //currentCam = newCam;
+
+        //---------------------------------------------
+
+        //newCam.Priority = 10;
+
+        //currentCam = newCam;
+
+        //foreach (CinemachineCamera c in virtualCameras)
         //{
-        //    if (virtualCameras[i] != currentCam)
+        //    if ((c != currentCam && c.Priority != 0) || c != currentCam)
         //    {
-        //        virtualCameras[i].Priority = 10;
+        //        c.Priority = 0;
         //    }
         //}
     }
