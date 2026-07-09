@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7566e5f9f6db04bb9519b3838db3a7, type: 3}
+  m_Name: ShotGun
+  m_EditorClassIdentifier: Assembly-CSharp::GunData
+  gunName: Shotgun
+  bulletPrefab: {fileID: 6753856101268289964, guid: dc964b998c0de6e46acb06ed3647bcdb, type: 3}
+  fireRate: 1
+  damage: 10
+  range: 100
+  spread: 2
+  maxAmmo: 30
+  reloadTime: 2
+  isAutomatic: 0
+  muzzleFlashPrefab: {fileID: 0}
+  recoilForce: 2
