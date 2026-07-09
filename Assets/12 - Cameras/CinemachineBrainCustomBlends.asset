@@ -28,7 +28,7 @@ MonoBehaviour:
     To: ThirdPersonCam
     Blend:
       Style: 1
-      Time: 10
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -39,7 +39,7 @@ MonoBehaviour:
     To: Main Camera (1)
     Blend:
       Style: 4
-      Time: 10
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -50,7 +50,7 @@ MonoBehaviour:
     To: TopDownCam
     Blend:
       Style: 6
-      Time: 10
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -61,7 +61,7 @@ MonoBehaviour:
     To: DownTopCam
     Blend:
       Style: 7
-      Time: 10
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve:
