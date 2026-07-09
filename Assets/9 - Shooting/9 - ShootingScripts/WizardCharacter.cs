@@ -35,6 +35,7 @@ public class WizardCharacter : MonoBehaviour
     [Header("Animator Set")]
     private Animator animator;
     private bool alreadyTriggered;
+    private bool alreadyPlayed;
 
     [Header("Animations")]
     private const string ANIM_IDLE = "Idle";
@@ -90,6 +91,7 @@ public class WizardCharacter : MonoBehaviour
         {
             jumpAvailable = false;
             alreadyTriggered = false;
+            alreadyPlayed = false;
             return;
         }
 
@@ -102,15 +104,17 @@ public class WizardCharacter : MonoBehaviour
                 alreadyTriggered = true;
             }
 
-            if (animator != null)
+            if (animator != null && !alreadyPlayed)
             {
                 animator.SetTrigger(ANIM_IDLE);
+                alreadyPlayed = true;
             }
         }
         else
         {
             jumpAvailable = false;
             alreadyTriggered = false;
+            alreadyPlayed = false;
         }
 
         //bool hit2DNull = !hit2D.HasValue || hit2D.Value.collider == null;
