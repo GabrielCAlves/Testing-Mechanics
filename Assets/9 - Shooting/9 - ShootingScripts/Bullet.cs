@@ -23,14 +23,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(!collision.transform.CompareTag("Player"))
+        if(!collision.transform.CompareTag("Player") && !collision.transform.CompareTag("Bullet"))
         {
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.linearVelocity = Vector3.zero;
             rb.constraints = RigidbodyConstraints.FreezeAll;
-            //rb.isKinematic = true;
-            transform.position = transform.position;
         }
-        
+        Debug.Log("What did this object collided with? Answer: " + collision.transform.name);
     }
 }
