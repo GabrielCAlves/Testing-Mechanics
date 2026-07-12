@@ -25,8 +25,11 @@ public class OrbitalMovement1 : MonoBehaviour
     {
         if (orbitAroundPoint && centerTransform != null)
         {
-            horizontalX = Input.GetAxis("Horizontal");
-            horizontalZ = Input.GetAxis("Vertical");
+            //horizontalX = Input.GetAxis("Horizontal");
+            //horizontalZ = Input.GetAxis("Vertical");
+
+            horizontalX = Input.GetAxisRaw("Horizontal");
+            horizontalZ = Input.GetAxisRaw("Vertical");
 
             Rotate();
 

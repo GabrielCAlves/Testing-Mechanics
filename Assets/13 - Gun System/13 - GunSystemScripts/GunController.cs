@@ -105,6 +105,8 @@ public class GunController : MonoBehaviour
         // 3. Calcula a direção do CANO da arma até o ponto alvo
         Vector3 baseDirection = (targetPoint - firePoint.position).normalized;
 
+        gameObject.transform.LookAt(targetPoint);
+
         // 4. Se spread for 0, retorna a direção exata (sem nenhum offset)
         if (currentGun.spread <= 0)
         {
