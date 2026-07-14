@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Gobelek_Meat
   itemName: Gobelek's Meat
   icon: {fileID: 9194980092999746965, guid: 590234aeb2f4bb7479b40808a92c0b7a, type: 3}
+  itemDescription: Meat from the Gobelek's mushroom head.
   maxStack: 99
   type: 1
   worldPrefab: {fileID: 3268655460142441673, guid: 0a8960206afe2614a906d756737281e6, type: 3}

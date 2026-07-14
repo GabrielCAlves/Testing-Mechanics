@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Olmayan's Stew
   itemName: Olmayan's Stew
   icon: {fileID: 21300000, guid: f739fb674ff43994e807c45052d60c6b, type: 3}
+  itemDescription: A unique wild meat from a very stressful creature.
   maxStack: 99
   type: 0
   worldPrefab: {fileID: 6877927139474321328, guid: 4941ff33e03c91d4cae898452458f28f, type: 3}

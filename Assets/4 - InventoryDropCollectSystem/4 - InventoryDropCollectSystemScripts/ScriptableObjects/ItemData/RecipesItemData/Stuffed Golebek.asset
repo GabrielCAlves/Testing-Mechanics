@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Stuffed Gobelek
   itemName: Stuffed Gobelek
   icon: {fileID: 21300000, guid: 471df8513d0097f47a1bafbab28a7d89, type: 3}
+  itemDescription: A smooth dish for the toothless.
   maxStack: 99
   type: 0
   worldPrefab: {fileID: 6877927139474321328, guid: afac885b58e92a9428f8976cbc35b94c, type: 3}

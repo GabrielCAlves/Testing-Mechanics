@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Olmayan_Meat
   itemName: Olmayan's Meat
   icon: {fileID: -3182522416798049074, guid: a11717b2c7068fc469d0f80ca593c053, type: 3}
+  itemDescription: The meat from a difficult creature.
   maxStack: 99
   type: 1
   worldPrefab: {fileID: 6877927139474321328, guid: bad44df1297f6594ab346edfd8516928, type: 3}

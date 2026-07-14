@@ -14,6 +14,11 @@ public class UIInventoryManager : MonoBehaviour
     [Header("Ingredients Section")]
     [SerializeField] private UIIngredientManager ingredientManager;
 
+    [Header("Inventory Canvas Menu")]
+    [SerializeField] private GameObject inventoryMenu;
+    [SerializeField] private bool menuActivated;
+    [SerializeField] private ItemSlotInventoryMenu[] itemSlots; //
+
     void Start()
     {
         if (inventorySystem == null)
@@ -25,6 +30,31 @@ public class UIInventoryManager : MonoBehaviour
         inventorySystem.OnItemRemoved += OnItemRemoved;
 
         RefreshAllSlots();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Inventory") && menuActivated)
+        {
+            Time.timeScale = 1;
+            inventoryMenu.SetActive(false);
+            menuActivated = false;
+        }
+        else if (Input.GetButtonDown("Inventory") && !menuActivated)
+        {
+            Time.timeScale = 0;
+            inventoryMenu.SetActive(true);
+            menuActivated = true;
+        }
+    }
+
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < itemSlots.Length; ++i)
+        {
+            itemSlots[i].selectedPanel.SetActive(false);
+            itemSlots[i].thisItemSelected = false;
+        }
     }
 
     void LoadConsumableSlots()
@@ -88,6 +118,8 @@ public class UIInventoryManager : MonoBehaviour
                 ingredientManager.RefreshIngredients();
             }
         }
+
+        itemSlots[slotIndex].UpdateItemOnSlot(item);
     }
 
     void OnItemRemoved(Item item, int slotIndex, int quantity)
@@ -110,6 +142,9 @@ public class UIInventoryManager : MonoBehaviour
         {
             RefreshAllSlots();
         }
+
+
+        itemSlots[slotIndex].UpdateItemOnSlot(item);
     }
 
     void RefreshConsumableSlots()

@@ -210,6 +210,8 @@ public class Item
     public string name;
     public Sprite icon;
 
+    public string itemDescription;
+
     public int maxQuantity = 99;
     public int currentQuantity;
 
@@ -222,6 +224,7 @@ public class Item
         id = other.id;
         name = other.name;
         icon = other.icon;
+        itemDescription = other.itemDescription;
         maxQuantity = other.maxQuantity;
         currentQuantity = other.currentQuantity;
         type = other.type;
@@ -234,6 +237,7 @@ public class Item
         id = data.id;
         name = data.itemName;
         icon = data.icon;
+        itemDescription = data.itemDescription;
         maxQuantity = data.maxStack;
         type = data.type;
         worldPrefab = data.worldPrefab;

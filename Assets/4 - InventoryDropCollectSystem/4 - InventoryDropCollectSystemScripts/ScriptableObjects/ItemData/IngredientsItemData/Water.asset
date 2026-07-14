@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Water
   itemName: Water
   icon: {fileID: 6049605792901559095, guid: dda94ab689cd06b4c9f8fff993f4db99, type: 3}
+  itemDescription: A bottle of water.
   maxStack: 99
   type: 1
   worldPrefab: {fileID: 5181922830494192483, guid: 72d3972dddaf8d44f86e69ac319a12e7, type: 3}

@@ -14,6 +14,7 @@ public class ItemData : ScriptableObject
     public string id;
     public string itemName;
     public Sprite icon;
+    public string itemDescription;
     public int maxStack = 99;
     public ItemType type;
     public GameObject worldPrefab;

@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Nalis_Venom
   itemName: Nali's Venom
   icon: {fileID: 2348335490948527114, guid: 92d0d25560d4beb4487c677676494108, type: 3}
+  itemDescription: A venomous liquid.
   maxStack: 99
   type: 1
   worldPrefab: {fileID: 761696578761531001, guid: 243c696c5ca529f42866d8ed2d5786ad, type: 3}

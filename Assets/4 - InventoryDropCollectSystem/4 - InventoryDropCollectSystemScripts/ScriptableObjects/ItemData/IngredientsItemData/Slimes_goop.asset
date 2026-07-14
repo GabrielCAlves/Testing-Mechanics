@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Slimes_goop
   itemName: Slime Goop
   icon: {fileID: 21300000, guid: 3bf6fa78488bcf446b92b91725838803, type: 3}
+  itemDescription: Viscocious liquid from the slimes leftovers.
   maxStack: 99
   type: 1
   worldPrefab: {fileID: 8897928367265958347, guid: f31aa50b56de0ad4dbc170ea13730bbe, type: 3}

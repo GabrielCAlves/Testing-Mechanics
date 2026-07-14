@@ -18,6 +18,7 @@ MonoBehaviour:
   id: Nali Drink
   itemName: Nali Drink
   icon: {fileID: 21300000, guid: ad142d37bb423304a8fd3fee190cee4c, type: 3}
+  itemDescription: A healing drink created from the Nali's venom.
   maxStack: 99
   type: 0
   worldPrefab: {fileID: 6877927139474321328, guid: 4ef99b471f15b84499957eea067b2d88, type: 3}
