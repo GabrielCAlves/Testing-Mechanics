@@ -7,6 +7,7 @@ public class GunController : MonoBehaviour
     public Transform cameraTransform;  // A câmera do jogador
     public Vector3 targetPoint;
     public float bulletSpeed = 5f;
+    public bool independentCameraFromCharacter = false;
 
     private float nextFireTime;
     private int currentAmmo;
@@ -105,7 +106,8 @@ public class GunController : MonoBehaviour
         // 3. Calcula a direção do CANO da arma até o ponto alvo
         Vector3 baseDirection = (targetPoint - firePoint.position).normalized;
 
-        gameObject.transform.LookAt(targetPoint);
+        if(independentCameraFromCharacter) 
+            gameObject.transform.LookAt(new Vector3(0, targetPoint.y, 0));
 
         // 4. Se spread for 0, retorna a direção exata (sem nenhum offset)
         if (currentGun.spread <= 0)
