@@ -10,6 +10,16 @@ public class InventorySystem : MonoBehaviour
     public event System.Action<Item, int> OnItemAdded;
     public event System.Action<Item, int, int> OnItemRemoved;
 
+    [SerializeField] private InventoryMenuManager inventoryMenuManager;
+
+    private void Start()
+    {
+        if (inventoryMenuManager == null)
+        {
+            inventoryMenuManager = FindFirstObjectByType<InventoryMenuManager>();
+        }
+    }
+
     public bool AddItem(Item item, int quantity = 1)
     {
         if (items.Count >= maxCapacity && !CanStack(item))
@@ -31,6 +41,7 @@ public class InventorySystem : MonoBehaviour
                     currentItem.currentQuantity += add;
                     quantity -= add;
 
+                    inventoryMenuManager.UpdateInventoryMenuSlot(currentItem, i);
                     OnItemAdded?.Invoke(currentItem, i);
 
                     if (quantity <= 0) return true;
@@ -47,6 +58,7 @@ public class InventorySystem : MonoBehaviour
             int newIndex = items.Count;
             items.Add(newItem);
 
+            inventoryMenuManager.UpdateInventoryMenuSlot(newItem);
             OnItemAdded?.Invoke(newItem, newIndex);
         }
 
@@ -78,6 +90,7 @@ public class InventorySystem : MonoBehaviour
                     items[i].currentQuantity -= quantityToRemove;
 
                     OnItemRemoved?.Invoke(items[i], i, quantityToRemove);
+                    inventoryMenuManager.UpdateInventoryMenuSlot(items[i], i);
 
                     Debug.Log($"Removed {quantityToRemove}x {items[i].name}. {items[i].currentQuantity} left");
                     return true;
@@ -89,6 +102,9 @@ public class InventorySystem : MonoBehaviour
 
                     Item removedItem = items[i];
                     int removedIndex = i;
+
+                    items[i].currentQuantity = 0;
+                    inventoryMenuManager.UpdateInventoryMenuSlot(items[i], removedIndex);
 
                     items.RemoveAt(i);
 
@@ -211,6 +227,7 @@ public class Item
     public Sprite icon;
 
     public string itemDescription;
+    public int slotIndex;
 
     public int maxQuantity = 99;
     public int currentQuantity;
@@ -225,6 +242,7 @@ public class Item
         name = other.name;
         icon = other.icon;
         itemDescription = other.itemDescription;
+        slotIndex = other.slotIndex;
         maxQuantity = other.maxQuantity;
         currentQuantity = other.currentQuantity;
         type = other.type;
@@ -238,6 +256,7 @@ public class Item
         name = data.itemName;
         icon = data.icon;
         itemDescription = data.itemDescription;
+        slotIndex = data.slotIndex;
         maxQuantity = data.maxStack;
         type = data.type;
         worldPrefab = data.worldPrefab;

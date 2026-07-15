@@ -19,7 +19,8 @@ MonoBehaviour:
   itemName: Nadlar's Remains
   icon: {fileID: -6054982768999676396, guid: 2349a1647e96a9245b757447040698ea, type: 3}
   itemDescription: Nadlar's fried torso.
-  maxStack: 99
+  slotIndex: 0
+  maxStack: 10
   type: 1
   worldPrefab: {fileID: 3929081467328381665, guid: 9469fe2e34d8ced488038e5056a358b0, type: 3}
   pointValue: 0

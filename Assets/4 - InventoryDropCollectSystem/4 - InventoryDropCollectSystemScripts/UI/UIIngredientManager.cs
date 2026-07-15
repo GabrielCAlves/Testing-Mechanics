@@ -16,6 +16,13 @@ public class UIIngredientManager : MonoBehaviour
     private Dictionary<string, UIIngredientGroup> ingredientGroups = new Dictionary<string, UIIngredientGroup>();
     private float lastUpdateTime;
 
+    [Header("Inventory Canvas Menu")]
+    [SerializeField] private GameObject inventoryMenu;
+    [SerializeField] private bool menuActivated;
+    [SerializeField] private List<ItemSlotInventoryMenu> itemSlots = new List<ItemSlotInventoryMenu>(); //
+    private int numberOfItems = 0;
+
+
     void Start()
     {
         if (inventorySystem == null)

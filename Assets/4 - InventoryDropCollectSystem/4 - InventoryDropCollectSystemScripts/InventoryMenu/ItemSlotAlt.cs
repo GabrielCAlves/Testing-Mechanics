@@ -6,21 +6,20 @@ using UnityEngine.EventSystems;
 public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
 {
     //Item Data
+    [SerializeField] public Item item;
     [SerializeField] public string itemName;
     [SerializeField] public int quantity;
     [SerializeField] public Sprite itemSprite;
-    [SerializeField] public bool isFull;
+    [SerializeField] public bool isEmpty = true;
     [SerializeField] public string itemDescription;
-    [SerializeField] private Sprite emptySprite;
+    [SerializeField] private Image emptyImage;
 
     //ItemSlot
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private Image itemImage;
     [SerializeField] public GameObject selectedPanel;
     [SerializeField] public bool thisItemSelected;
-    //[SerializeField] private InventoryManager inventoryManager;
-    //[SerializeField] private InventorySystem inventorySystem;
-    [SerializeField] private UIInventoryManager uiInventoryManager;
+    [SerializeField] private InventoryMenuManager inventoryMenuManager;
 
     //Item Description Slot
     [SerializeField] public Image itemDescriptionImage;
@@ -29,17 +28,20 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        uiInventoryManager = GameObject.Find("UIInventoryManager").GetComponent<UIInventoryManager>();
+        inventoryMenuManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryMenuManager>();
     }
 
-    public void UpdateItemOnSlot(Item item)
+    public void UpdateItemOnSlot(Item item = null)
     {
-        if(item != null)
+        Debug.Log($"Is {item.name} null? Answer: {item == null}. Index: {item.slotIndex}. Current quantity: {item.currentQuantity}");
+
+        if (item.currentQuantity > 0)
         {
+            this.item = item;
             this.itemName = item.name;
             this.quantity = item.currentQuantity;
             this.itemSprite = item.icon;
-            isFull = true;
+            isEmpty = false;
             this.itemDescription = item.itemDescription;
             quantityText.text = quantity.ToString();
             quantityText.enabled = true;
@@ -47,10 +49,13 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            item.slotIndex = -1;
+
+            this.item = null;
             this.itemName = "";
             this.quantity = 0;
-            this.itemSprite = emptySprite;
-            isFull = false;
+            this.itemSprite = emptyImage.sprite;
+            isEmpty = true;
             this.itemDescription = "";
             quantityText.text = quantity.ToString();
             quantityText.enabled = false;
@@ -74,8 +79,7 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
 
     public void OnLeftClick()
     {
-        //inventoryManager.DeselectAllSlots();
-        uiInventoryManager.DeselectAllSlots();
+        inventoryMenuManager.DeselectAllSlots();
         selectedPanel.SetActive(true);
         thisItemSelected = true;
         itemDescriptionNameText.text = itemName;
@@ -84,7 +88,7 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
 
         if(itemDescriptionImage.sprite == null)
         {
-            itemDescriptionImage.sprite = emptySprite;
+            itemDescriptionImage.sprite = emptyImage.sprite;
         }
     }
 

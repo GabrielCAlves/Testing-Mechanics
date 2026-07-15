@@ -51,17 +51,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
   isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 5270521234932073450, guid: f697c138789f9ca4481d28b12cffc291, type: 3}
   quantityText: {fileID: 200497122505186985}
   itemImage: {fileID: 598751749966410667}
   selectedPanel: {fileID: 4616989202148708189}
   thisItemSelected: 0
-  inventoryManager: {fileID: 0}
+  uiInventoryManager: {fileID: 0}
   itemDescriptionImage: {fileID: 0}
   itemDescriptionNameText: {fileID: 0}
   itemDescriptionText: {fileID: 0}

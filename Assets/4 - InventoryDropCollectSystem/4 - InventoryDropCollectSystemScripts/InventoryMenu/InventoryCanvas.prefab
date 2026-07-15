@@ -263,17 +263,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 4848180036982279236}
   itemImage: {fileID: 5288012743320996283}
   selectedPanel: {fileID: 2287409390078925960}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -643,17 +654,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 5589208272751219264}
   itemImage: {fileID: 1551846003333785314}
   selectedPanel: {fileID: 4960534501227176335}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -1569,17 +1591,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 6432047305512943176}
   itemImage: {fileID: 5780523065503589445}
   selectedPanel: {fileID: 1309089297099100642}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2484,17 +2517,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1284198716446143060}
   itemImage: {fileID: 531088789304326623}
   selectedPanel: {fileID: 779300716510253125}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2761,17 +2805,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 6666796479828495120}
   itemImage: {fileID: 3674940653457978762}
   selectedPanel: {fileID: 1413881661862896384}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2826,17 +2881,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 153925079966013393}
   itemImage: {fileID: 4698248967144909371}
   selectedPanel: {fileID: 1355328503159240838}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3317,9 +3383,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae7ea3f39f57764c90623e25e287474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  inventorySystem: {fileID: 0}
   inventoryMenu: {fileID: 6621697107500103970}
   menuActivated: 0
-  itemSlot: []
+  itemSlots:
+  - {fileID: 4101758607165066236}
+  - {fileID: -7012111662612277910}
+  - {fileID: 4808064667335580757}
+  - {fileID: 7107379758292960463}
+  - {fileID: 4294080467182438054}
+  - {fileID: 8682294995603733550}
+  - {fileID: 6882089087820362630}
+  - {fileID: 6182416362020942863}
+  - {fileID: 5228284497119010766}
+  - {fileID: 607203550690225016}
+  - {fileID: 911526134521354463}
+  - {fileID: 7911518676738839202}
+  - {fileID: 2804506234506356136}
+  - {fileID: 6252189051134212237}
+  - {fileID: 3125880762215340306}
+  - {fileID: 1277876194342863385}
+  - {fileID: 440594094412795564}
+  - {fileID: 69948485537414868}
+  - {fileID: 5702709101687829879}
+  - {fileID: 7517596552291830214}
+  - {fileID: 8569296894709935827}
+  - {fileID: 9113242008856878336}
+  - {fileID: 5014316830190207092}
+  - {fileID: 3634773355071610754}
+  - {fileID: 7855354768541725995}
+  - {fileID: 1459652760703882092}
+  - {fileID: 3425411134536398551}
+  - {fileID: 8808158267209804164}
+  - {fileID: 2885128516710664687}
+  - {fileID: 7502594826953961364}
 --- !u!1 &2262400377270595259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,17 +3468,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 8481463720554513742}
   itemImage: {fileID: 3408987907396184339}
   selectedPanel: {fileID: 6340293563490327497}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3586,17 +3694,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 4007944152936928653}
   itemImage: {fileID: 4402388901740951695}
   selectedPanel: {fileID: 8450314058810475641}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3715,17 +3834,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3427531577491629202}
   itemImage: {fileID: 2722790830916913484}
   selectedPanel: {fileID: 1653202701135144420}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3917,17 +4047,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 6279277123184111417}
   itemImage: {fileID: 595560676790094949}
   selectedPanel: {fileID: 2637770495792170991}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -4132,17 +4273,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 459967851857100399}
   itemImage: {fileID: 227464231681825762}
   selectedPanel: {fileID: 8003576764194955401}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5319,17 +5471,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 385014805292630071}
   itemImage: {fileID: 3040390194819198796}
   selectedPanel: {fileID: 7572755424222149616}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5384,17 +5547,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3299997501160534178}
   itemImage: {fileID: 7596530481991185526}
   selectedPanel: {fileID: 30961765166341329}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5449,17 +5623,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1212562520645348129}
   itemImage: {fileID: 7432572097537772898}
   selectedPanel: {fileID: 3446456059292125066}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5514,17 +5699,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 702121822020618179}
   itemImage: {fileID: 4936247228610379865}
   selectedPanel: {fileID: 1469197202887772680}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5791,17 +5987,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3807972862337580756}
   itemImage: {fileID: 1910814166048500919}
   selectedPanel: {fileID: 838194874270410378}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6417,17 +6624,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 6782568186675793727}
   itemImage: {fileID: 2782851882871865383}
   selectedPanel: {fileID: 3770499705069432998}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6557,17 +6775,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3945334455971464272}
   itemImage: {fileID: 2295923771157782952}
   selectedPanel: {fileID: 7059229278247275510}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6759,17 +6988,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 5094876262999387367}
   itemImage: {fileID: 5200114127216208718}
   selectedPanel: {fileID: 916120912104753597}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6961,17 +7201,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 6135311169207793448}
   itemImage: {fileID: 4324039547160274774}
   selectedPanel: {fileID: 797232178182459692}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7251,17 +7502,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3502701815112755057}
   itemImage: {fileID: 3883497925523059090}
   selectedPanel: {fileID: 1026162164532949807}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7316,17 +7578,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 8722710373071558878}
   itemImage: {fileID: 3763564997520408427}
   selectedPanel: {fileID: 8609889405325942296}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -8516,17 +8789,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 243708239414748234}
   itemImage: {fileID: 8220899947036957823}
   selectedPanel: {fileID: 2581406669506774408}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -8581,17 +8865,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1573086296325643047}
   itemImage: {fileID: 4275903820174279294}
   selectedPanel: {fileID: 4797220411607772514}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -9659,17 +9954,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 5916074327146070728}
   itemImage: {fileID: 9012413847669834193}
   selectedPanel: {fileID: 5996415865909910726}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10298,17 +10604,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1963057711721607681}
   itemImage: {fileID: 2892356502527899055}
   selectedPanel: {fileID: 2105560770236663121}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10438,17 +10755,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1077302668985495322}
   itemImage: {fileID: 723333971687574671}
   selectedPanel: {fileID: 8466606425970553591}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10803,17 +11131,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 3903252946508483501}
   itemImage: {fileID: 471446837247115741}
   selectedPanel: {fileID: 1394554078664471173}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10868,17 +11207,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
+  item:
+    id: 
+    name: 
+    icon: {fileID: 0}
+    itemDescription: 
+    slotIndex: 0
+    maxQuantity: 0
+    currentQuantity: 0
+    type: 0
+    worldPrefab: {fileID: 0}
+    originalData: {fileID: 0}
   itemName: 
   quantity: 0
   itemSprite: {fileID: 0}
-  isFull: 0
+  isEmpty: 1
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptyImage: {fileID: 0}
   quantityText: {fileID: 1843201868636804951}
   itemImage: {fileID: 5951850627395111084}
   selectedPanel: {fileID: 5974493428045414647}
   thisItemSelected: 0
-  inventoryManager: {fileID: 3564272603608378920}
+  inventoryMenuManager: {fileID: 0}
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -11075,3 +11425,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1541775003097959584, guid: a04cdd94b81ef2b4b8ad87d377850236, type: 3}
   m_PrefabInstance: {fileID: 1374999533505123762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4101758607165066236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3168464251037621838, guid: a04cdd94b81ef2b4b8ad87d377850236, type: 3}
+  m_PrefabInstance: {fileID: 1374999533505123762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb02c455604260418da3d5f3bf2f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSlotAlt
