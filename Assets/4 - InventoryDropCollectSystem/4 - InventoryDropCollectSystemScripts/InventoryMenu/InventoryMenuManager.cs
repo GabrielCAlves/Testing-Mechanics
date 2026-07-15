@@ -44,8 +44,6 @@ public class InventoryMenuManager : MonoBehaviour
 
     public void UpdateInventoryMenuSlot(Item item, int slotIndex = -1)
     {
-        Debug.Log($"{item.name} in the UpdateInventoryMenuSlot. index = {slotIndex}"); //
-
         if (slotIndex < 0)
         {
             for (int i = 0; i < itemSlots.Count; ++i)
