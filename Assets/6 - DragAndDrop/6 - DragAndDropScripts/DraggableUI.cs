@@ -9,6 +9,9 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] public ItemSlotInventoryMenu itemSlotInventoryMenu;
 
+    [SerializeField] private Transform originalParent;
+    private int originalSiblingIndex;
+
     private void Awake()
     {
         if (rectTransform == null)
@@ -26,8 +29,15 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 0.6f; // Deixa o item semi-transparente durante o arrasto
-        canvasGroup.blocksRaycasts = false; // Não permite que outros elementos recebam eventos de clique durante o arrasto
+        //Debug.Log($"transform.parent.name.Contains(\"ItemSlot\") = " + transform.parent.name.Contains("ItemSlot"));
+
+        originalParent = itemSlotInventoryMenu.gameObject.transform;
+        originalSiblingIndex = itemSlotInventoryMenu.gameObject.transform.GetSiblingIndex();
+
+        transform.SetParent(parentCanvas.transform);
+
+        canvasGroup.alpha = 0.6f; // Makes the item semi-transparent during the drag
+        canvasGroup.blocksRaycasts = false; // Doesn't let other elements receive clicking events during the drag
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -41,19 +51,22 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             rectTransform.anchoredPosition = newPosition;
         }
 
-        //Alternativa sem repetir código no OnPointerDown
+        //Alternative without repeting code in OnPointerDown
         //rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
     }
 
-    // Ter atenção a:
-    // - Se a imagem do slot ou do item tem a âncora diferente do centro, o que pode causar um posicionamento inesperado na tela;
-    // - Olhar a prioridade das imagens para não ficar atrás de outros elementos da UI (Alterar ordem no Hierarchy).
+    // Have attention to:
+    // - If the slot or item image has an anchor other than the center, it may result in unexpected on-screen positioning; 
+    // - Check image priority to ensure they do not appear behind other UI elements (change the order in the Hierarchy).
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f; // Restaura a opacidade do item
-        canvasGroup.blocksRaycasts = true; // Permite que outros elementos recebam eventos de clique novamente
+        transform.SetParent(originalParent);
+        transform.SetSiblingIndex(originalSiblingIndex);
 
-        rectTransform.anchoredPosition = Vector3.zero;
+        canvasGroup.alpha = 1f; // Restores the item's opacity
+        canvasGroup.blocksRaycasts = true; // Allows other elements to receive click events again.
+
+        rectTransform.anchoredPosition = Vector2.zero;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -64,7 +77,7 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             eventData.pressEventCamera,
             out Vector2 newPosition) && (itemSlotInventoryMenu != null && !itemSlotInventoryMenu.isEmpty))
         {
-            rectTransform.anchoredPosition = newPosition;
+            //rectTransform.anchoredPosition = newPosition;
         }
     }
 }

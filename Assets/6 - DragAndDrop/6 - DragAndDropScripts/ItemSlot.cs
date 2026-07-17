@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -36,9 +37,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     private void Switch(GameObject droppedItem)
     {
-        ItemSlotInventoryMenu droppedItemItemSlotInventoryMenu = droppedItem.GetComponentInParent<ItemSlotInventoryMenu>();
+        ItemSlotInventoryMenu droppedItemItemSlotInventoryMenu = droppedItem.GetComponent<DraggableUI>().itemSlotInventoryMenu;
+        //ItemSlotInventoryMenu droppedItemItemSlotInventoryMenu = droppedItem.GetComponent<DraggableUI>().originalParent.gameObject.GetComponent<ItemSlotInventoryMenu>(); // Alternative way to get the dropped item's ItemSlotInventoryMenu, but longer than necessary.
+        //ItemSlotInventoryMenu droppedItemItemSlotInventoryMenu = droppedItem.GetComponentInParent<ItemSlotInventoryMenu>(); // From when everything was working, but the dragged item's position wasn't the same as the mouse's.
 
-        if(!droppedItemItemSlotInventoryMenu.isEmpty)
+        if (!droppedItemItemSlotInventoryMenu.isEmpty)
         {
             int tempIndex = droppedItemItemSlotInventoryMenu.item.slotIndex;
             droppedItemItemSlotInventoryMenu.item.slotIndex = itemSlotInventoryMenu.item.slotIndex;

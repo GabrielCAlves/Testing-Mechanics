@@ -477,7 +477,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &204244111
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &284371681
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &289264998
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &292915212
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &293535722
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &504006865
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &685662568
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3091,7 +3091,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &705262808
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3265,7 +3265,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &709515580
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3491,7 +3491,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &789627030
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3989,7 +3989,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &946582804
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4351,7 +4351,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1007067646
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4530,7 +4530,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1018859696
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4885,7 +4885,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1061573253
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5059,7 +5059,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1065407581
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5390,7 +5390,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1356630060
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5564,7 +5564,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1360884284
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5738,7 +5738,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1370609369
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6093,7 +6093,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1400827222
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6524,7 +6524,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1539548571
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8266,7 +8266,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1785053541
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8440,7 +8440,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1785395090
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8614,7 +8614,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1789606922
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8788,7 +8788,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1841270681
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9371,7 +9371,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &1915220251
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9832,7 +9832,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &2018838137
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10042,7 +10042,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &2070087072
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10456,7 +10456,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &2141684127
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10630,7 +10630,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &2145393499
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11515,18 +11515,6 @@ PrefabInstance:
       propertyPath: inventorySystem
       value: 
       objectReference: {fileID: 1651044933}
-    - target: {fileID: 4702594257166857748, guid: f45676066f895484e8ca64498f6cf8fe, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702594257166857748, guid: f45676066f895484e8ca64498f6cf8fe, type: 3}
-      propertyPath: switchPlaces
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702594257166857748, guid: f45676066f895484e8ca64498f6cf8fe, type: 3}
-      propertyPath: inventoryMenuManager
-      value: 
-      objectReference: {fileID: 693656844}
     - target: {fileID: 4808064667335580757, guid: f45676066f895484e8ca64498f6cf8fe, type: 3}
       propertyPath: isEmpty
       value: 1
@@ -12361,7 +12349,7 @@ MonoBehaviour:
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
   itemSlotInventoryMenu: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &6200520424034483487
 CanvasGroup:
   m_ObjectHideFlags: 0
