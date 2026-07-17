@@ -2,7 +2,7 @@
 - Project name: Testing-Mechanics
 - Unity version: Unity 6000.3.11f1
 - Active game object:
-  - Name: ItemSlot (9)
+  - Name: Item
   - Tag: Untagged
   - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
