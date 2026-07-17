@@ -8,7 +8,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     [SerializeField] private Canvas parentCanvas;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] public ItemSlotInventoryMenu itemSlotInventoryMenu;
-    [SerializeField] private Vector3 originalPosition;
 
     private void Awake()
     {
@@ -23,8 +22,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
         if(itemSlotInventoryMenu == null)
             itemSlotInventoryMenu = GetComponentInParent<ItemSlotInventoryMenu>();
-
-        originalPosition = GetComponentInParent<ItemSlotInventoryMenu>().gameObject.transform.position;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -56,11 +53,6 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         canvasGroup.alpha = 1f; // Restaura a opacidade do item
         canvasGroup.blocksRaycasts = true; // Permite que outros elementos recebam eventos de clique novamente
 
-        Debug.Log("OnEndDrag called!");
-        //Debug.Log($"rectTransform.anchoredPosition = {rectTransform.anchoredPosition} - originalRectTransform.anchoredPosition = {originalRectTransform.anchoredPosition}");
-        //rectTransform.anchoredPosition = originalRectTransform.anchoredPosition;  // Retorna o item à posição original
-        //Debug.Log($"rectTransform.position = {rectTransform.position} - originalPosition = {originalPosition}");
-        //gameObject.transform.position = originalPosition; // Retorna o item à posição original
         rectTransform.anchoredPosition = Vector3.zero;
     }
 

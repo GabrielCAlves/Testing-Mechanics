@@ -63,7 +63,6 @@ public class InventoryMenuManager : MonoBehaviour
             }
         }else
         {
-            Debug.Log($"Item name: {item.name} - Item's index: {item.slotIndex}");
             itemSlots[item.slotIndex].UpdateItemOnSlot(item);
         }
     }

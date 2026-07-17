@@ -29,6 +29,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
             if (switchPlaces)
                 Switch(eventData.pointerDrag.GetComponent<RectTransform>().gameObject);
+            else
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         }
     }
 
@@ -38,39 +40,17 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         if(!droppedItemItemSlotInventoryMenu.isEmpty)
         {
-            //Vector3 tempPosition = /*item.transform.position*/ transform.position;
-            //item.transform.position = droppedItemItemSlotInventoryMenu.transform.position;
-            //droppedItem.transform.position = tempPosition;
-
-            //Debug.Log($"(Switch) droppedItemItemSlotInventoryMenu.item.name = {droppedItemItemSlotInventoryMenu.item.name}. Index: {droppedItemItemSlotInventoryMenu.item.slotIndex}.");
-            //Debug.Log($"(Switch) itemSlotInventoryMenu.item.name = {itemSlotInventoryMenu.item.name}. Index: {itemSlotInventoryMenu.item.slotIndex}.");
-
-            //Debug.Log($"Trying to change the index of {droppedItemItemSlotInventoryMenu.item.name} from {droppedItemItemSlotInventoryMenu.item.slotIndex} to {itemSlotInventoryMenu.item.slotIndex}");
-            //Debug.Log($"Trying to change the index of {itemSlotInventoryMenu.item.name} from {itemSlotInventoryMenu.item.slotIndex} to {droppedItemItemSlotInventoryMenu.item.slotIndex}");
-
-            int tempIndex = droppedItemItemSlotInventoryMenu.item.slotIndex; // - 9
-            droppedItemItemSlotInventoryMenu.item.slotIndex = itemSlotInventoryMenu.item.slotIndex/*item.slotIndex*/; // 9 - 15
-            itemSlotInventoryMenu.item.slotIndex = tempIndex; // 15 - 9
-            //itemSlotInventoryMenu.index = tempIndex;
-
-            //Debug.Log($"(After Change) droppedItemItemSlotInventoryMenu.item.name = {droppedItemItemSlotInventoryMenu.item.name}. Index: {droppedItemItemSlotInventoryMenu.item.slotIndex}.");
-            //Debug.Log($"(After Change) itemSlotInventoryMenu.item.name = {itemSlotInventoryMenu.item.name}. Index: {itemSlotInventoryMenu.item.slotIndex}.");
+            int tempIndex = droppedItemItemSlotInventoryMenu.item.slotIndex;
+            droppedItemItemSlotInventoryMenu.item.slotIndex = itemSlotInventoryMenu.item.slotIndex;
+            itemSlotInventoryMenu.item.slotIndex = tempIndex;
 
             // Second params are arbitrary, just to trigger the update of the slot, since the UpdateInventoryMenuSlot function only uses the second param for new stacks.       
-            //The important part is that the item is updated in the correct slot index.
+            // The important part is that the item is updated in the correct slot index.
             Item tempItem = itemSlotInventoryMenu.item;
 
-            //Debug.Log($"tempItem's name {tempItem.name}, tempItem.slotIndex = {tempItem.slotIndex} is a copy of itemSlotInventoryMenu.item's name {itemSlotInventoryMenu.item.name} and its index {itemSlotInventoryMenu.item.slotIndex}");
+            inventoryMenuManager.UpdateInventoryMenuSlot(droppedItemItemSlotInventoryMenu.item, itemSlotInventoryMenu.item.slotIndex);
 
-            //Debug.Log($"(Switch) droppedItemItemSlotInventoryMenu.item.name = {droppedItemItemSlotInventoryMenu.item.name} - droppedItemItemSlotInventoryMenu.index: {droppedItemItemSlotInventoryMenu.index/*item.slotIndex*/}. droppedItemItemSlotInventoryMenu.item.slotIndex: {droppedItemItemSlotInventoryMenu.item.slotIndex}.");
-            inventoryMenuManager.UpdateInventoryMenuSlot(droppedItemItemSlotInventoryMenu.item, itemSlotInventoryMenu.item.slotIndex); // 15 - 9
-
-            //Debug.Log($"(Switch) itemSlotInventoryMenu.item.name = {tempItem.name} - TempIndex: {tempIndex} - itemSlotInventoryMenu.index: {itemSlotInventoryMenu.index/*item.slotIndex*/}. itemSlotInventoryMenu.item.slotIndex: {tempItem.slotIndex}.");
-            inventoryMenuManager.UpdateInventoryMenuSlot(tempItem, tempIndex); // 9 - 9
-
-            //Vector3 tempAnchoredPosition = item.GetComponent<RectTransform>().anchoredPosition;
-            //item.GetComponent<RectTransform>().anchoredPosition = droppedItem.GetComponent<RectTransform>().anchoredPosition;
-            //droppedItem.GetComponent<RectTransform>().anchoredPosition = tempAnchoredPosition;
+            inventoryMenuManager.UpdateInventoryMenuSlot(tempItem, tempIndex);
         }
         
     }
