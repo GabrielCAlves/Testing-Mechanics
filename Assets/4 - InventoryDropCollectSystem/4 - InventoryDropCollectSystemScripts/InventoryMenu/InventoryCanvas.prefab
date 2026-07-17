@@ -285,6 +285,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 2287409390078925960}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -676,6 +677,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 4960534501227176335}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -1613,6 +1615,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1309089297099100642}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2539,6 +2542,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 779300716510253125}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2827,6 +2831,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1413881661862896384}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -2903,6 +2908,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1355328503159240838}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3490,6 +3496,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 6340293563490327497}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3716,6 +3723,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 8450314058810475641}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -3856,6 +3864,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1653202701135144420}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -4069,6 +4078,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 2637770495792170991}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -4295,6 +4305,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 8003576764194955401}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5493,6 +5504,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 7572755424222149616}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5569,6 +5581,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 30961765166341329}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5645,6 +5658,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 3446456059292125066}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -5721,6 +5735,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1469197202887772680}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6009,6 +6024,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 838194874270410378}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6646,6 +6662,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 3770499705069432998}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -6797,6 +6814,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 7059229278247275510}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7010,6 +7028,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 916120912104753597}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7223,6 +7242,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 797232178182459692}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7524,6 +7544,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1026162164532949807}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -7600,6 +7621,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 8609889405325942296}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -8811,6 +8833,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 2581406669506774408}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -8887,6 +8910,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 4797220411607772514}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -9976,6 +10000,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 5996415865909910726}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10626,6 +10651,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 2105560770236663121}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -10777,6 +10803,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 8466606425970553591}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -11153,6 +11180,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 1394554078664471173}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -11229,6 +11257,7 @@ MonoBehaviour:
   selectedPanel: {fileID: 5974493428045414647}
   thisItemSelected: 0
   inventoryMenuManager: {fileID: 0}
+  index: 0
   itemDescriptionImage: {fileID: 908936430359943153}
   itemDescriptionNameText: {fileID: 4778969986634685605}
   itemDescriptionText: {fileID: 2339533678361341504}
@@ -11415,6 +11444,10 @@ PrefabInstance:
       propertyPath: itemDescriptionNameText
       value: 
       objectReference: {fileID: 4778969986634685605}
+    - target: {fileID: 5932932058071327654, guid: a04cdd94b81ef2b4b8ad87d377850236, type: 3}
+      propertyPath: inventoryMenuManager
+      value: 
+      objectReference: {fileID: 3564272603608378920}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

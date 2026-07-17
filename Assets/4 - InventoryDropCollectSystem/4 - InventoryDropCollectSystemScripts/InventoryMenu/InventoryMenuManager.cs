@@ -15,6 +15,12 @@ public class InventoryMenuManager : MonoBehaviour
     {
         if (inventorySystem == null)
             inventorySystem = FindFirstObjectByType<PlayerInventoryItem>().GetComponent<InventorySystem>();
+
+        for(int i = 0; i < itemSlots.Count; ++i)
+        {
+            itemSlots[i].index = i;
+            itemSlots[i].item.slotIndex = i;
+        }
     }
 
     private void Update()
@@ -57,6 +63,7 @@ public class InventoryMenuManager : MonoBehaviour
             }
         }else
         {
+            Debug.Log($"Item name: {item.name} - Item's index: {item.slotIndex}");
             itemSlots[item.slotIndex].UpdateItemOnSlot(item);
         }
     }

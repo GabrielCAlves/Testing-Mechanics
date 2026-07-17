@@ -20,6 +20,7 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
     [SerializeField] public GameObject selectedPanel;
     [SerializeField] public bool thisItemSelected;
     [SerializeField] private InventoryMenuManager inventoryMenuManager;
+    [SerializeField] public int index;
 
     //Item Description Slot
     [SerializeField] public Image itemDescriptionImage;
@@ -35,33 +36,37 @@ public class ItemSlotInventoryMenu : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log($"Is {item.name} null? Answer: {item == null}. Index: {item.slotIndex}. Current quantity: {item.currentQuantity}");
 
+        this.item = item;
+
         if (item.currentQuantity > 0)
         {
-            this.item = item;
+            //this.item = item;
             this.itemName = item.name;
             this.quantity = item.currentQuantity;
             this.itemSprite = item.icon;
             isEmpty = false;
             this.itemDescription = item.itemDescription;
-            quantityText.text = quantity.ToString();
+            //quantityText.text = quantity.ToString();
             quantityText.enabled = true;
-            itemImage.sprite = itemSprite;
+            //itemImage.sprite = itemSprite;
         }
         else
         {
-            item.slotIndex = -1;
+            //item.slotIndex = -1;
 
-            this.item = null;
+            /*this.item = item;*/ /*null*/ // This line was causing a switch items problem with the "this.item" being null, since the empty item's slotIndex was being set to 0 instead of the droppedItem's slotIndex.
             this.itemName = "";
             this.quantity = 0;
             this.itemSprite = emptyImage.sprite;
             isEmpty = true;
             this.itemDescription = "";
-            quantityText.text = quantity.ToString();
+            //quantityText.text = quantity.ToString();
             quantityText.enabled = false;
-            itemImage.sprite = itemSprite;
+            //itemImage.sprite = itemSprite;
         }
 
+        quantityText.text = quantity.ToString();
+        itemImage.sprite = itemSprite;
     }
 
     public void OnPointerClick(PointerEventData eventData)
