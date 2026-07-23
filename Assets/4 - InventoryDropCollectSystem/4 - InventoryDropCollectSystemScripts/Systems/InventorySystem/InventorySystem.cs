@@ -41,7 +41,7 @@ public class InventorySystem : MonoBehaviour
                     currentItem.currentQuantity += add;
                     quantity -= add;
 
-                    inventoryMenuManager.UpdateInventoryMenuSlot(currentItem, i);
+                    inventoryMenuManager?.UpdateInventoryMenuSlot(currentItem, i);
                     OnItemAdded?.Invoke(currentItem, i);
 
                     if (quantity <= 0) return true;
@@ -58,7 +58,7 @@ public class InventorySystem : MonoBehaviour
             int newIndex = items.Count;
             items.Add(newItem);
 
-            inventoryMenuManager.UpdateInventoryMenuSlot(newItem);
+            inventoryMenuManager?.UpdateInventoryMenuSlot(newItem);
             OnItemAdded?.Invoke(newItem, newIndex);
         }
 
@@ -90,7 +90,7 @@ public class InventorySystem : MonoBehaviour
                     items[i].currentQuantity -= quantityToRemove;
 
                     OnItemRemoved?.Invoke(items[i], i, quantityToRemove);
-                    inventoryMenuManager.UpdateInventoryMenuSlot(items[i], i);
+                    inventoryMenuManager?.UpdateInventoryMenuSlot(items[i], i);
 
                     Debug.Log($"Removed {quantityToRemove}x {items[i].name}. {items[i].currentQuantity} left");
                     return true;
@@ -104,7 +104,7 @@ public class InventorySystem : MonoBehaviour
                     int removedIndex = i;
 
                     items[i].currentQuantity = 0;
-                    inventoryMenuManager.UpdateInventoryMenuSlot(items[i], removedIndex);
+                    inventoryMenuManager?.UpdateInventoryMenuSlot(items[i], removedIndex);
 
                     items.RemoveAt(i);
 
