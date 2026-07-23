@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e3816bdca8c304faf5a25d9887b206, type: 3}
+  m_Name: XRayVisionPower
+  m_EditorClassIdentifier: Assembly-CSharp::XRayVisionPower
+  powerName: XRayVisionPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  visionRange: 20
+  visionAngle: 60
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  xrayMaterial: {fileID: 0}
+  xrayColor: {r: 0, g: 1, b: 0, a: 0.3}
+  revealDuration: 5
+  xraySound: {fileID: 0}

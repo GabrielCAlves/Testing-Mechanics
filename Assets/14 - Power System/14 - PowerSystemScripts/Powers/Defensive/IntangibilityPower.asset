@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b69ffe9b212c5a4795cd010c423b7ba, type: 3}
+  m_Name: IntangibilityPower
+  m_EditorClassIdentifier: Assembly-CSharp::IntangibilityPower
+  powerName: IntangibilityPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  duration: 5
+  transparencyLevel: 0.3
+  ghostEffectPrefab: {fileID: 0}
+  phasingSound: {fileID: 0}
+  disableCharacterController: 0
+  disableMovement: 0
+  disableCollisions: 1
+  enableNoClip: 1
+  useIntangibleLayer: 1
+  layersToIgnore:
+    serializedVersion: 2
+    m_Bits: 1527
+  layersToKeepCollision:
+    serializedVersion: 2
+    m_Bits: 512

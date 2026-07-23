@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c35abb492ab304e9a19e5f695cdc99, type: 3}
+  m_Name: TeleportPower
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportPower
+  powerName: TeleportPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  maxDistance: 30
+  teleportDelay: 0.1
+  teleportStartEffect: {fileID: 0}
+  teleportEndEffect: {fileID: 0}
+  teleportSound: {fileID: 0}
+  canTeleportThroughWalls: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdece7fb6123d546b6c91b7b367ddff, type: 3}
+  m_Name: FirePower
+  m_EditorClassIdentifier: Assembly-CSharp::FirePower
+  powerName: FirePower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  fireDamage: 30
+  burnDuration: 3
+  fireRange: 10
+  fireProjectilePrefab: {fileID: 0}
+  projectileSpeed: 20
+  fireEffectPrefab: {fileID: 0}

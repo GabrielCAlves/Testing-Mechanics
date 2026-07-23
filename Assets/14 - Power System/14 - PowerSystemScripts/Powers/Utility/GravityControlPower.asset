@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14a995ebae1d57449c1db68ae29e1e4, type: 3}
+  m_Name: GravityControlPower
+  m_EditorClassIdentifier: Assembly-CSharp::GravityControlPower
+  powerName: GravityControlPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  gravityMultiplier: 0.2
+  antiGravityRange: 8
+  pullForce: 20
+  pushForce: 30
+  gravityFieldEffect: {fileID: 0}
+  affectEnemies: 1
+  affectProjectiles: 1

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff203806e9e7be4390aeeaa17832dce, type: 3}
+  m_Name: TimeManipulationPower
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManipulationPower
+  powerName: TimeManipulationPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  timeScale: 0.1
+  duration: 5
+  slowRadius: 10
+  timeFieldEffect: {fileID: 0}
+  timeFieldColor: {r: 0, g: 1, b: 1, a: 0.3}
+  timeSound: {fileID: 0}

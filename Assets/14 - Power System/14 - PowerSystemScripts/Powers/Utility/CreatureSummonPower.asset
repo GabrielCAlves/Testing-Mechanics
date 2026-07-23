@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84898a46b8695294e8014c54b375b6eb, type: 3}
+  m_Name: CreatureSummonPower
+  m_EditorClassIdentifier: Assembly-CSharp::CreatureSummonPower
+  powerName: CreatureSummonPower
+  icon: {fileID: 0}
+  description: 
+  cooldown: 2
+  energyCost: 2
+  activationKey: 256
+  activationEffect: {fileID: 0}
+  activationSound: {fileID: 0}
+  creaturesToSummon: []
+  maxCreatures: 3
+  summonRange: 5
+  creatureLifetime: 60
+  creatureDamageMultiplier: 0.7
+  creatureHealthMultiplier: 0.7
+  summonEffect: {fileID: 0}
+  summonSound: {fileID: 0}
