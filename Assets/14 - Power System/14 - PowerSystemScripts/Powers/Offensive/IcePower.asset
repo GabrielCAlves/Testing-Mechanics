@@ -23,6 +23,8 @@ MonoBehaviour:
   freezeDuration: 3
   freezeRadius: 5
   iceDamage: 20
-  iceEffectPrefab: {fileID: 0}
-  iceProjectilePrefab: {fileID: 0}
+  iceEffectPrefab: {fileID: 7222146719410395179, guid: b1688e0930e706a4f999eee28773eee0, type: 3}
+  iceProjectilePrefab: {fileID: 3747246725045379052, guid: 05d44fcc2c2efef44acc73ad2d5951aa, type: 3}
   projectileSpeed: 15
+  iceProjectileRotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+  heightOffset: 0.2

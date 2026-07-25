@@ -23,7 +23,9 @@ MonoBehaviour:
   damage: 50
   range: 100
   duration: 0.5
-  laserPrefab: {fileID: 0}
+  laserPrefab: {fileID: 7865678836810000674, guid: a857f858e4508404db402c7f555642a1, type: 3}
   laserMaterial: {fileID: 0}
-  laserColor: {r: 1, g: 0, b: 0, a: 1}
+  laserColor: {r: 1, g: 0, b: 0.049137115, a: 1}
   laserWidth: 0.1
+  linearOrNot: 1
+  glowIntensity: 20

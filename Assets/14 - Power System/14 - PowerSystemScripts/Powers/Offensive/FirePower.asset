@@ -23,6 +23,8 @@ MonoBehaviour:
   fireDamage: 30
   burnDuration: 3
   fireRange: 10
-  fireProjectilePrefab: {fileID: 0}
+  fireProjectilePrefab: {fileID: 6753856101268289964, guid: dc964b998c0de6e46acb06ed3647bcdb, type: 3}
+  fireProjectileRotation: {x: -0.49999997, y: 0.49999997, z: 0.49999997, w: -0.49999997}
   projectileSpeed: 20
   fireEffectPrefab: {fileID: 0}
+  heightOffset: 0.5
