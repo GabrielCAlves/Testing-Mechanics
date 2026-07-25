@@ -31,4 +31,9 @@ public abstract class Power : ScriptableObject
     {
         return true; // Sobrescreva para condições específicas
     }
+
+    public virtual void UpdatePower(GameObject user)
+    {
+        // Poderes que precisam de update sobrescrevem este método
+    }
 }

@@ -33,6 +33,15 @@ public class PowerUser : MonoBehaviour
         UpdateCooldowns();
         RegenerateEnergy();
         HandlePowerInput();
+
+        // --- CHAMA O Update DE TODOS OS PODERES ATIVOS ---
+        foreach (var power in powers)
+        {
+            if (activePowers.ContainsKey(power) && activePowers[power])
+            {
+                power.UpdatePower(gameObject);  // <-- SIMPLES ASSIM!
+            }
+        }
     }
 
     void HandlePowerInput()

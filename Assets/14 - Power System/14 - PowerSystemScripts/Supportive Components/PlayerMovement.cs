@@ -7,13 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 10f;
     public float jumpForce = 8f;
     public float gravity = -9.81f;
+    public Vector3 velocity;
 
     [Header("Status")]
     public float speedMultiplier = 1f;
     public float jumpMultiplier = 1f;
 
     private CharacterController controller;
-    private Vector3 velocity;
     private float slowFactor = 1f;
     private float slowTimer = 0f;
     private bool isMovementEnabled = true;
