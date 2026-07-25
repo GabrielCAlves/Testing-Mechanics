@@ -21,6 +21,6 @@ MonoBehaviour:
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
   bouncinessMultiplier: 3
-  stretchFactor: 1.5
+  stretchFactor: 3
   elasticForce: 50
   maxStretchDuration: 2

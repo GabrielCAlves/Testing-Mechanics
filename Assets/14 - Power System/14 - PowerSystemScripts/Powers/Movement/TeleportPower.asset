@@ -25,4 +25,4 @@ MonoBehaviour:
   teleportStartEffect: {fileID: 0}
   teleportEndEffect: {fileID: 0}
   teleportSound: {fileID: 0}
-  canTeleportThroughWalls: 0
+  canTeleportThroughWalls: 1

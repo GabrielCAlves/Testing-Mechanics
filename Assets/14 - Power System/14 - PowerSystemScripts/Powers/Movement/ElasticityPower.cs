@@ -1,5 +1,6 @@
 // ElasticityPower.cs
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 [CreateAssetMenu(fileName = "NewElasticityPower", menuName = "Powers/Movement/Elasticity Power")]
 public class ElasticityPower : Power
@@ -28,7 +29,7 @@ public class ElasticityPower : Power
         originalScale = user.transform.localScale;
     }
 
-    public void UpdateElasticity(GameObject user)
+    public override void UpdatePower(GameObject user)  // <-- Sobrescreve o Update
     {
         if (!isCharging) return;
 

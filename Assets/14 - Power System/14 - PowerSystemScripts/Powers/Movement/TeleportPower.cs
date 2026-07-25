@@ -29,7 +29,8 @@ public class TeleportPower : Power
         }
 
         // Esconde o jogador
-        user.SetActive(false);
+        user.GetComponent<MeshRenderer>().enabled = false;
+        //user.SetActive(false);
 
         yield return new WaitForSeconds(teleportDelay);
 
@@ -39,7 +40,8 @@ public class TeleportPower : Power
         user.transform.position = targetPosition;
 
         // Mostra o jogador
-        user.SetActive(true);
+        user.GetComponent<MeshRenderer>().enabled = true;
+        //user.SetActive(true);
 
         // Efeito de chegada
         if (teleportEndEffect != null)
@@ -60,7 +62,7 @@ public class TeleportPower : Power
 
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-            if (canTeleportThroughWalls)
+            if (!canTeleportThroughWalls)
             {
                 return hit.point - user.transform.forward * 1f;
             }
