@@ -20,7 +20,8 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  damageMultiplier: 3
+  damage: 10
+  damageMultiplier: 1.5
   knockbackForce: 20
   punchRange: 2
   impactEffect: {fileID: 0}

@@ -11,6 +11,7 @@ public class PoisonPower : Power
     public float areaRadius = 3f;
     public GameObject poisonCloudPrefab;
     public Material poisonMaterial;
+    [Range(0f, 255f)] public float transparency = 255f;
 
     public override void Activate(GameObject user)
     {
@@ -34,6 +35,8 @@ public class PoisonPower : Power
         {
             GameObject cloud = Instantiate(poisonCloudPrefab, user.transform.position, Quaternion.identity);
             cloud.transform.localScale = Vector3.one * areaRadius;
+            cloud.GetComponent<Renderer>().material.color = new Color(poisonMaterial.color.r, poisonMaterial.color.g, poisonMaterial.color.b, transparency / 255f);
+
             Destroy(cloud, poisonDuration);
         }
     }

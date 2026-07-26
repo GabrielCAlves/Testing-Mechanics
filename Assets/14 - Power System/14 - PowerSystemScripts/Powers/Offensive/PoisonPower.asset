@@ -23,6 +23,7 @@ MonoBehaviour:
   poisonDamage: 10
   poisonDuration: 5
   tickInterval: 1
-  areaRadius: 3
-  poisonCloudPrefab: {fileID: 0}
-  poisonMaterial: {fileID: 0}
+  areaRadius: 10
+  poisonCloudPrefab: {fileID: 6349105327508657485, guid: a2fedeb2207cc8d419f3c4689481042c, type: 3}
+  poisonMaterial: {fileID: 2100000, guid: d5560dceab3870b4eada080383006b85, type: 2}
+  transparency: 179

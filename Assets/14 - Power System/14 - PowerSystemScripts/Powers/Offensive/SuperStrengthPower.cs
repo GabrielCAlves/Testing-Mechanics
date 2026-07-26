@@ -6,6 +6,7 @@ using UnityEngine;
 public class SuperStrengthPower : Power
 {
     [Header("Configurações da Super Força")]
+    public float damage = 10f;
     public float damageMultiplier = 3f;
     public float knockbackForce = 20f;
     public float punchRange = 2f;
@@ -44,7 +45,7 @@ public class SuperStrengthPower : Power
                 var health = hit.GetComponent<Health>();
                 if (health != null)
                 {
-                    health.TakeDamage(50 * damageMultiplier);
+                    health.TakeDamage(damage * damageMultiplier);
                 }
             }
         }
