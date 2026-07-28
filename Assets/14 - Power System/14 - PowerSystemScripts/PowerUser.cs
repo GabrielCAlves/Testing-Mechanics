@@ -18,6 +18,8 @@ public class PowerUser : MonoBehaviour
     public float elementalMultiplier = 1f;
     public ElementalControlPower.Element currentElementType = ElementalControlPower.Element.Fire;
 
+    [SerializeField] private float rangeArea;
+
     void Start()
     {
         currentEnergy = maxEnergy;
@@ -127,5 +129,11 @@ public class PowerUser : MonoBehaviour
         if (cooldownTimers.ContainsKey(power))
             return cooldownTimers[power];
         return 0f;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, rangeArea);
     }
 }

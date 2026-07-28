@@ -25,6 +25,12 @@ MonoBehaviour:
   whisperDetection: 5
   soundSources:
     serializedVersion: 2
-    m_Bits: 0
-  hearingVisualizer: {fileID: 0}
+    m_Bits: 1
+  hearingVisualizer: {fileID: 1062400366404274449, guid: 72b30426cc3284943aae952c095f58bf, type: 3}
   hearingColor: {r: 0, g: 1, b: 0, a: 1}
+  visualizerDuration: 2
+  visualizerMaxScale: 5
+  detectFootsteps: 1
+  detectGunshots: 1
+  detectVoices: 1
+  detectExplosions: 1

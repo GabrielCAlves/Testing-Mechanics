@@ -24,7 +24,7 @@ MonoBehaviour:
   visionAngle: 60
   targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   xrayMaterial: {fileID: 0}
   xrayColor: {r: 0, g: 1, b: 0, a: 0.3}
   revealDuration: 5

@@ -1,4 +1,6 @@
 // HeatVisionPower.cs
+using CrashKonijn.Agent.Runtime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewHeatVisionPower", menuName = "Powers/Perception/Heat Vision Power")]
@@ -17,10 +19,13 @@ public class HeatVisionPower : Power
     private Renderer[] renderers;
     private Material[] originalMaterials;
 
+    private GameObject parentObject;
+
     public override void Activate(GameObject user)
     {
         base.Activate(user);
         ActivateHeatVision(user);
+        parentObject = user;
     }
 
     void ActivateHeatVision(GameObject user)
@@ -76,6 +81,20 @@ public class HeatVisionPower : Power
             for (int i = 0; i < renderers.Length && i < originalMaterials.Length; i++)
             {
                 renderers[i].material = originalMaterials[i];
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(parentObject.transform.position, Vector3.one * heatVisionRange);
+
+        if (isActive && renderers != null)
+        {
+            Gizmos.color = Color.red;
+            foreach (var renderer in renderers)
+            {
+                Gizmos.DrawWireCube(renderer.bounds.center, renderer.bounds.size);
             }
         }
     }

@@ -20,9 +20,14 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  nightVisionColor: {r: 0, g: 1, b: 0, a: 0.5}
-  nightVisionIntensity: 2
   visionRange: 20
-  nightVisionOverlay: {fileID: 0}
-  enableShaderEffect: 1
-  nightVisionSound: {fileID: 0}
+  visionIntensity: 1.5
+  visionColor: {r: 0.5, g: 1, b: 0.5, a: 0.3}
+  activateSound: {fileID: 0}
+  lightIntensity: 5
+  lightRange: 15
+  lightSpotAngle: 60
+  lightColor: {r: 0, g: 1, b: 0, a: 1}
+  overlayTexture: {fileID: 0}
+  overlayColor: {r: 0, g: 0.5, b: 0, a: 0.2}
+  usePostProcessing: 1
