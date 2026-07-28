@@ -22,7 +22,7 @@ public class XRayVisionPower : Power
     private Dictionary<GameObject, Material[]> originalMaterials = new Dictionary<GameObject, Material[]>();
     private Dictionary<GameObject, float> revealTimers = new Dictionary<GameObject, float>();
     private float scanTimer = 0f;
-    private float scanInterval = 0.5f; // Escaneia a cada 0.5 segundos
+    private float scanInterval = 0.5f;
 
     public override void Activate(GameObject user)
     {
@@ -41,7 +41,6 @@ public class XRayVisionPower : Power
     {
         if (!isActive || user == null) return;
 
-        // Escaneia continuamente
         scanTimer += Time.deltaTime;
         if (scanTimer >= scanInterval)
         {
@@ -49,42 +48,38 @@ public class XRayVisionPower : Power
             ScanForTargets(user);
         }
 
-        // Atualiza timers dos objetos revelados
         UpdateRevealedObjects(user);
     }
 
     void ScanForTargets(GameObject user)
     {
-        // Encontra todos os alvos na área
+        // --- CORREÇÃO: Usa Physics.OverlapSphere com a LayerMask correta ---
         Collider[] targets = Physics.OverlapSphere(user.transform.position, visionRange, targetLayers);
+
+        Debug.Log($"Escaneando... Encontrados {targets.Length} objetos na camada {targetLayers.value}");
 
         foreach (var col in targets)
         {
             if (col.gameObject == user) continue;
 
-            // Verifica se está no cone de visão
             Vector3 direction = col.transform.position - user.transform.position;
             float angle = Vector3.Angle(user.transform.forward, direction);
 
             if (angle <= visionAngle / 2)
             {
-                // Verifica se há linha de visão direta
                 RaycastHit hit;
                 if (Physics.Raycast(user.transform.position, direction, out hit, visionRange))
                 {
                     GameObject target = hit.collider.gameObject;
 
-                    // Se atingiu o alvo ou um objeto com tag Enemy
                     if (target == col.gameObject || target.CompareTag("Enemy"))
                     {
-                        // Se o objeto já está revelado, renova o timer
                         if (revealedObjects.Contains(target))
                         {
                             revealTimers[target] = revealDuration;
                         }
                         else
                         {
-                            // Revela o objeto
                             RevealObject(target);
                         }
                     }
@@ -99,7 +94,7 @@ public class XRayVisionPower : Power
         if (revealedObjects.Contains(obj)) return;
         if (xrayMaterial == null) return;
 
-        // Salva materiais originais
+        // --- CORREÇÃO: Salva os materiais ORIGINAIS antes de modificar ---
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
         if (renderers.Length == 0) return;
 
@@ -107,12 +102,15 @@ public class XRayVisionPower : Power
 
         for (int i = 0; i < renderers.Length; i++)
         {
+            // Salva o material original
             originalMats[i] = renderers[i].material;
 
-            // Aplica material de raio-x
-            renderers[i].material = xrayMaterial;
-            renderers[i].material.color = xrayColor;
-            renderers[i].material.SetFloat("_Intensity", 1.5f);
+            // Cria uma instância do material para não afetar outros objetos
+            Material newMat = new Material(xrayMaterial);
+            newMat.color = xrayColor;
+
+            // Aplica o material de raio-x
+            renderers[i].material = newMat;
         }
 
         // Armazena
@@ -123,14 +121,13 @@ public class XRayVisionPower : Power
         // Adiciona outline
         AddOutline(obj);
 
-        Debug.Log($"Objeto revelado: {obj.name}");
+        Debug.Log($"Objeto revelado: {obj.name} - Materiais salvos: {originalMats.Length}");
     }
 
     void AddOutline(GameObject obj)
     {
         if (obj == null) return;
 
-        // Verifica se já tem outline
         var outline = obj.GetComponent<Outline>();
         if (outline == null)
         {
@@ -175,7 +172,6 @@ public class XRayVisionPower : Power
             {
                 if (hit.collider.gameObject != obj)
                 {
-                    // Não está vendo diretamente o objeto
                     toRemove.Add(obj);
                     continue;
                 }
@@ -199,21 +195,30 @@ public class XRayVisionPower : Power
     public void UnrevealObject(GameObject obj)
     {
         if (!revealedObjects.Contains(obj)) return;
+
         if (obj == null)
         {
             revealedObjects.Remove(obj);
             return;
         }
 
-        // Restaura materiais originais
+        // --- CORREÇÃO: Restaura os materiais ORIGINAIS ---
         if (originalMaterials.ContainsKey(obj))
         {
             Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-            Material[] originals = originalMaterials[obj];
 
-            for (int i = 0; i < renderers.Length && i < originals.Length; i++)
+            if (originalMaterials[obj] != null && renderers.Length > 0)
             {
-                renderers[i].material = originals[i];
+                Material[] originals = originalMaterials[obj];
+
+                for (int i = 0; i < renderers.Length && i < originals.Length; i++)
+                {
+                    if (renderers[i] != null && originals[i] != null)
+                    {
+                        // Restaura o material original
+                        renderers[i].material = originals[i];
+                    }
+                }
             }
         }
 
@@ -221,7 +226,7 @@ public class XRayVisionPower : Power
         var outline = obj.GetComponent<Outline>();
         if (outline != null)
         {
-            Destroy(outline);
+            DestroyImmediate(outline);
         }
 
         // Remove das listas
@@ -229,7 +234,7 @@ public class XRayVisionPower : Power
         originalMaterials.Remove(obj);
         revealTimers.Remove(obj);
 
-        Debug.Log($"Objeto não está mais revelado: {obj.name}");
+        Debug.Log($"Objeto restaurado: {obj.name}");
     }
 
     public override void Deactivate(GameObject user)

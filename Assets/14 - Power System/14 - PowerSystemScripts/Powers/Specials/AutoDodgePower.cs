@@ -8,7 +8,8 @@ public class AutoDodgePower : Power
     public float dodgeDistance = 5f;
     public float dodgeDuration = 0.5f;
     public float dodgeCooldown = 1f;
-    public float detectionRadius = 3f;
+    public float detectionRadius = 5f;
+    public float minimumApproachSpeed = 1f;
     public LayerMask threatLayers;
     public GameObject dodgeEffect;
     public AudioClip dodgeSound;
@@ -24,9 +25,9 @@ public class AutoDodgePower : Power
         isActive = true;
     }
 
-    public void UpdateAutoDodge(GameObject user)
+    public override void UpdatePower(GameObject user)
     {
-        if (!isActive) return;
+        if (!isActive || user == null) return;
 
         cooldownTimer -= Time.deltaTime;
 
@@ -51,12 +52,16 @@ public class AutoDodgePower : Power
 
         foreach (var threat in threats)
         {
+            Debug.Log($"Ameaça detectada: {threat.name} a uma distância de {Vector3.Distance(user.transform.position, threat.transform.position)}");
+
             // Verifica se está se aproximando
             Vector3 direction = threat.transform.position - user.transform.position;
             float approachSpeed = Vector3.Dot(threat.attachedRigidbody.linearVelocity, direction.normalized);
 
-            if (approachSpeed > 2f)
+            if (approachSpeed >= minimumApproachSpeed)
             {
+                Debug.Log($"Ameaça se aproximando: {threat.name} com velocidade de aproximação {approachSpeed}");
+
                 PerformDodge(user, direction);
                 break;
             }
