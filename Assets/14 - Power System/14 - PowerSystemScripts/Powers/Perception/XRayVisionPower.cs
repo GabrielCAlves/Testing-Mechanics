@@ -7,20 +7,17 @@ public class XRayVisionPower : Power
     [Header("Configurações de Visão de Raio-X")]
     public float visionRange = 20f;
     public float visionAngle = 60f;
-    public LayerMask targetLayers;
-    public Material xrayMaterial;
-    public Color xrayColor = new Color(0, 1, 0, 0.3f);
     public float revealDuration = 5f;
     public AudioClip xraySound;
 
-    [Header("Efeitos Adicionais")]
-    public float outlineWidth = 2f;
-    public Color outlineColor = Color.cyan;
+    [Header("Configurações de Layer (SwitchLayer)")]
+    public LayerMask defaultLayer;
+    public LayerMask xRayLayer;
 
     private bool isActive = false;
     private List<GameObject> revealedObjects = new List<GameObject>();
-    private Dictionary<GameObject, Material[]> originalMaterials = new Dictionary<GameObject, Material[]>();
     private Dictionary<GameObject, float> revealTimers = new Dictionary<GameObject, float>();
+    private Dictionary<GameObject, int> originalLayers = new Dictionary<GameObject, int>();
     private float scanTimer = 0f;
     private float scanInterval = 0.5f;
 
@@ -53,10 +50,8 @@ public class XRayVisionPower : Power
 
     void ScanForTargets(GameObject user)
     {
-        // --- CORREÇÃO: Usa Physics.OverlapSphere com a LayerMask correta ---
-        Collider[] targets = Physics.OverlapSphere(user.transform.position, visionRange, targetLayers);
-
-        Debug.Log($"Escaneando... Encontrados {targets.Length} objetos na camada {targetLayers.value}");
+        // Usa as layers definidas no Inspector
+        Collider[] targets = Physics.OverlapSphere(user.transform.position, visionRange, defaultLayer);
 
         foreach (var col in targets)
         {
@@ -68,7 +63,7 @@ public class XRayVisionPower : Power
             if (angle <= visionAngle / 2)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(user.transform.position, direction, out hit, visionRange))
+                if (Physics.Raycast(user.transform.position, direction, out hit, visionRange, defaultLayer))
                 {
                     GameObject target = hit.collider.gameObject;
 
@@ -92,49 +87,29 @@ public class XRayVisionPower : Power
     {
         if (obj == null) return;
         if (revealedObjects.Contains(obj)) return;
-        if (xrayMaterial == null) return;
 
-        // --- CORREÇÃO: Salva os materiais ORIGINAIS antes de modificar ---
-        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        if (renderers.Length == 0) return;
-
-        Material[] originalMats = new Material[renderers.Length];
-
-        for (int i = 0; i < renderers.Length; i++)
+        // --- SWITCH LAYER: SALVA E ALTERA ---
+        if (xRayLayer.value != 0)
         {
-            // Salva o material original
-            originalMats[i] = renderers[i].material;
+            int xRayLayerNum = (int)Mathf.Log(xRayLayer.value, 2);
 
-            // Cria uma instância do material para não afetar outros objetos
-            Material newMat = new Material(xrayMaterial);
-            newMat.color = xrayColor;
+            // Salva a layer original
+            originalLayers[obj] = obj.layer;
 
-            // Aplica o material de raio-x
-            renderers[i].material = newMat;
+            // Altera a layer do objeto
+            obj.layer = xRayLayerNum;
+
+            // Altera a layer de todos os filhos
+            SetLayerAllChildren(obj.transform, xRayLayerNum);
+
+            Debug.Log($"Layer alterada: {obj.name} -> {LayerMask.LayerToName(xRayLayerNum)}");
         }
 
-        // Armazena
+        // Armazena o objeto revelado
         revealedObjects.Add(obj);
-        originalMaterials[obj] = originalMats;
         revealTimers[obj] = revealDuration;
 
-        // Adiciona outline
-        AddOutline(obj);
-
-        Debug.Log($"Objeto revelado: {obj.name} - Materiais salvos: {originalMats.Length}");
-    }
-
-    void AddOutline(GameObject obj)
-    {
-        if (obj == null) return;
-
-        var outline = obj.GetComponent<Outline>();
-        if (outline == null)
-        {
-            outline = obj.AddComponent<Outline>();
-            outline.outlineColor = outlineColor;
-            outline.outlineWidth = outlineWidth;
-        }
+        Debug.Log($"Objeto revelado: {obj.name}");
     }
 
     void UpdateRevealedObjects(GameObject user)
@@ -202,39 +177,34 @@ public class XRayVisionPower : Power
             return;
         }
 
-        // --- CORREÇÃO: Restaura os materiais ORIGINAIS ---
-        if (originalMaterials.ContainsKey(obj))
+        // --- RESTAURA LAYER ORIGINAL ---
+        if (originalLayers.ContainsKey(obj))
         {
-            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+            int originalLayer = originalLayers[obj];
+            obj.layer = originalLayer;
 
-            if (originalMaterials[obj] != null && renderers.Length > 0)
-            {
-                Material[] originals = originalMaterials[obj];
+            // Restaura layer de todos os filhos
+            SetLayerAllChildren(obj.transform, originalLayer);
 
-                for (int i = 0; i < renderers.Length && i < originals.Length; i++)
-                {
-                    if (renderers[i] != null && originals[i] != null)
-                    {
-                        // Restaura o material original
-                        renderers[i].material = originals[i];
-                    }
-                }
-            }
-        }
-
-        // Remove outline
-        var outline = obj.GetComponent<Outline>();
-        if (outline != null)
-        {
-            DestroyImmediate(outline);
+            Debug.Log($"Layer restaurada: {obj.name} -> {LayerMask.LayerToName(originalLayer)}");
+            originalLayers.Remove(obj);
         }
 
         // Remove das listas
         revealedObjects.Remove(obj);
-        originalMaterials.Remove(obj);
         revealTimers.Remove(obj);
 
         Debug.Log($"Objeto restaurado: {obj.name}");
+    }
+
+    private void SetLayerAllChildren(Transform parent, int layer)
+    {
+        var children = parent.GetComponentsInChildren<Transform>(includeInactive: true);
+
+        foreach (var child in children)
+        {
+            child.gameObject.layer = layer;
+        }
     }
 
     public override void Deactivate(GameObject user)
