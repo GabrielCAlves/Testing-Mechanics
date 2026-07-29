@@ -24,8 +24,9 @@ MonoBehaviour:
   dodgeDuration: 0.5
   dodgeCooldown: 1
   detectionRadius: 3
+  minimumApproachSpeed: 1
   threatLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 129
   dodgeEffect: {fileID: 0}
-  dodgeSound: {fileID: 0}
+  dodgeSound: {fileID: 8300000, guid: 868e22f8261ac4d7195723b1b0fcea0b, type: 3}
