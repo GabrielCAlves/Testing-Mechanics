@@ -22,12 +22,11 @@ MonoBehaviour:
   activationSound: {fileID: 0}
   visionRange: 20
   visionAngle: 60
-  targetLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  xrayMaterial: {fileID: 0}
-  xrayColor: {r: 0, g: 1, b: 0, a: 0.3}
   revealDuration: 5
   xraySound: {fileID: 0}
-  outlineWidth: 2
-  outlineColor: {r: 0, g: 1, b: 1, a: 1}
+  defaultLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  xRayLayer:
+    serializedVersion: 2
+    m_Bits: 4096
