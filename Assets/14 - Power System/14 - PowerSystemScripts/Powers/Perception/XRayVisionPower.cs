@@ -58,7 +58,7 @@ public class XRayVisionPower : Power
             if (col.gameObject == user) continue;
 
             Vector3 direction = col.transform.position - user.transform.position;
-            float angle = Vector3.Angle(user.transform.forward, direction);
+            float angle = Vector3.Angle(user.transform.forward, direction); // 60º to the right + 60º to the left = 120º in total for the front view
 
             if (angle <= visionAngle / 2)
             {
@@ -67,7 +67,7 @@ public class XRayVisionPower : Power
                 {
                     GameObject target = hit.collider.gameObject;
 
-                    if (target == col.gameObject || target.CompareTag("Enemy"))
+                    if (target == col.gameObject || target.CompareTag("Enemy") || target.layer == LayerMask.NameToLayer("Enemy"))
                     {
                         if (revealedObjects.Contains(target))
                         {
@@ -102,7 +102,7 @@ public class XRayVisionPower : Power
             // Altera a layer de todos os filhos
             SetLayerAllChildren(obj.transform, xRayLayerNum);
 
-            Debug.Log($"Layer alterada: {obj.name} -> {LayerMask.LayerToName(xRayLayerNum)}");
+            //Debug.Log($"Object's layer -> {LayerMask.LayerToName(obj.layer)}");
         }
 
         // Armazena o objeto revelado
@@ -159,12 +159,6 @@ public class XRayVisionPower : Power
                 toRemove.Add(obj);
             }
         }
-
-        // Remove objetos expirados
-        foreach (var obj in toRemove)
-        {
-            UnrevealObject(obj);
-        }
     }
 
     public void UnrevealObject(GameObject obj)
@@ -186,7 +180,6 @@ public class XRayVisionPower : Power
             // Restaura layer de todos os filhos
             SetLayerAllChildren(obj.transform, originalLayer);
 
-            Debug.Log($"Layer restaurada: {obj.name} -> {LayerMask.LayerToName(originalLayer)}");
             originalLayers.Remove(obj);
         }
 
