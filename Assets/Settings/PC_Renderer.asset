@@ -38,10 +38,10 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4087
+    m_Bits: 12279
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4087
+    m_Bits: 12279
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 1
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.RenderObjects
   m_Active: 1
   settings:
-    passTag: RenderObjects
+    passTag: Opaque
     Event: 300
     filterSettings:
       RenderQueueType: 0
