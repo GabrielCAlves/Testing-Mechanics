@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e3c8f0318e2d646be660b3c86b81b0, type: 3}
   m_Name: HeatVisionPower
   m_EditorClassIdentifier: Assembly-CSharp::HeatVisionPower
-  powerName: HeatVisionPower
+  powerName: 
   icon: {fileID: 0}
   description: 
   cooldown: 2
@@ -20,9 +20,3 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  heatVisionRange: 15
-  heatDetectionThreshold: 30
-  heatColor: {r: 1, g: 0, b: 0, a: 1}
-  coldColor: {r: 0, g: 0, b: 1, a: 1}
-  heatVisionMaterial: {fileID: 0}
-  showHeatSources: 1
