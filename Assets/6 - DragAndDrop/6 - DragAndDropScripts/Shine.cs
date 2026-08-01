@@ -13,6 +13,8 @@ public class Shine : MonoBehaviour
     [SerializeField] private float shineDuration = 5f;
     [SerializeField] private float chargeSpeed = .05f;
 
+    //[SerializeField] private Color actualIntensity;
+
     [Header("Debug")]
     [SerializeField] private float elapsedTime = 0f;
     [SerializeField] private float intensity = 0f;
@@ -48,7 +50,9 @@ public class Shine : MonoBehaviour
             return;
         }
 
-        StartCoroutine(ShineEffect(shineIntensity, startIntensity));
+        StopAllCoroutines();
+
+        StartCoroutine(ShineEffect(/*shineIntensity*/ intensity, startIntensity));
     }
 
     IEnumerator ShineEffect(float start, float end)
@@ -60,6 +64,7 @@ public class Shine : MonoBehaviour
             smoothT = Mathf.SmoothStep(0, 1, t); // Applies easing
             intensity = Mathf.Lerp(start, end, smoothT);
             material.SetColor("_EmissionColor", shineColor * intensity);
+            //actualIntensity = shineColor * intensity;
             elapsedTime += Time.deltaTime;
             yield return null;
         }

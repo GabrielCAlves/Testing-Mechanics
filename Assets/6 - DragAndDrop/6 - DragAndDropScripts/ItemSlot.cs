@@ -12,13 +12,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private void Start()
     {
         if (item == null)
-            item = GetComponentInChildren<DraggableUI>().gameObject;
+            item = GetComponentInChildren<DraggableUI>()?.gameObject;
 
         if(itemSlotInventoryMenu == null)
             itemSlotInventoryMenu = GetComponent<ItemSlotInventoryMenu>();
 
         if(inventoryMenuManager == null)
-            inventoryMenuManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryMenuManager>();
+            inventoryMenuManager = GameObject.Find("InventoryCanvas")?.GetComponent<InventoryMenuManager>();
     }
 
     public void OnDrop(PointerEventData eventData)

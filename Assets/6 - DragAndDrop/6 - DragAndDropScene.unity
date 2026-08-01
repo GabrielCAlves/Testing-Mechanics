@@ -211,6 +211,8 @@ MonoBehaviour:
   rectTransform: {fileID: 0}
   parentCanvas: {fileID: 0}
   canvasGroup: {fileID: 0}
+  itemSlotInventoryMenu: {fileID: 0}
+  originalParent: {fileID: 0}
 --- !u!225 &69689450
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -732,6 +734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4eb5aa08b584d488c3436115c2abde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
+  inventoryMenuManager: {fileID: 0}
+  item: {fileID: 0}
+  itemSlotInventoryMenu: {fileID: 0}
+  switchPlaces: 0
 --- !u!1 &639523001
 GameObject:
   m_ObjectHideFlags: 0

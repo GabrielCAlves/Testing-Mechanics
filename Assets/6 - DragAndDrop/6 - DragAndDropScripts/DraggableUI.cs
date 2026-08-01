@@ -31,10 +31,12 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         //Debug.Log($"transform.parent.name.Contains(\"ItemSlot\") = " + transform.parent.name.Contains("ItemSlot"));
 
-        originalParent = itemSlotInventoryMenu.gameObject.transform;
-        originalSiblingIndex = itemSlotInventoryMenu.gameObject.transform.GetSiblingIndex();
-
-        transform.SetParent(parentCanvas.transform);
+        if (itemSlotInventoryMenu != null)
+        {
+            originalParent = itemSlotInventoryMenu.gameObject.transform;
+            originalSiblingIndex = itemSlotInventoryMenu.gameObject.transform.GetSiblingIndex();
+            transform.SetParent(parentCanvas.transform);
+        }
 
         canvasGroup.alpha = 0.6f; // Makes the item semi-transparent during the drag
         canvasGroup.blocksRaycasts = false; // Doesn't let other elements receive clicking events during the drag
@@ -50,6 +52,10 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         {
             rectTransform.anchoredPosition = newPosition;
         }
+        else
+        {
+            rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
+        }
 
         //Alternative without repeting code in OnPointerDown
         //rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
@@ -60,13 +66,18 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     // - Check image priority to ensure they do not appear behind other UI elements (change the order in the Hierarchy).
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(originalParent);
-        transform.SetSiblingIndex(originalSiblingIndex);
+        if (itemSlotInventoryMenu != null)
+        {
+            transform.SetParent(originalParent);
+            transform.SetSiblingIndex(originalSiblingIndex);
+        }
+            
 
         canvasGroup.alpha = 1f; // Restores the item's opacity
         canvasGroup.blocksRaycasts = true; // Allows other elements to receive click events again.
 
-        rectTransform.anchoredPosition = Vector2.zero;
+        if (itemSlotInventoryMenu != null)
+            rectTransform.anchoredPosition = Vector2.zero;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -78,6 +89,10 @@ public class DraggableUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             out Vector2 newPosition) && (itemSlotInventoryMenu != null && !itemSlotInventoryMenu.isEmpty))
         {
             //rectTransform.anchoredPosition = newPosition;
+        }
+        else
+        {
+            rectTransform.anchoredPosition = newPosition;
         }
     }
 }
