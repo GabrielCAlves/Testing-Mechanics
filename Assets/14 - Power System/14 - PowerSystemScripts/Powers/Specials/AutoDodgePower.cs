@@ -13,6 +13,7 @@ public class AutoDodgePower : Power
     public LayerMask threatLayers;
     public GameObject dodgeEffect;
     public AudioClip dodgeSound;
+    public Health health;
 
     private bool isDodging = false;
     private float dodgeTimer = 0f;
@@ -23,6 +24,15 @@ public class AutoDodgePower : Power
     {
         base.Activate(user);
         isActive = true;
+
+        if(health == null)
+        {
+            health = user.GetComponent<Health>();
+            if (health == null)
+            {
+                Debug.LogWarning("Health component not found on user.");
+            }
+        }
     }
 
     public override void UpdatePower(GameObject user)
@@ -31,7 +41,7 @@ public class AutoDodgePower : Power
 
         cooldownTimer -= Time.deltaTime;
 
-        if (!isDodging && cooldownTimer <= 0)
+        if (!isDodging && cooldownTimer <= 0) // cooldownTimer -> responsável por, às vezes, o inimigo acertar o jogador mesmo quando ele está se esquivando, então o cooldownTimer é usado para evitar que o jogador se esquive novamente imediatamente após o dodge.
         {
             CheckForThreats(user);
         }
@@ -70,6 +80,9 @@ public class AutoDodgePower : Power
 
     void PerformDodge(GameObject user, Vector3 threatDirection)
     {
+        if(health != null)
+            health.isImmortal = true; // Torna o usuário imortal durante o dodge
+
         isDodging = true;
         dodgeTimer = dodgeDuration;
         cooldownTimer = dodgeCooldown;
@@ -96,6 +109,9 @@ public class AutoDodgePower : Power
     void StopDodge(GameObject user)
     {
         isDodging = false;
+
+        if(health != null)
+            health.isImmortal = false; // Remove a imortalidade após o dodge
     }
 
     public override void Deactivate(GameObject user)
