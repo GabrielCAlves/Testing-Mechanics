@@ -27,6 +27,7 @@ MonoBehaviour:
   minimumApproachSpeed: 1
   threatLayers:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 128
   dodgeEffect: {fileID: 0}
   dodgeSound: {fileID: 8300000, guid: 868e22f8261ac4d7195723b1b0fcea0b, type: 3}
+  health: {fileID: 0}

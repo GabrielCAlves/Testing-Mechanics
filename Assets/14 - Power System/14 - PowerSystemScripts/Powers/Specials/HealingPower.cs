@@ -15,22 +15,32 @@ public class HealingPower : Power
     public GameObject healParticles;
     public AudioClip healSound;
 
+    private Health playerhealth;
+    private Health allyhealth;
+
     public override void Activate(GameObject user)
     {
         base.Activate(user);
+
+        if(playerhealth == null)
+        {
+            playerhealth = user.GetComponent<Health>();
+
+            if (playerhealth == null)
+            {
+                Debug.LogWarning("Health component not found on user.");
+            }
+        }
+
         ApplyHeal(user);
     }
 
     void ApplyHeal(GameObject user)
     {
         // Cura o próprio usuário
-        if (healSelf)
+        if (healSelf && playerhealth != null)
         {
-            var health = user.GetComponent<Health>();
-            if (health != null)
-            {
-                health.Heal(healAmount);
-            }
+            playerhealth.Heal(healAmount);
         }
 
         // Cura aliados na área
@@ -42,10 +52,10 @@ public class HealingPower : Power
             {
                 if (col.gameObject == user) continue;
 
-                var health = col.GetComponent<Health>();
-                if (health != null)
+                allyhealth = col.GetComponent<Health>();
+                if (allyhealth != null)
                 {
-                    health.Heal(healAmount);
+                    allyhealth.Heal(healAmount);
                 }
 
                 // Efeito em aliados

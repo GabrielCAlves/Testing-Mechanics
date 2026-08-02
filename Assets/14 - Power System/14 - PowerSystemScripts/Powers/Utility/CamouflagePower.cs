@@ -10,7 +10,7 @@ public class CamouflagePower : Power
     public float detectionReduction = 0.3f;
     public float movementPenalty = 0.7f;
     public Material camouflageMaterial;
-    public Color camouflageColor = new Color(0, 0.5f, 0, 0.5f);
+    //public Color camouflageColor = new Color(0, 0.5f, 0, 0.5f);
 
     private bool isCamouflaged = false;
     private float timer;
@@ -37,7 +37,7 @@ public class CamouflagePower : Power
         {
             originalMaterials[i] = renderers[i].material;
             renderers[i].material = camouflageMaterial;
-            renderers[i].material.color = camouflageColor;
+            //renderers[i].material.color = camouflageColor;
         }
 
         // Reduz velocidade
@@ -66,9 +66,9 @@ public class CamouflagePower : Power
         if (renderers != null && camouflageMaterial != null)
         {
             float shimmer = Mathf.Sin(Time.time * 10f) * 0.1f + 0.9f;
-            Color color = camouflageColor;
-            color.a = color.a * shimmer;
-            camouflageMaterial.color = color;
+            //Color color = camouflageColor;
+            //color.a = color.a * shimmer;
+            //camouflageMaterial.color = color;
         }
 
         if (timer <= 0)

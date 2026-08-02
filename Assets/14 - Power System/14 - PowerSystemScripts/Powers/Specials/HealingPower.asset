@@ -26,7 +26,7 @@ MonoBehaviour:
   healAllies: 1
   allyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   healEffect: {fileID: 0}
   healParticles: {fileID: 0}
   healSound: {fileID: 0}

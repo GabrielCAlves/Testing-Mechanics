@@ -23,5 +23,4 @@ MonoBehaviour:
   duration: 15
   detectionReduction: 0.3
   movementPenalty: 0.7
-  camouflageMaterial: {fileID: 0}
-  camouflageColor: {r: 0, g: 0.5, b: 0, a: 0.5}
+  camouflageMaterial: {fileID: 2100000, guid: ac89c2db63075a74e97bc8ec5f35dc6c, type: 2}
