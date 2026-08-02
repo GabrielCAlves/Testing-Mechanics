@@ -21,6 +21,8 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
     [SerializeField] private GameObject areaHitBox2D;
     [SerializeField] private GameObject vfx;
     [SerializeField] private GameObject areaVfx;
+    [SerializeField] private Vector3 offsetVfx;
+    [SerializeField] private Vector3 offsetAreaVfx;
     [SerializeField] private bool useVfx;
     [SerializeField] private bool useAreaVfx;
     [SerializeField] private bool useOverlapSphereAll;
@@ -122,12 +124,6 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         if (Input.GetKeyDown(KeyCode.Z))
         {
             animator.SetTrigger(ANIM_ATTACK_1);
-
-            if (vfx != null && useVfx)
-            {
-                GameObject vfxInstance = Instantiate(vfx, hitBox2D.transform.position, Quaternion.identity);
-                Destroy(vfxInstance, 1f);
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -149,7 +145,7 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
 
             if (areaVfx != null && useAreaVfx)
             {
-                GameObject vfxInstance = Instantiate(areaVfx, new Vector3(transform.position.x, transform.position.y+1, transform.position.z), Quaternion.identity);
+                GameObject vfxInstance = Instantiate(areaVfx, transform.position + offsetAreaVfx, Quaternion.identity);
                 Destroy(vfxInstance, 1f);
             }
         }
@@ -336,6 +332,15 @@ public class AnimationHandlerScript : MonoBehaviour, IDamageable
         if(hitBox2D != null)
         {
             hitBox2D.SetActive(true);
+
+            if (vfx != null && useVfx)
+            {
+                Vector3 vfxPosition = new Vector3(hitBox2D.transform.position.x + (offsetVfx.x * transform.localScale.x), hitBox2D.transform.position.y + offsetVfx.y, hitBox2D.transform.position.z);
+                GameObject vfxInstance = Instantiate(vfx, vfxPosition, Quaternion.identity);
+
+                Destroy(vfxInstance, 1f);
+            }
+
             StartCoroutine(DeactivateHitBox2D());
         }
     }

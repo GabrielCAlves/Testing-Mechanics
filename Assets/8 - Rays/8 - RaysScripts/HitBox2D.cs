@@ -15,8 +15,12 @@ public class HitBox2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("OnCollisionEnter2D activated!");
+        Debug.Log("collision.gameObject.name = " + collision.gameObject.name);
+        Debug.Log("collision.transform.tag = " + collision.transform.tag);
+        Debug.Log("collision.gameObject.GetComponent<LifeSystem>() = " + collision.gameObject.GetComponent<LifeSystem>());
 
-        if (collision.transform.CompareTag(targetTag))
+        if (collision.transform.CompareTag(targetTag) || collision.gameObject.layer == LayerMask.NameToLayer(targetTag))
         {
             if(!collision.gameObject.GetComponent<LifeSystem>())
             {
@@ -28,6 +32,42 @@ public class HitBox2D : MonoBehaviour
             enemyLifeSystem.TakeDamage((int) damageAmount);
 
             if(knockback)
+            {
+                knockbackDirection = (collision.transform.position - transform.position).normalized;
+
+                if (collision.gameObject.GetComponent<Rigidbody2D>() != null)
+                {
+                    enemyRb2D = collision.gameObject.GetComponent<Rigidbody2D>();
+                    Knockback();
+                }
+                else
+                {
+                    collision.transform.position = Vector2.Lerp(collision.transform.position, (Vector2)collision.transform.position + knockbackDirection, knockbackSpeed * Time.deltaTime);
+                    Debug.Log($"{collision.gameObject.name} doesn't have Rigidbody2D.");
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("OnTriggerEnter2D activated!");
+        Debug.Log("collision.gameObject.name = " + collision.gameObject.name);
+        Debug.Log("collision.transform.tag = " + collision.transform.tag);
+        Debug.Log("collision.gameObject.GetComponent<LifeSystem>() = " + collision.gameObject.GetComponent<LifeSystem>());
+
+        if (collision.transform.CompareTag(targetTag) || collision.gameObject.layer == LayerMask.NameToLayer(targetTag))
+        {
+            if (!collision.gameObject.GetComponent<LifeSystem>())
+            {
+                Debug.Log($"{collision.gameObject.name} doesn't have LifeSystem.");
+                return;
+            }
+
+            enemyLifeSystem = collision.gameObject.GetComponent<LifeSystem>();
+            enemyLifeSystem.TakeDamage((int)damageAmount);
+
+            if (knockback)
             {
                 knockbackDirection = (collision.transform.position - transform.position).normalized;
 
