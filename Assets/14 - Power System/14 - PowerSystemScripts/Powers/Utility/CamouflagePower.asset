@@ -23,4 +23,6 @@ MonoBehaviour:
   duration: 15
   detectionReduction: 0.3
   movementPenalty: 0.7
-  camouflageMaterial: {fileID: 2100000, guid: ac89c2db63075a74e97bc8ec5f35dc6c, type: 2}
+  originalTag: Player
+  camouflageTag: Camouflage
+  camouflageMaterial: {fileID: 2100000, guid: 4ef039473ebe04f41b927f3bfefb2fcd, type: 2}

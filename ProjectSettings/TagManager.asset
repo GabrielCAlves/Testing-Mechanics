@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Wall
+  - Camouflage
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - PostFX
   - RenderAbove
   - Thermal
-  - 
+  - Camouflage
   - 
   - 
   - 

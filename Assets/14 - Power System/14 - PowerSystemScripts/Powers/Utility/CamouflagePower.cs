@@ -9,6 +9,8 @@ public class CamouflagePower : Power
     public float duration = 15f;
     public float detectionReduction = 0.3f;
     public float movementPenalty = 0.7f;
+    public string originalTag;
+    public string camouflageTag;
     public Material camouflageMaterial;
     //public Color camouflageColor = new Color(0, 0.5f, 0, 0.5f);
 
@@ -48,12 +50,14 @@ public class CamouflagePower : Power
             movement.moveSpeed *= movementPenalty;
         }
 
+        user.tag = camouflageTag;
+
         // Reduz detecção por inimigos
-        var enemyDetection = user.GetComponent<EnemyDetection>();
-        if (enemyDetection != null)
-        {
-            enemyDetection.detectionRange *= detectionReduction;
-        }
+        //var enemyDetection = user.GetComponent<EnemyDetection>();
+        //if (enemyDetection != null)
+        //{
+        //    enemyDetection.detectionRange *= detectionReduction;
+        //}
     }
 
     public void UpdateCamouflage(GameObject user)
@@ -98,11 +102,13 @@ public class CamouflagePower : Power
             movement.moveSpeed = originalSpeed;
         }
 
+        user.tag = originalTag;
+
         // Restaura detecção
-        var enemyDetection = user.GetComponent<EnemyDetection>();
-        if (enemyDetection != null)
-        {
-            enemyDetection.detectionRange /= detectionReduction;
-        }
+        //var enemyDetection = user.GetComponent<EnemyDetection>();
+        //if (enemyDetection != null)
+        //{
+        //    enemyDetection.detectionRange /= detectionReduction;
+        //}
     }
 }

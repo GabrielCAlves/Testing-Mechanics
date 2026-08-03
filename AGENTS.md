@@ -2,7 +2,7 @@
 - Project name: Testing-Mechanics
 - Unity version: Unity 6000.3.11f1
 - Active game object:
-  - Name: Spirit_Wolf
+  - Name: Player
   - Tag: Player
-  - Layer: Default
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

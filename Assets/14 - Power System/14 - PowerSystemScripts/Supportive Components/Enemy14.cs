@@ -14,6 +14,7 @@ public class Enemy14 : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
     public LayerMask playerLayer;
+    public string playerTag = "Player";
     public Transform target;
 
     [Header("Ataque")]
@@ -90,30 +91,34 @@ public class Enemy14 : MonoBehaviour
             return;
         }
 
-        // Distância ao alvo
-        float distance = Vector3.Distance(transform.position, target.position);
+        if(IsTargetDetectable())
+        {
+            // Distância ao alvo
+            float distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance <= attackRange)
-        {
-            // Ataca
-            Attack();
-        }
-        else if (distance <= detectionRange)
-        {
-            // Persegue
-            if (agent != null)
+            if (distance <= attackRange)
             {
-                agent.SetDestination(target.position);
+                // Ataca
+                Attack();
             }
-            else
+            else if (distance <= detectionRange)
             {
-                // Movimento simples sem NavMesh
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * moveSpeed * slowFactor * Time.deltaTime;
-                transform.rotation = Quaternion.Slerp(transform.rotation,
-                    Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+                // Persegue
+                if (agent != null)
+                {
+                    agent.SetDestination(target.position);
+                }
+                else
+                {
+                    // Movimento simples sem NavMesh
+                    Vector3 direction = (target.position - transform.position).normalized;
+                    transform.position += direction * moveSpeed * slowFactor * Time.deltaTime;
+                    transform.rotation = Quaternion.Slerp(transform.rotation,
+                        Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+                }
             }
         }
+        
 
         // Animações
         if (animator != null)
@@ -195,6 +200,11 @@ public class Enemy14 : MonoBehaviour
         {
             target = players[0].transform;
         }
+    }
+
+    bool IsTargetDetectable()
+    {
+        return target.tag == playerTag;
     }
 
     public void ApplySlow(float factor, float duration)
