@@ -67,7 +67,7 @@ public class DamageDealer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Para uso com projéteis ou áreas de dano
-        if (other.gameObject != gameObject)
+        if (other.gameObject != gameObject && !other.transform.CompareTag(gameObject.tag)) // Add '&& other.transform.CompareTag("Enemy")' if you want to restrict it to enemies
         {
             DealDamage(other.gameObject);
         }
@@ -76,7 +76,7 @@ public class DamageDealer : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Para uso com projéteis ou ataques físicos
-        if (collision.gameObject != gameObject)
+        if (collision.gameObject != gameObject && !collision.transform.CompareTag(gameObject.tag)) // Add '&& other.transform.CompareTag("Enemy")' if you want to restrict it to enemies
         {
             DealDamage(collision.gameObject);
         }

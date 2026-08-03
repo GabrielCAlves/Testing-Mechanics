@@ -24,7 +24,21 @@ MonoBehaviour:
   cloneLifetime: 30
   cloneDamageMultiplier: 0.5
   cloneHealthMultiplier: 0.5
-  clonePrefab: {fileID: 0}
+  cloneSpeedMultiplier: 0.8
+  clonePrefab: {fileID: 8428310063337272742, guid: b96ff374ebc67f04cb555be31a1ef22c, type: 3}
   spawnEffect: {fileID: 0}
   spawnSound: {fileID: 0}
   clonesCanAttack: 1
+  cloneAttackRange: 3
+  cloneAttackCooldown: 1.5
+  detectionRange: 10
+  followDistance: 3
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  cloneMovementMode: 0
+  separationRadius: 1.5
+  separationForce: 2
+  cloneLayer:
+    serializedVersion: 2
+    m_Bits: 32832
