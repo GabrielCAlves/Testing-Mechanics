@@ -175,6 +175,6 @@ public class CloningPower : Power
         //    }
         //}
         //activeClones.Clear();
-        Debug.Log("Todos os clones foram destruídos");
+        Debug.Log("Os clones têm seus próprios tempos de vida.");
     }
 }

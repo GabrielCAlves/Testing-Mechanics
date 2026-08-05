@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Camouflage
   - Clone
+  - Creature
   layers:
   - Default
   - TransparentFX

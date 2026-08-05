@@ -102,7 +102,7 @@ public class CloneAI : MonoBehaviour
             agent.enabled = false;
         }
 
-        // Configura a layer do clone para identificação
+        // Configura a tag, mas poderia ser a layer, do clone para identificação
         gameObject.tag = "Clone";
 
         // Define a layer se não estiver definida
@@ -292,7 +292,7 @@ public class CloneAI : MonoBehaviour
 
         if (movementMode == MovementMode.NavMeshAgent && agent != null && agent.enabled)
         {
-            // NavMeshAgent não suporta evasão diretamente, mas podemos ajustar o destino
+            // NavMeshAgent não suporta evasão diretamente, mas pode-se ajustar o destino
             Vector3 adjustedTarget = targetPosition + separationForceVector * separationForce * 0.5f;
             agent.isStopped = false;
             agent.SetDestination(adjustedTarget);

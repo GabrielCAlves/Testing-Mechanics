@@ -20,11 +20,30 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  creaturesToSummon: []
+  creaturesToSummon:
+  - {fileID: 4787734284849576031, guid: 28620c5a0a60a964da39decafc2afed3, type: 3}
+  - {fileID: 4787734284849576031, guid: 33136ce2d75e8204795d470ee80d0d6c, type: 3}
+  - {fileID: 4787734284849576031, guid: 9d24d3d66608e944080298cbccfa3ed7, type: 3}
   maxCreatures: 3
   summonRange: 5
   creatureLifetime: 60
   creatureDamageMultiplier: 0.7
   creatureHealthMultiplier: 0.7
+  creatureSpeedMultiplier: 0.8
   summonEffect: {fileID: 0}
   summonSound: {fileID: 0}
+  useFirstChildAsCharacter: 1
+  detectionRange: 10
+  followDistance: 3
+  attackRange: 3
+  attackCooldown: 1.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  creaturesCanAttack: 1
+  creatureMovementMode: 1
+  separationRadius: 1.5
+  separationForce: 2
+  creatureLayer:
+    serializedVersion: 2
+    m_Bits: 64
