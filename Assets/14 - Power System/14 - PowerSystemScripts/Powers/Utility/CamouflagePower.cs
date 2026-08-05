@@ -60,7 +60,7 @@ public class CamouflagePower : Power
         //}
     }
 
-    public void UpdateCamouflage(GameObject user)
+    public override void UpdatePower(GameObject user)
     {
         if (!isCamouflaged) return;
 
