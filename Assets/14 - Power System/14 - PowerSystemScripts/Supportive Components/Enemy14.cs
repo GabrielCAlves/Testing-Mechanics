@@ -35,6 +35,7 @@ public class Enemy14 : MonoBehaviour
     private Animator animator;
     private float originalSpeed;
     private bool isDead = false;
+    private bool isGravityControlled = false;
 
     void Start()
     {
@@ -49,7 +50,6 @@ public class Enemy14 : MonoBehaviour
             agent.stoppingDistance = stoppingDistance;
         }
 
-        // Procura o alvo automaticamente
         if (target == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -62,20 +62,33 @@ public class Enemy14 : MonoBehaviour
     {
         if (isDead) return;
 
+        // Verifica se o agente está ativo
+        bool isAgentActive = agent != null && agent.isActiveAndEnabled;
+
         UpdateStatusEffects();
 
         if (isFrozen || isStunned)
         {
-            if (agent != null)
+            // Só tenta parar o agente se ele estiver ativo
+            if (isAgentActive)
                 agent.isStopped = true;
             return;
         }
 
-        if (agent != null)
-            agent.isStopped = false;
+        // Se o agente não estiver ativo (controlado pela gravidade), não faz nada
+        if (!isAgentActive)
+        {
+            // Atualiza animação para parado
+            if (animator != null)
+                animator.SetFloat("Speed", 0f);
+            return;
+        }
+
+        // A partir daqui, o agente está ativo
+        agent.isStopped = false;
 
         // Aplica slow
-        if (agent != null && slowTimer > 0)
+        if (slowTimer > 0)
         {
             agent.speed = originalSpeed * slowFactor;
         }
@@ -91,46 +104,38 @@ public class Enemy14 : MonoBehaviour
             return;
         }
 
-        if(IsTargetDetectable())
+        if (IsTargetDetectable())
         {
-            // Distância ao alvo
             float distance = Vector3.Distance(transform.position, target.position);
 
             if (distance <= attackRange)
             {
-                // Ataca
+                // Ataca (NÃO desativa o agente, apenas para)
+                agent.isStopped = true;
                 Attack();
             }
             else if (distance <= detectionRange)
             {
                 // Persegue
-                if (agent != null)
-                {
-                    agent.SetDestination(target.position);
-                }
-                else
-                {
-                    // Movimento simples sem NavMesh
-                    Vector3 direction = (target.position - transform.position).normalized;
-                    transform.position += direction * moveSpeed * slowFactor * Time.deltaTime;
-                    transform.rotation = Quaternion.Slerp(transform.rotation,
-                        Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-                }
-            }
-        }
-        
-
-        // Animações
-        if (animator != null)
-        {
-            if (agent != null)
-            {
-                animator.SetFloat("Speed", agent.velocity.magnitude);
+                agent.isStopped = false;
+                agent.SetDestination(target.position);
             }
             else
             {
-                animator.SetFloat("Speed", moveSpeed * slowFactor);
+                // Fora do alcance de detecção, para
+                agent.isStopped = true;
             }
+        }
+        else
+        {
+            // Alvo não detectável, para
+            agent.isStopped = true;
+        }
+
+        // Animações
+        if (animator != null && agent != null)
+        {
+            animator.SetFloat("Speed", agent.velocity.magnitude);
         }
     }
 
@@ -148,7 +153,6 @@ public class Enemy14 : MonoBehaviour
                 targetHealth.TakeDamage(attackDamage);
             }
 
-            // Efeito de ataque
             Debug.Log($"Inimigo atacou {target.name} causando {attackDamage} de dano");
 
             if (animator != null)
@@ -160,6 +164,8 @@ public class Enemy14 : MonoBehaviour
 
     void UpdateStatusEffects()
     {
+        bool isAgentActive = agent != null && agent.isActiveAndEnabled;
+
         // Freeze
         if (isFrozen)
         {
@@ -167,7 +173,7 @@ public class Enemy14 : MonoBehaviour
             if (freezeTimer <= 0)
             {
                 isFrozen = false;
-                if (agent != null)
+                if (isAgentActive)
                     agent.isStopped = false;
             }
         }
@@ -187,7 +193,7 @@ public class Enemy14 : MonoBehaviour
             if (stunTimer <= 0)
             {
                 isStunned = false;
-                if (agent != null)
+                if (isAgentActive)
                     agent.isStopped = false;
             }
         }
@@ -204,7 +210,7 @@ public class Enemy14 : MonoBehaviour
 
     bool IsTargetDetectable()
     {
-        return target.tag == playerTag;
+        return target != null && target.CompareTag(playerTag);
     }
 
     public void ApplySlow(float factor, float duration)
@@ -217,7 +223,7 @@ public class Enemy14 : MonoBehaviour
     {
         isFrozen = true;
         freezeTimer = duration;
-        if (agent != null)
+        if (agent != null && agent.isActiveAndEnabled)
             agent.isStopped = true;
     }
 
@@ -225,17 +231,16 @@ public class Enemy14 : MonoBehaviour
     {
         isStunned = true;
         stunTimer = duration;
-        if (agent != null)
+        if (agent != null && agent.isActiveAndEnabled)
             agent.isStopped = true;
     }
 
     public void Die()
     {
         isDead = true;
-        if (agent != null)
+        if (agent != null && agent.isActiveAndEnabled)
             agent.isStopped = true;
 
-        // Animação de morte
         if (animator != null)
             animator.SetTrigger("Die");
 

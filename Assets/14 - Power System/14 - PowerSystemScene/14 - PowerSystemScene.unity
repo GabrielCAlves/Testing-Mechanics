@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795362816}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795362816}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4360fe1305a55ad4797935f2e91e356a, type: 3}
   m_Name: 
@@ -2395,7 +2395,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1311915643
 MonoBehaviour:
@@ -2447,7 +2447,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6272966872687889494}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311915641}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ebd682a8a199e146b9d6a0a9b0f8fd9, type: 3}
   m_Name: 
@@ -2581,7 +2581,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &1311915652
@@ -3120,9 +3120,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 842531904696728380, guid: 17ad840273cf6ad47818b5d3b5c53adc, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 869314128313929904, guid: 17ad840273cf6ad47818b5d3b5c53adc, type: 3}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2587424423326789786, guid: 17ad840273cf6ad47818b5d3b5c53adc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3178,7 +3182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9190275721378457969, guid: 17ad840273cf6ad47818b5d3b5c53adc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
