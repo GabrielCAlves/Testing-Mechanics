@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +32,9 @@ public class Raycasting : MonoBehaviour
     [SerializeField] private Color color = Color.black;
     [SerializeField] private Material material;
     [SerializeField] private GameObject previousObject;
+    [SerializeField] private GameObject raycastPlaceIdentifier;
+    [SerializeField] private GameObject instantiatedRaycastPlaceIdentifier;
+    [SerializeField] private float placeIdentifierMaxDistance;
 
     [Header("Shine Effect Settings")]
     [SerializeField] private float startIntensity = 0f;
@@ -55,6 +59,8 @@ public class Raycasting : MonoBehaviour
     [SerializeField] private bool left = false;
     [SerializeField] private Plane plane;
     [SerializeField] private TextMeshProUGUI objectLabel;
+    [SerializeField] private TextMeshProUGUI raycastedObjectLabel;
+    private StringBuilder stringBuilder = new StringBuilder();
     [SerializeField] private int maxNumberOfColliders;
     [SerializeField] private Collider[] colliderOverlapSphereAll;
 
@@ -67,6 +73,15 @@ public class Raycasting : MonoBehaviour
     private void Start()
     {
         colliderOverlapSphereAll = new Collider[maxNumberOfColliders];
+
+        if(raycastPlaceIdentifier != null)
+        {
+            instantiatedRaycastPlaceIdentifier = Instantiate(raycastPlaceIdentifier, transform.position + transform.forward * placeIdentifierMaxDistance, Quaternion.identity);
+            instantiatedRaycastPlaceIdentifier.SetActive(false);
+        }
+
+        position1 = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);
+        position2 = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
     }
 
     void Update()
@@ -119,10 +134,12 @@ public class Raycasting : MonoBehaviour
                 // Sometimes the hit objects in the array aren't in order of first hit
                 Array.Sort(hits, (RaycastHit x, RaycastHit y) => x.distance.CompareTo(y.distance));
 
-                for (int i = 0; i < hits.Length; ++i)
-                {
-                    Debug.Log($"RaycastAll hit nº {i}: {hits[i].collider.gameObject.name}");
-                }
+                //for (int i = 0; i < hits.Length; ++i)
+                //{
+                //    Debug.Log($"RaycastAll hit nº {i}: {hits[i].collider.gameObject.name}");
+                //}
+
+                ShowAllHitElements("RaycastAll", hits);
             }
         }
 
@@ -138,11 +155,14 @@ public class Raycasting : MonoBehaviour
 
             if (numHits > 0)
             {
-                for (int i = 0; i < hitsNonAlloc.Length; ++i)
-                {
-                    Debug.Log(hitsNonAlloc[i].collider.gameObject.name);
-                }
+                //for (int i = 0; i < hitsNonAlloc.Length; ++i)
+                //{
+                //    Debug.Log($"hitsNonAlloc[i] = {hitsNonAlloc[i]}");
+                //}
+                ShowAllHitElements("RaycastNonAlloc", hitsNonAlloc);
             }
+
+            
         }
 
         // Linecast
@@ -151,6 +171,7 @@ public class Raycasting : MonoBehaviour
             if (Physics.Linecast(startPoint, endPoint, out RaycastHit hit0))
             {
                 Debug.Log($"LineCast caught {hit0.transform.gameObject.name}");
+                ShowAllHitElements("Linecast", new RaycastHit[] { hit0 });
             }
         }
 
@@ -161,35 +182,62 @@ public class Raycasting : MonoBehaviour
             if (colliderToHit.Raycast(ray4, out RaycastHit hit2, maxDistance))
             {
                 Debug.Log($"Assigned colliderToHit was hit ({hit2.transform.gameObject.name})");
+
+                ShowAllHitElements("Collider.Raycast", new RaycastHit[] { hit2 });
             }
         }
 
         // SphereCast
         if (sphereCast)
         {
-            Ray ray5 = new Ray(transform.position, transform.forward);
-            if (Physics.SphereCast(ray5, sphereRadius, out RaycastHit hit0)) // 0.5f is the radius of the sphere
+            Ray ray5 = new Ray(transform.position, transform.forward); // This is making the sphere cast start at the same position as the object, but it will extend forward infinitely in the direction of transform.forward.
+            if (Physics.SphereCast(ray5, sphereRadius, out RaycastHit hit0, maxDistance)) // 0.5f is the radius of the sphere
             {
                 Debug.Log($"SphereCast caught {hit0.transform.gameObject.name}");
+                if(!instantiatedRaycastPlaceIdentifier.activeSelf)
+                    instantiatedRaycastPlaceIdentifier.SetActive(true);
+                instantiatedRaycastPlaceIdentifier.transform.position = hit0.point;
+
+                ShowAllHitElements("SphereCast", new RaycastHit[] { hit0 });
             }
         }
 
         // BoxCast        // Box extending itself forward forever
         if (boxCast)
         {
-            if (Physics.BoxCast(transform.position, boxSize / 2, transform.forward, out RaycastHit hit0))
+            if (Physics.BoxCast(transform.position, boxSize / 2, transform.forward, out RaycastHit hit0, Quaternion.identity, maxDistance))
             {
                 Debug.Log($"BoxCast caught {hit0.transform.gameObject.name}");
-                hit0.transform.position = new Vector3(hit0.transform.position.x, hit0.transform.position.y + 2, hit0.transform.position.z);
+                //hit0.transform.position = new Vector3(hit0.transform.position.x, hit0.transform.position.y + 2, hit0.transform.position.z);
+
+                if (!instantiatedRaycastPlaceIdentifier.activeSelf)
+                    instantiatedRaycastPlaceIdentifier.SetActive(true);
+                instantiatedRaycastPlaceIdentifier.transform.position = hit0.point;
+
+                ShowAllHitElements("BoxCast", new RaycastHit[] { hit0 });
             }
         }
 
         // CapsuleCast    // Capsule extending itself forward forever
         if (capsuleCast)
         {
-            if (Physics.CapsuleCast(position1, position2, sphereRadius, transform.forward, out RaycastHit hit0)) // 0.5f is the radius of the capsule
+            position1.x = transform.position.x;
+            position1.z = transform.position.z;
+            position2.x = transform.position.x;
+            position2.z = transform.position.z;
+
+            if (Physics.CapsuleCast(position1, position2, sphereRadius, transform.forward, out RaycastHit hit0, maxDistance)) // 0.5f is the radius of the capsule
             {
                 Debug.Log($"CapsuleCast caught {hit0.transform.gameObject.name}");
+                Debug.Log($"position1: {position1}, position2: {position2}, radius: {sphereRadius}");
+                Debug.Log($"CapsuleCast hit point: {hit0.point}");
+                Debug.Log($"maxDistance: {maxDistance}");
+
+                if (!instantiatedRaycastPlaceIdentifier.activeSelf)
+                    instantiatedRaycastPlaceIdentifier.SetActive(true);
+                instantiatedRaycastPlaceIdentifier.transform.position = hit0.point;
+
+                ShowAllHitElements("CapsuleCast", new RaycastHit[] { hit0 });
             }
         }
 
@@ -231,6 +279,8 @@ public class Raycasting : MonoBehaviour
             if (Physics.Raycast(ray7, out RaycastHit hit3))
             {
                 Debug.Log(hit3.collider.gameObject.name + " is in the Aim!");
+
+                ShowAllHitElements("ViewportPointToRay", new RaycastHit[] { hit3 });
             }
         }
 
@@ -238,8 +288,24 @@ public class Raycasting : MonoBehaviour
         {
             //Physics.OverlapSphere(transform.position, sphereRadius, layerMask) as RaycastHit[];
             int collidersHit= Physics.OverlapSphereNonAlloc(transform.position, sphereRadius, colliderOverlapSphereAll, layerMask);
-            
-            for(int i = 0; i < colliderOverlapSphereAll.Length; ++i)
+
+            //RaycastHit[] hits = new RaycastHit[collidersHit];
+
+
+            //for(int i = 0; i < collidersHit; ++i)
+            //{
+            //    hits[i] = new RaycastHit /*{ colliderOverlapSphereAll[i].gameObject };*/
+            //    {
+            //        point = colliderOverlapSphereAll[i].gameObject.transform.position,
+            //        normal = colliderOverlapSphereAll[i].gameObject.transform.up,
+            //        distance = Vector3.Distance(transform.position, colliderOverlapSphereAll[i].gameObject.transform.position),
+            //    };
+            //}
+
+            //ShowAllHitElements("OverlapSphereAll3D", hits);
+            ShowAllOverlapSphereNonAllocHitElements("OverlapSphereNonAlloc", colliderOverlapSphereAll);
+
+            for (int i = 0; i < colliderOverlapSphereAll.Length; ++i)
             {
                 //if(colliderOverlapSphereAll[i] != null && colliderOverlapSphereAll[i].gameObject.activeSelf)
                 //{
@@ -257,6 +323,52 @@ public class Raycasting : MonoBehaviour
         }
     }
 
+    void ShowAllHitElements(string raycastAlltype, UnityEngine.RaycastHit[] listOfRaycasted)
+    {
+        Debug.Log($"{raycastAlltype} hit {listOfRaycasted.Length} objects.");
+
+        stringBuilder = new StringBuilder();
+
+        stringBuilder.AppendLine($"{raycastAlltype} hit objects:");
+        for (int i = 0; i < listOfRaycasted.Length; ++i)
+        {
+            //if (listOfRaycasted[i].collider == gameObject.GetComponent<Collider>())
+            //{
+            //    stringBuilder.AppendLine($"- Hit nº {i}: player");
+            //}
+
+            if (listOfRaycasted[i].collider != null)
+            {
+                stringBuilder.AppendLine($"- Hit nº {i}: {listOfRaycasted[i].collider.gameObject.name}");
+            }
+        }
+
+        raycastedObjectLabel.text = stringBuilder.ToString();
+    }
+
+    void ShowAllOverlapSphereNonAllocHitElements(string raycastAlltype, Collider[] listOfRaycasted)
+    {
+        Debug.Log($"{raycastAlltype} hit {listOfRaycasted.Length} objects.");
+
+        stringBuilder = new StringBuilder();
+
+        stringBuilder.AppendLine($"{raycastAlltype} hit objects:");
+        for (int i = 0; i < listOfRaycasted.Length; ++i)
+        {
+            //if (listOfRaycasted[i].collider == gameObject.GetComponent<Collider>())
+            //{
+            //    stringBuilder.AppendLine($"- Hit nº {i}: player");
+            //}
+
+            if (listOfRaycasted[i] != null)
+            {
+                stringBuilder.AppendLine($"- Hit nº {i}: {listOfRaycasted[i].gameObject.name}");
+            }
+        }
+
+        raycastedObjectLabel.text = stringBuilder.ToString();
+    }
+
     #region ChangeColor
     private void ChangeColor()
     {
@@ -268,14 +380,19 @@ public class Raycasting : MonoBehaviour
     #region Shine
     private void Shine(GameObject hitObject)
     {
-        material.EnableKeyword("_EMISSION");
+        //material.EnableKeyword("_EMISSION");
 
-        if (previousObject != hitObject)
+        //StopAllCoroutines();
+
+        if (previousObject != null && previousObject != hitObject)
         {
-            StartCoroutine(ShineEffect(previousObject.GetComponent<Renderer>().material, shineIntensity, startIntensity));
+            //StartCoroutine(ShineEffect(previousObject.GetComponent<Renderer>().material, intensity, startIntensity));
+            previousObject.GetComponent<Shine>().StopShine();
         }
 
-        StartCoroutine(ShineEffect(hitObject.GetComponent<Renderer>().material, startIntensity, shineIntensity));
+        //if(material.GetColor("_EmissionColor") == material.color * startIntensity)
+        //StartCoroutine(ShineEffect(hitObject.GetComponent<Renderer>().material, startIntensity, shineIntensity));
+        hitObject.GetComponent<Shine>().StartShine();
     }
 
     IEnumerator ShineEffect(Material thisMaterial, float start, float end)
