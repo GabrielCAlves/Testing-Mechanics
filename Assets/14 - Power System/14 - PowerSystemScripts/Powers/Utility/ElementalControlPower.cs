@@ -29,7 +29,7 @@ public class ElementalControlPower : Power
         SwitchElement(user, currentElement);
     }
 
-    public void UpdateElementalControl(GameObject user)
+    public override void UpdatePower(GameObject user)
     {
         if (!isActive) return;
 
@@ -55,6 +55,14 @@ public class ElementalControlPower : Power
         if (Input.GetKeyDown(KeyCode.Alpha5) && switchTimer <= 0)
         {
             SwitchElement(user, Element.Lightning);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6) && switchTimer <= 0)
+        {
+            SwitchElement(user, Element.Light);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7) && switchTimer <= 0)
+        {
+            SwitchElement(user, Element.Dark);
         }
     }
 
