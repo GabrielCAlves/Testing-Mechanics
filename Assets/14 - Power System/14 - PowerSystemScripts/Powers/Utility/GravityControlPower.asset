@@ -20,10 +20,20 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  gravityMultiplier: 0.2
-  antiGravityRange: 8
-  pullForce: 20
-  pushForce: 30
-  gravityFieldEffect: {fileID: 0}
+  gravityMultiplier: 0.5
+  antiGravityRange: 11
+  pullForce: 10
+  pushForce: 10
+  gravityFieldEffect: {fileID: 6349105327508657485, guid: a2fedeb2207cc8d419f3c4689481042c, type: 3}
   affectEnemies: 1
   affectProjectiles: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  withoutGravity: 0
+  antiGravityMode: 1
+  suspendDuration: 3
+  suspendHeight: 2
+  pushBackForce: 5
+  levitationSpeed: 17.73
+  affectedObjects: []

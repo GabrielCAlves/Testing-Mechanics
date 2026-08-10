@@ -1363,7 +1363,6 @@ GameObject:
   - component: {fileID: 795362818}
   - component: {fileID: 795362817}
   - component: {fileID: 795362821}
-  - component: {fileID: 795362822}
   m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
@@ -1497,23 +1496,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: ecfa131d1a057b14d89bdfe01d78f600, type: 2}
   m_BuildHeightMesh: 0
---- !u!114 &795362822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795362816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4360fe1305a55ad4797935f2e91e356a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavMeshFixer
-  yOffset: 0.1
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  autoFix: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1909,7 @@ GameObject:
   - component: {fileID: 1287179691}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2044,7 +2026,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0.45
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1287179689
@@ -2123,7 +2105,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1289801875
 GameObject:
@@ -2143,7 +2125,7 @@ GameObject:
   - component: {fileID: 1289801876}
   m_Layer: 7
   m_Name: EnemyForXRayVision
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2537,7 +2519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUser
   powers:
-  - {fileID: 11400000, guid: 52972754dce4a004c857421f8eb1e43a, type: 2}
+  - {fileID: 11400000, guid: f8c14ff198a95034688c664865b09dd4, type: 2}
   maxEnergy: 100
   currentEnergy: 0
   energyRegenRate: 10
