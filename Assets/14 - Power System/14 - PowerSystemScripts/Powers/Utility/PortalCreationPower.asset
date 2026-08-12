@@ -24,6 +24,8 @@ MonoBehaviour:
   portalRadius: 2
   portalLifetime: 30
   defaultDistance: 5
+  offsetTeleportPosition: {x: 0, y: 2, z: 0}
+  teleportCooldown: 0.5
   portalPrefab: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
   portalMaterial: {fileID: 0}
   portalColor: {r: 0, g: 1, b: 1, a: 1}
