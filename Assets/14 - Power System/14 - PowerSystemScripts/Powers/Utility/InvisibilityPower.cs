@@ -10,12 +10,13 @@ public class InvisibilityPower : Power
     public float duration = 10f;
     public float fadeSpeed = 2f;
     public float revealDistance = 2f;
+    [Range(0f, 1f)] public float levelOfAlphaVisibility = 0.2f;
     public GameObject invisibilityEffect;
     public bool silentMovement = true;
 
-    private bool isInvisible = false;
-    private float timer;
-    private Renderer[] renderers;
+    [SerializeField] private bool isInvisible = false;
+    [SerializeField] private float timer;
+    [SerializeField] private Renderer[] renderers;
     private AudioSource audioSource;
     private float originalVolume;
     private GameObject effectObject;
@@ -36,8 +37,9 @@ public class InvisibilityPower : Power
 
         // Fade out dos renderers
         var mono = user.GetComponent<MonoBehaviour>();
+
         if (mono != null)
-            mono.StartCoroutine(FadeRenderers(user, 1f, 0f));
+            mono.StartCoroutine(FadeRenderers(user, 1f, levelOfAlphaVisibility)); // The material needs to be set transparent for this to work, not opaque
 
         // Silencia movimentos
         if (silentMovement && audioSource != null)
@@ -62,6 +64,8 @@ public class InvisibilityPower : Power
             progress += Time.deltaTime * fadeSpeed;
             float alpha = Mathf.Lerp(from, to, progress);
 
+            Debug.Log("alpha -> " + alpha);
+
             foreach (var rend in renderers)
             {
                 Color color = rend.material.color;
@@ -73,7 +77,7 @@ public class InvisibilityPower : Power
         }
     }
 
-    public void UpdateInvisibility(GameObject user)
+    public override void UpdatePower(GameObject user)
     {
         if (!isInvisible) return;
 

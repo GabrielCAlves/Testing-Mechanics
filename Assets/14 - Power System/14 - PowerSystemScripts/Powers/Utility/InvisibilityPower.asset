@@ -23,5 +23,10 @@ MonoBehaviour:
   duration: 10
   fadeSpeed: 2
   revealDistance: 2
+  levelOfAlphaVisibility: 0.2
   invisibilityEffect: {fileID: 0}
   silentMovement: 1
+  isInvisible: 0
+  timer: 5.9418964
+  renderers:
+  - {fileID: 0}
