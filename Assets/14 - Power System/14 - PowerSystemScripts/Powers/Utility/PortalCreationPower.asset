@@ -20,9 +20,11 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  portalRange: 30
+  portalRange: 10
   portalRadius: 2
-  portalPrefab: {fileID: 0}
+  portalLifetime: 30
+  defaultDistance: 5
+  portalPrefab: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
   portalMaterial: {fileID: 0}
   portalColor: {r: 0, g: 1, b: 1, a: 1}
   portalSound: {fileID: 0}
