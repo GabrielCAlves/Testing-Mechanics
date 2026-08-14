@@ -2,7 +2,7 @@
 - Project name: Testing-Mechanics
 - Unity version: Unity 6000.3.11f1
 - Active game object:
-  - Name: Armature (1)
+  - Name: Plane
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Ground
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
