@@ -65,9 +65,9 @@ public class TimeManipulationPower : Power
         }
     }
 
-    public void UpdateTimeManipulation(GameObject user)
+    public override void UpdatePower(GameObject user)
     {
-        if (!isActive) return;
+        if (!isActive || user == null) return;
 
         timer -= Time.unscaledDeltaTime;
 
