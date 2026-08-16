@@ -23,6 +23,6 @@ MonoBehaviour:
   timeScale: 0.1
   duration: 5
   slowRadius: 10
-  timeFieldEffect: {fileID: 0}
+  timeFieldEffect: {fileID: 6349105327508657485, guid: a2fedeb2207cc8d419f3c4689481042c, type: 3}
   timeFieldColor: {r: 0, g: 1, b: 1, a: 0.3}
   timeSound: {fileID: 0}
