@@ -20,8 +20,9 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
-  alternateForms: []
-  transformDuration: 0.5
+  alternateForms:
+  - {fileID: 919132149155446097, guid: be1211f5142464a4eab9d30e5fd0c6e2, type: 3}
+  - {fileID: 919132149155446097, guid: 8261517654aed40458db5609e29bf08a, type: 3}
+  - {fileID: 100124, guid: 14cbf536ab2fc3243910aad930ac56f8, type: 3}
   transformEffect: {fileID: 0}
   transformSound: {fileID: 0}
-  inheritStats: 1
