@@ -20,10 +20,256 @@ MonoBehaviour:
   activationKey: 256
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
+  elementalAbilitiesList:
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 8723380869220638018, guid: 2cc291b4c90babc41ae7b19f918fbc2b, type: 3}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 7
+    defensiveProtectionTime: 5
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
+  - powerUser: {fileID: 0}
+    shortRangeAttack: {fileID: 0}
+    shortAttackOffset: {x: 0, y: 0, z: 0}
+    shortAttackDamage: 0
+    shortAttackTime: 0
+    midRangeAttack: {fileID: 0}
+    midAttackOffset: {x: 0, y: 0, z: 0}
+    midAttackDamage: 0
+    midAttackTime: 0
+    longRangeAttack: {fileID: 0}
+    longAttackOffset: {x: 0, y: 0, z: 0}
+    longAttackDamage: 0
+    longAttackTime: 0
+    bulletPrefab: {fileID: 0}
+    shootPoint: {fileID: 0}
+    shootDamage: 0
+    shootForce: 0
+    poolSize: 10
+    bulletPool: []
+    timeToDeactivate: 2
+    useReloadTime: 0
+    reloadTime: 2
+    areaAttack: {fileID: 0}
+    areaAttackOffset: {x: 0, y: 0, z: 0}
+    areaAttackRadius: 0
+    areaAttackLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    areaAttackDamage: 0
+    areaAttackTime: 0
+    defensiveProtection: {fileID: 0}
+    defensiveOffset: {x: 0, y: 0, z: 0}
+    defensiveProtectionRadius: 0
+    defensiveProtectionTime: 0
   currentElement: 0
   unlockedElements: 
   elementSwitchCooldown: 1
   elementEffects: []
   elementMaterials: []
   elementColors: []
-  elementDamageMultipliers: []
+  elementDamageMultipliers:
+  - 1.5
+  - 2
+  - 2.5
+  - 3
+  - 3.5
+  - 4
+  - 4.5

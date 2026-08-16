@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PowerUser : MonoBehaviour
 {
@@ -129,6 +130,48 @@ public class PowerUser : MonoBehaviour
         if (cooldownTimers.ContainsKey(power))
             return cooldownTimers[power];
         return 0f;
+    }
+
+    public GameObject InstantiateObject(GameObject prefab, Vector3 offset, Quaternion rotation)
+    {
+        return Instantiate(prefab, transform.position+offset, rotation);
+    }
+
+    public void DeactivateBulletCoroutine(GameObject bullet, float deactivateTime, Transform shootPoint)
+    {
+        StartCoroutine(DeactivateBullet(bullet, deactivateTime, shootPoint));
+    }
+
+    public void ReloadCoroutine(float shootCount, float reloadTime, bool reloading)
+    {
+        StartCoroutine(Reload(shootCount, reloadTime, reloading));
+    }
+
+    public void DeactivateAbilityCoroutine(GameObject ability, float deactivateTime)
+    {
+        StartCoroutine(DeactivateAbility(ability, deactivateTime));
+    }
+
+    IEnumerator DeactivateBullet(GameObject bullet, float timeToDeactivate, Transform shootPoint)
+    {
+        yield return new WaitForSeconds(timeToDeactivate);
+
+        bullet.SetActive(false);
+        bullet.transform.position = shootPoint.position;
+    }
+
+    IEnumerator Reload(float shootCount, float reloadTime, bool reloading)
+    {
+        yield return new WaitForSeconds(reloadTime);
+
+        shootCount = 0;
+        reloading = false;
+    }
+
+    IEnumerator DeactivateAbility(GameObject ability, float deactivateTime)
+    {
+        yield return new WaitForSeconds(deactivateTime);
+        ability.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()
