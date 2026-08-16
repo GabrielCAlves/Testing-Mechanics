@@ -21,11 +21,16 @@ MonoBehaviour:
   activationEffect: {fileID: 0}
   activationSound: {fileID: 0}
   grabRange: 10
+  moveSensitivity: 2
+  rotationSensitivity: 5
   throwForce: 30
+  upForce: 5
   holdDistance: 3
   maxLiftMass: 50
   grabbableLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   telekinesisEffect: {fileID: 0}
   telekinesisMaterial: {fileID: 0}
+  keepObjectInFront: 0
+  lookAtObjectWhileHolding: 1
