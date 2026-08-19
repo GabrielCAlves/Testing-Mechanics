@@ -14,7 +14,7 @@ public class InputSystemMovement_New : MonoBehaviour
     [SerializeField] private Vector3 velocity;
     [SerializeField] private bool isJumping;
 
-    private Vector2 direction;
+    [SerializeField] private Vector2 direction;
 
     private void Start()
     {
@@ -31,8 +31,11 @@ public class InputSystemMovement_New : MonoBehaviour
     void MovePlayer()
     {
         // Movimento horizontal
-        direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime;
+        direction = moveAction.ReadValue<Vector2>().normalized;
+        //Vector3 move = transform.right * direction.x + transform.forward * direction.y;
+        //transform.position += new Vector3(move.x, 0, move.y) * speed * Time.deltaTime;
+        //transform.position += new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime; // Doesn't follow the turned direction
+        transform.Translate(new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime); // Does follow the turned direction
 
         // Verifica se está no chão e reseta a velocidade vertical
         if (isGrounded && velocity.y < 0)
