@@ -2,7 +2,7 @@
 - Project name: Testing-Mechanics
 - Unity version: Unity 6000.3.11f1
 - Active game object:
-  - Name: ShootPoint
-  - Tag: Untagged
-  - Layer: Default
+  - Name: HPCharacter
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: Assembly-CSharp::GunData
   gunName: Rifle
-  bulletPrefab: {fileID: 6753856101268289964, guid: dc964b998c0de6e46acb06ed3647bcdb, type: 3}
+  bulletPrefab: {fileID: 3747246725045379052, guid: 05d44fcc2c2efef44acc73ad2d5951aa, type: 3}
   fireRate: 0.15
   damage: 10
   range: 100

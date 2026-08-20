@@ -16,11 +16,23 @@ public class InputSystemMovement_New : MonoBehaviour
 
     [SerializeField] private Vector2 direction;
 
+    [SerializeField] private SimpleFSM simpleFSM;
+    private float originalSpeed;
+    private float sideWalkSpeed;
+    private float backwardWalkSpeed;
+    private float runSpeed;
+    private float timerToRun = 0f;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
+        simpleFSM = GetComponent<SimpleFSM>();
+        originalSpeed = speed;
+        sideWalkSpeed = speed / 2;
+        backwardWalkSpeed = speed / 3;
+        runSpeed = speed + (speed / 2);
     }
 
     private void Update()
@@ -32,11 +44,54 @@ public class InputSystemMovement_New : MonoBehaviour
     {
         // Movimento horizontal
         direction = moveAction.ReadValue<Vector2>().normalized;
+        
+
+        if (simpleFSM != null)
+        {
+            if (direction.x > 0)
+            {
+                speed = sideWalkSpeed;
+                simpleFSM.SetWalkToRight();
+            }
+            else if(direction.x < 0)
+            {
+                speed = sideWalkSpeed;
+                simpleFSM.SetWalkToLeft();
+            }
+
+            if (direction.y > 0)
+            {
+                if (timerToRun >= 2f)
+                {
+                    speed = runSpeed;
+                    simpleFSM.SetRun();
+                }
+                else
+                {
+                    speed = originalSpeed;
+                    simpleFSM.SetWalkForward();
+                    timerToRun += Time.deltaTime;
+                }
+            }
+            else if (direction.y < 0)
+            {
+                speed = backwardWalkSpeed;
+                simpleFSM.SetWalkBackward();
+            }
+
+            if(direction.x == 0 && direction.y == 0)
+            {
+                simpleFSM.SetIdle();
+                timerToRun = 0f;
+            }
+                
+        }
+
         //Vector3 move = transform.right * direction.x + transform.forward * direction.y;
         //transform.position += new Vector3(move.x, 0, move.y) * speed * Time.deltaTime;
         //transform.position += new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime; // Doesn't follow the turned direction
         transform.Translate(new Vector3(direction.x, 0, direction.y) * speed * Time.deltaTime); // Does follow the turned direction
-
+        
         // Verifica se está no chão e reseta a velocidade vertical
         if (isGrounded && velocity.y < 0)
         {
@@ -46,6 +101,10 @@ public class InputSystemMovement_New : MonoBehaviour
 
         if (isGrounded && jumpAction.triggered && !isJumping)
         {
+            if (simpleFSM != null)
+            {
+                simpleFSM.SetJump();
+            }
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             isJumping = true;
             Debug.Log("Pulo executado! Velocidade Y: " + velocity.y);
@@ -86,6 +145,10 @@ public class InputSystemMovement_New : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+            if (simpleFSM != null)
+            {
+                simpleFSM.SetIdle();
+            }
         }
     }
 }

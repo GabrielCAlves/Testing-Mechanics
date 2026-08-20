@@ -12,8 +12,14 @@ public class GunController : MonoBehaviour
     private float nextFireTime;
     private int currentAmmo;
     private bool isReloading;
+    private SimpleFSM simpleFSM;
 
-    void Start() => currentAmmo = currentGun.maxAmmo;
+    //void Start() => currentAmmo = currentGun.maxAmmo;
+    void Start()
+    {
+        currentAmmo = currentGun.maxAmmo;
+        simpleFSM = GetComponentInParent<SimpleFSM>();
+    }
 
     void Update()
     {
@@ -23,9 +29,22 @@ public class GunController : MonoBehaviour
         if (currentGun.isAutomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1"))
         {
             if (currentAmmo > 0 && Time.time >= nextFireTime)
+            {
+                if (simpleFSM != null)
+                {
+                    simpleFSM.SetSingleShot();
+                }
                 Fire();
+            }
             else if (currentAmmo <= 0)
+            {
+                if (simpleFSM != null)
+                {
+                    simpleFSM.SetReload();
+                }
                 StartReload();
+            }
+                
         }
 
         if (Input.GetKeyDown(KeyCode.R)) StartReload();
@@ -170,5 +189,9 @@ public class GunController : MonoBehaviour
     {
         currentAmmo = currentGun.maxAmmo;
         isReloading = false;
+        if (simpleFSM != null)
+        {
+            simpleFSM.SetIdle();
+        }
     }
 }
