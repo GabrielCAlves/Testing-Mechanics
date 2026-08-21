@@ -9,6 +9,10 @@ public class GunController : MonoBehaviour
     public float bulletSpeed = 5f;
     public bool independentCameraFromCharacter = false;
 
+    public InputSystemMovement_New playerNewInputSystem;
+    public float timerSetToIdle = 0f;
+    public float shootStateDuration = 4f;
+
     private float nextFireTime;
     private int currentAmmo;
     private bool isReloading;
@@ -19,11 +23,21 @@ public class GunController : MonoBehaviour
     {
         currentAmmo = currentGun.maxAmmo;
         simpleFSM = GetComponentInParent<SimpleFSM>();
+        playerNewInputSystem = GetComponentInParent<InputSystemMovement_New>();
     }
 
     void Update()
     {
         if (isReloading) return;
+
+        if(playerNewInputSystem.isShooting)
+            timerSetToIdle += Time.deltaTime;
+
+        if(timerSetToIdle > shootStateDuration)
+        {
+            playerNewInputSystem.isShooting = false;
+            timerSetToIdle = 0;
+        }
 
         // Lógica de tiro (automático ou semi)
         if (currentGun.isAutomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1"))
@@ -33,6 +47,8 @@ public class GunController : MonoBehaviour
                 if (simpleFSM != null)
                 {
                     simpleFSM.SetSingleShot();
+                    playerNewInputSystem.isShooting = true;
+                    timerSetToIdle = 0;
                 }
                 Fire();
             }
@@ -94,6 +110,8 @@ public class GunController : MonoBehaviour
             Instantiate(currentGun.muzzleFlashPrefab, firePoint.position, firePoint.rotation);
 
         ApplyRecoil();
+
+        simpleFSM.SetAim();
     }
 
     // --- CÁLCULO DA MIRA COM SPREAD (VERSÃO CORRIGIDA FINAL) ---

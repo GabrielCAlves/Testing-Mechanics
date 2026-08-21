@@ -49,6 +49,7 @@ public class SimpleFSM : MonoBehaviour
         public const string Burned = "Burned";
         public const string Freezed = "Freezed";
         public const string Fly = "Fly";
+        public const string Swim = "Swim";
         public const string Teleport = "Teleport";
 
         // 10 estados adicionais
@@ -75,7 +76,7 @@ public class SimpleFSM : MonoBehaviour
     // Método público para mudar de estado
     public void SetState(string newState)
     {
-        if (string.IsNullOrEmpty(newState) || currentState == newState) // OR ||
+        if (string.IsNullOrEmpty(newState) || currentState == newState) // OR || ou123
             return;
 
         currentState = newState;
@@ -121,6 +122,7 @@ public class SimpleFSM : MonoBehaviour
     public void SetBurned() => SetState(States.Burned);
     public void SetFreezed() => SetState(States.Freezed);
     public void SetFly() => SetState(States.Fly);
+    public void SetSwim() => SetState(States.Swim);
     public void SetTeleport() => SetState(States.Teleport);
 
     // Estados adicionais

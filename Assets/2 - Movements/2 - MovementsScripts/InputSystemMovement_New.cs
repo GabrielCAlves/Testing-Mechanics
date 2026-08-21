@@ -7,7 +7,15 @@ public class InputSystemMovement_New : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
 
-    [SerializeField] private float speed = 5f;
+    public GameObject character;
+    public bool isShooting = false;
+    public float rotLerp = .2f;
+    public bool useTwoArrowsRot = true;
+    private Vector2 previousDirection;
+    private bool hasRotated = false;
+    private bool directionChanged;
+
+    [SerializeField] private float speed = 2f;
     [SerializeField] private float jumpForce = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private bool isGrounded;
@@ -30,9 +38,11 @@ public class InputSystemMovement_New : MonoBehaviour
         jumpAction = playerInput.actions["Jump"];
         simpleFSM = GetComponent<SimpleFSM>();
         originalSpeed = speed;
-        sideWalkSpeed = speed / 2;
+        sideWalkSpeed = speed / 3f;
         backwardWalkSpeed = speed / 3;
-        runSpeed = speed + (speed / 2);
+        runSpeed = speed*3/* + (speed / 2)*/;
+
+        previousDirection = Vector2.zero;
     }
 
     private void Update()
@@ -43,49 +53,10 @@ public class InputSystemMovement_New : MonoBehaviour
     void MovePlayer()
     {
         // Movimento horizontal
-        direction = moveAction.ReadValue<Vector2>().normalized;
+        direction = moveAction.ReadValue<Vector2>().normalized; 
         
-
-        if (simpleFSM != null)
-        {
-            if (direction.x > 0)
-            {
-                speed = sideWalkSpeed;
-                simpleFSM.SetWalkToRight();
-            }
-            else if(direction.x < 0)
-            {
-                speed = sideWalkSpeed;
-                simpleFSM.SetWalkToLeft();
-            }
-
-            if (direction.y > 0)
-            {
-                if (timerToRun >= 2f)
-                {
-                    speed = runSpeed;
-                    simpleFSM.SetRun();
-                }
-                else
-                {
-                    speed = originalSpeed;
-                    simpleFSM.SetWalkForward();
-                    timerToRun += Time.deltaTime;
-                }
-            }
-            else if (direction.y < 0)
-            {
-                speed = backwardWalkSpeed;
-                simpleFSM.SetWalkBackward();
-            }
-
-            if(direction.x == 0 && direction.y == 0)
-            {
-                simpleFSM.SetIdle();
-                timerToRun = 0f;
-            }
-                
-        }
+        // Verifica se a direção mudou
+        directionChanged = direction != previousDirection;
 
         //Vector3 move = transform.right * direction.x + transform.forward * direction.y;
         //transform.position += new Vector3(move.x, 0, move.y) * speed * Time.deltaTime;
@@ -115,6 +86,105 @@ public class InputSystemMovement_New : MonoBehaviour
 
         // Aplicar movimento vertical SEPARADO do horizontal
         if(isJumping) transform.position += new Vector3(0, velocity.y, 0) * Time.deltaTime;
+
+        if (simpleFSM != null)
+        {
+            if (direction.x == 0 && direction.y == 0 && !isShooting)
+            {
+                simpleFSM.SetIdle();
+                timerToRun = 0f;
+                return;
+            }
+
+            if (direction.y > 0 && (direction.x > 0 || direction.x < 0))
+            {
+                if (timerToRun >= 2f)
+                {
+                    speed = runSpeed;
+                    simpleFSM.SetRun();
+                }
+                else
+                {
+                    speed = originalSpeed;
+                    simpleFSM.SetWalkForward();
+                    timerToRun += Time.deltaTime;
+                }
+
+                if (useTwoArrowsRot && directionChanged)
+                {
+                    character.transform.Rotate(0, 45 * direction.x, 0);
+                    hasRotated = true;
+                }
+
+                previousDirection = direction;
+                return;
+            }
+
+            if (direction.y < 0 && (direction.x > 0 || direction.x < 0))
+            {
+                speed = backwardWalkSpeed;
+                simpleFSM.SetWalkBackward();
+
+                if (useTwoArrowsRot && directionChanged)
+                {
+                    character.transform.Rotate(0, -45 * direction.x, 0);
+                    hasRotated = true;
+                }
+
+                previousDirection = direction;
+                return;
+            }
+
+            VerifyRotation();
+
+            if (direction.x > 0)
+            {
+                speed = sideWalkSpeed;
+                simpleFSM.SetWalkToRight();
+                //character.transform.rotation = Quaternion.identity;
+            }
+            else if (direction.x < 0)
+            {
+                speed = sideWalkSpeed;
+                simpleFSM.SetWalkToLeft();
+                //character.transform.rotation = Quaternion.identity;
+            }
+
+            if (direction.y > 0)
+            {
+                if (timerToRun >= 2f)
+                {
+                    speed = runSpeed;
+                    simpleFSM.SetRun();
+                }
+                else
+                {
+                    speed = originalSpeed;
+                    simpleFSM.SetWalkForward();
+                    timerToRun += Time.deltaTime;
+                }
+                //character.transform.rotation = Quaternion.identity;
+            }
+            else if (direction.y < 0)
+            {
+                speed = backwardWalkSpeed;
+                simpleFSM.SetWalkBackward();
+                //character.transform.rotation = Quaternion.identity;
+            }
+
+            
+        }
+    }
+
+    private void VerifyRotation()
+    {
+        //if(character != null && transform.parent != null && character.transform.rotation != transform.parent.rotation)
+        //    character.transform.rotation = Quaternion.Lerp(character.transform.rotation, transform.parent.rotation, rotLerp);
+        //if (character != null && character.transform.rotation != new Quaternion(0, 0, 0, 1))
+        //    character.transform.rotation = Quaternion.Lerp(character.transform.rotation, new Quaternion(0,0,0,1), rotLerp);
+
+        if (character != null && character.transform.rotation != transform.rotation)
+            character.transform.rotation = transform.rotation;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -145,6 +215,7 @@ public class InputSystemMovement_New : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+
             if (simpleFSM != null)
             {
                 simpleFSM.SetIdle();
