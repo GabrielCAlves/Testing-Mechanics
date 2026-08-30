@@ -73,9 +73,7 @@ public class InputSystemMovement_New : MonoBehaviour
         if (isGrounded && jumpAction.triggered && !isJumping)
         {
             if (simpleFSM != null)
-            {
                 simpleFSM.SetJump();
-            }
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             isJumping = true;
             Debug.Log("Pulo executado! Velocidade Y: " + velocity.y);
@@ -155,7 +153,10 @@ public class InputSystemMovement_New : MonoBehaviour
                 if (timerToRun >= 2f)
                 {
                     speed = runSpeed;
-                    simpleFSM.SetRun();
+                    if (!isShooting)
+                        simpleFSM.SetRun();
+                    else
+                        simpleFSM.SetRunFrontShoot();
                 }
                 else
                 {
@@ -217,9 +218,7 @@ public class InputSystemMovement_New : MonoBehaviour
             isJumping = false;
 
             if (simpleFSM != null)
-            {
                 simpleFSM.SetIdle();
-            }
         }
     }
 }

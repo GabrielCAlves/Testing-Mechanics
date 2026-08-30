@@ -22,8 +22,16 @@ public class GunController : MonoBehaviour
     void Start()
     {
         currentAmmo = currentGun.maxAmmo;
-        simpleFSM = GetComponentInParent<SimpleFSM>();
-        playerNewInputSystem = GetComponentInParent<InputSystemMovement_New>();
+
+        if(simpleFSM == null)
+            simpleFSM = GetComponentInParent<SimpleFSM>();
+        if (simpleFSM == null)
+            simpleFSM = GetComponent<SimpleFSM>();
+
+        if(playerNewInputSystem == null)
+            playerNewInputSystem = GetComponentInParent<InputSystemMovement_New>();
+        if (playerNewInputSystem == null)
+            playerNewInputSystem = GetComponent<InputSystemMovement_New>();
     }
 
     void Update()
@@ -55,9 +63,7 @@ public class GunController : MonoBehaviour
             else if (currentAmmo <= 0)
             {
                 if (simpleFSM != null)
-                {
                     simpleFSM.SetReload();
-                }
                 StartReload();
             }
                 
@@ -80,6 +86,9 @@ public class GunController : MonoBehaviour
     {
         nextFireTime = Time.time + currentGun.fireRate;
         currentAmmo--;
+
+        if (simpleFSM != null)
+            simpleFSM.SetAim();
 
         // 1. Executa o Tiro (Hitscan ou Projétil)
         if (currentGun.bulletPrefab != null)
@@ -110,8 +119,6 @@ public class GunController : MonoBehaviour
             Instantiate(currentGun.muzzleFlashPrefab, firePoint.position, firePoint.rotation);
 
         ApplyRecoil();
-
-        simpleFSM.SetAim();
     }
 
     // --- CÁLCULO DA MIRA COM SPREAD (VERSÃO CORRIGIDA FINAL) ---
@@ -132,11 +139,14 @@ public class GunController : MonoBehaviour
         // 2. Verifica se o raio da câmera colidiu com algo
         if (Physics.Raycast(ray, out hit, currentGun.range))
         {
-            targetPoint = hit.point; // Acertou um objeto (inimigo, parede, etc)
+            if(hit.transform.CompareTag("Player"))
+                targetPoint = transform.position + transform.forward * currentGun.range; // Acertou o próprio player, ignora e usa um ponto à frente
+            else
+                targetPoint = hit.point; // Acertou um objeto que não é o prórpio player(inimigo, parede, etc)
         }
         else
         {
-            // Não acertou nada, usa um ponto no infinito na direção do crosshair
+            // Não acertou nada, usa um ponto no infinito **NA DIREÇÃO DO CROSSHAIR**
             targetPoint = ray.GetPoint(currentGun.range);
         }
 
@@ -208,8 +218,6 @@ public class GunController : MonoBehaviour
         currentAmmo = currentGun.maxAmmo;
         isReloading = false;
         if (simpleFSM != null)
-        {
             simpleFSM.SetIdle();
-        }
     }
 }

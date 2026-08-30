@@ -8,6 +8,8 @@ public class SimpleFSM : MonoBehaviour
     [Header("Current State")]
     [SerializeField] private string currentState;
 
+    private LifeSystem lifeSystem;
+
     // Constantes para os nomes dos estados (para evitar erros de digitação)
     public static class States
     {
@@ -43,6 +45,7 @@ public class SimpleFSM : MonoBehaviour
         public const string WalkBackShoot = "WalkBackShoot";
         public const string RunWithGun = "RunWithGun";
         public const string RunWithWeapon = "RunWithWeapon";
+        public const string RunFrontShoot = "RunFrontShoot";
         public const string Hipnotized = "Hipnotized";
         public const string Distracted = "Distracted";
         public const string Poisoned = "Poisoned";
@@ -71,6 +74,17 @@ public class SimpleFSM : MonoBehaviour
             animator = GetComponent<Animator>();
 
         SetState(States.Idle);
+
+        if(lifeSystem == null)
+            lifeSystem = GetComponent<LifeSystem>();
+        if (lifeSystem == null)
+            lifeSystem = GetComponentInParent<LifeSystem>();
+        if (lifeSystem != null)
+        {
+            lifeSystem.OnTakeDamage += SetTakeDamage;
+            lifeSystem.OnDeath += SetDie;
+        }
+            
     }
 
     // Método público para mudar de estado
@@ -116,6 +130,8 @@ public class SimpleFSM : MonoBehaviour
     public void SetWalkBackShoot() => SetState(States.WalkBackShoot);
     public void SetRunWithGun() => SetState(States.RunWithGun);
     public void SetRunWithWeapon() => SetState(States.RunWithWeapon);
+
+    public void SetRunFrontShoot() => SetState(States.RunFrontShoot);
     public void SetHipnotized() => SetState(States.Hipnotized);
     public void SetDistracted() => SetState(States.Distracted);
     public void SetPoisoned() => SetState(States.Poisoned);

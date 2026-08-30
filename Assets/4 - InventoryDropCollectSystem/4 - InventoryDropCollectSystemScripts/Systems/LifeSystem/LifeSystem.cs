@@ -9,6 +9,7 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
     public int currentHealth;
 
     public event Action OnDeath;
+    public event Action OnTakeDamage;
 
     [Header("Health Bars")]
     public LifeBar healthBar; // One Life Bar
@@ -52,6 +53,8 @@ public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas g
     {
         if (animator != null)
             animator.SetTrigger(ANIM_TAKEHIT);
+
+        OnTakeDamage?.Invoke();
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
