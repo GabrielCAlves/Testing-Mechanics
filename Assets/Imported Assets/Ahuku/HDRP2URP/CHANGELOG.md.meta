@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5b939c651162801498ef49121301da16
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 384688
+  packageName: HDRP to URP Converter
+  packageVersion: 1.0
+  assetPath: Assets/Ahuku/HDRP2URP/CHANGELOG.md
+  uploadId: 927860

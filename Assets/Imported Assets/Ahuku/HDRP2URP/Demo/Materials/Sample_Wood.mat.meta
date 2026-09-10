@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a328d38b73aa0f543852c0ae0a495414
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 384688
+  packageName: HDRP to URP Converter
+  packageVersion: 1.0
+  assetPath: Assets/Ahuku/HDRP2URP/Demo/Materials/Sample_Wood.mat
+  uploadId: 927860

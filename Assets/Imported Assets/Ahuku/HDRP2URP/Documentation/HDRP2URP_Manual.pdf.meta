@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 13e17570ca038ec428925b8c7e7ba07c
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 384688
+  packageName: HDRP to URP Converter
+  packageVersion: 1.0
+  assetPath: Assets/Ahuku/HDRP2URP/Documentation/HDRP2URP_Manual.pdf
+  uploadId: 927860

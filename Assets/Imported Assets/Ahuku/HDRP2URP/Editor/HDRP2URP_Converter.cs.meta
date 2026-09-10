@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 095bfa8959b41f748b92fe4f650206b9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 384688
+  packageName: HDRP to URP Converter
+  packageVersion: 1.0
+  assetPath: Assets/Ahuku/HDRP2URP/Editor/HDRP2URP_Converter.cs
+  uploadId: 927860
