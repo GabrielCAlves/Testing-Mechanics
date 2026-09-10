@@ -1,0 +1,16 @@
+{
+    "name": "15-EventSystemAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:059058aaab8833748a8d66fd019d5c2e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

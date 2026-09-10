@@ -1,5 +1,5 @@
-// FirePower.cs
-using FreeflowCombatSpace;
+﻿// FirePower.cs
+//using FreeflowCombatSpace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

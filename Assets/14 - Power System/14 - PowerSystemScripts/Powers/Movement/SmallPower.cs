@@ -1,5 +1,5 @@
-// SmallPower.cs
-using SceneScript;
+﻿// SmallPower.cs
+//using SceneScript;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSmallPower", menuName = "Powers/Movement/Small Power")]

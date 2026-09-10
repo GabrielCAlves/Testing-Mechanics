@@ -1,5 +1,5 @@
-// GiantPower.cs
-using SceneScript;
+﻿// GiantPower.cs
+//using SceneScript;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewGiantPower", menuName = "Powers/Movement/Giant Power")]

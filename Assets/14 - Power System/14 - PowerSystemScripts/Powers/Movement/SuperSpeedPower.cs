@@ -1,5 +1,5 @@
-// SuperSpeedPower.cs
-using SceneScript;
+﻿// SuperSpeedPower.cs
+//using SceneScript;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 

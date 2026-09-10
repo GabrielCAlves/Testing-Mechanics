@@ -1,5 +1,5 @@
-// ImmortalityPower.cs
-using FreeflowCombatSpace;
+﻿// ImmortalityPower.cs
+//using FreeflowCombatSpace;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewImmortalityPower", menuName = "Powers/Defensive/Immortality Power")]

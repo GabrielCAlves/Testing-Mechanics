@@ -1,5 +1,5 @@
-// SuperStrengthPower.cs
-using FreeflowCombatSpace;
+﻿// SuperStrengthPower.cs
+//using FreeflowCombatSpace;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSuperStrengthPower", menuName = "Powers/Offensive/Super Strength Power")]

@@ -1,0 +1,18 @@
+{
+    "name": "13-GunSystemAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:08c0f23a9bdbd324a9ce656cdc8c2e4c",
+        "GUID:70f70a2fce9c57f4480796c2578d014a",
+        "GUID:059058aaab8833748a8d66fd019d5c2e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

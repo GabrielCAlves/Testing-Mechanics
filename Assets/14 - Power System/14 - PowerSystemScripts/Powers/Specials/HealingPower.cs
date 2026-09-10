@@ -1,5 +1,5 @@
-// HealingPower.cs
-using FreeflowCombatSpace;
+﻿// HealingPower.cs
+//using FreeflowCombatSpace;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewHealingPower", menuName = "Powers/Support/Healing Power")]

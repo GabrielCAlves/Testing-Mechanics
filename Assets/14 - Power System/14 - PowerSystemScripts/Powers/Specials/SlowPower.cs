@@ -1,5 +1,5 @@
-// SlowPower.cs
-using SceneScript;
+﻿// SlowPower.cs
+//using SceneScript;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSlowPower", menuName = "Powers/Offensive/Slow Power")]

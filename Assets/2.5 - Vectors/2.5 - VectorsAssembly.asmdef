@@ -1,0 +1,16 @@
+{
+    "name": "2.5-VectorsAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4988cf9794f41d64c884876ab6574b89"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,5 +1,5 @@
-// CamouflagePower.cs
-using SceneScript;
+﻿// CamouflagePower.cs
+//using SceneScript;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCamouflagePower", menuName = "Powers/Utility/Camouflage Power")]

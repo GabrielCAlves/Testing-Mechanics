@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-using Cainos.LucidEditor;
+//using Cainos.LucidEditor;
 
 public class LifeSystem : MonoBehaviour // Don't forget the EventSystem canvas gameobject added, otherwise the events won't work, and the health bars won't update.]
 {

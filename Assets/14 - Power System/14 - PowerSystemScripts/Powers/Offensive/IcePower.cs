@@ -1,5 +1,5 @@
-// IcePower.cs
-using FreeflowCombatSpace;
+﻿// IcePower.cs
+//using FreeflowCombatSpace;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewIcePower", menuName = "Powers/Elemental/Ice Power")]
