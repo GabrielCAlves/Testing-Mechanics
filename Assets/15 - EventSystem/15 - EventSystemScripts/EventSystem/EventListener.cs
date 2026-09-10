@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EventListener : MonoBehaviour
 {
-    [Header("Configuração do Evento")]
-    [SerializeField] private EventSystem eventSystem;
+    [Header("ConfiguraÃ§Ã£o do Evento")]
+    [SerializeField] private EventSystemBase eventSystem;
     [SerializeField] private bool registerOnEnable = true;
 
     [Header("Respostas")]
@@ -21,7 +21,7 @@ public class EventListener : MonoBehaviour
 
     #region Propriedades
 
-    public EventSystem EventSystem
+    public EventSystemBase EventSystemBase
     {
         get => eventSystem;
         set
@@ -59,7 +59,7 @@ public class EventListener : MonoBehaviour
 
     #endregion
 
-    #region Métodos Públicos
+    #region MÃ©todos PÃºblicos
 
     /// <summary>
     /// Registra o listener no evento
@@ -68,7 +68,7 @@ public class EventListener : MonoBehaviour
     {
         if (eventSystem == null)
         {
-            Debug.LogWarning($"[EventListener] {gameObject.name}: EventSystem não configurado!");
+            Debug.LogWarning($"[EventListener] {gameObject.name}: EventSystemBase nÃ£o configurado!");
             return;
         }
 
@@ -93,7 +93,7 @@ public class EventListener : MonoBehaviour
     }
 
     /// <summary>
-    /// Método chamado quando o evento é disparado
+    /// MÃ©todo chamado quando o evento Ã© disparado
     /// </summary>
     public void OnEventRaised(object data)
     {
@@ -115,7 +115,7 @@ public class EventListener : MonoBehaviour
 
     #endregion
 
-    #region Métodos Privados
+    #region MÃ©todos Privados
 
     private bool PassesFilters(object data)
     {

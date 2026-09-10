@@ -1,28 +1,28 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "EventSystem", menuName = "Events/EventSystem")]
-public class EventSystem : ScriptableObject
+public class EventSystemBase : ScriptableObject
 {
-    [Header("Configuração")]
+    [Header("ConfiguraÃ§Ã£o")]
     [SerializeField] private bool debugMode = true;
-    [SerializeField] private List<EventSystem> childEvents = new List<EventSystem>();
+    [SerializeField] private List<EventSystemBase> childEvents = new List<EventSystemBase>();
 
     [Header("Eventos")]
     public UnityEvent onEventTriggered = new UnityEvent();
     public UnityEvent<object> onEventTriggeredWithData = new UnityEvent<object>();
 
-    [Header("Referências")]
-    public List<EventSystem> linkedEvents = new List<EventSystem>();
+    [Header("ReferÃªncias")]
+    public List<EventSystemBase> linkedEvents = new List<EventSystemBase>();
 
     // Lista de listeners registrados
     private List<EventListener> listeners = new List<EventListener>();
     private List<EventListener> listenersToRemove = new List<EventListener>();
     private bool isExecuting = false;
 
-    #region Métodos Públicos
+    #region MÃ©todos PÃºblicos
 
     /// <summary>
     /// Dispara o evento e todos os eventos vinculados
@@ -71,7 +71,7 @@ public class EventSystem : ScriptableObject
     {
         if (isExecuting)
         {
-            // Adiciona para remoção segura durante execução
+            // Adiciona para remoÃ§Ã£o segura durante execuÃ§Ã£o
             if (!listenersToRemove.Contains(listener))
                 listenersToRemove.Add(listener);
         }
@@ -90,7 +90,7 @@ public class EventSystem : ScriptableObject
     /// <summary>
     /// Vincula outro EventSystem a este
     /// </summary>
-    public void LinkEvent(EventSystem eventSystem)
+    public void LinkEvent(EventSystemBase eventSystem)
     {
         if (!linkedEvents.Contains(eventSystem))
         {
@@ -104,7 +104,7 @@ public class EventSystem : ScriptableObject
     /// <summary>
     /// Desvincula um EventSystem deste
     /// </summary>
-    public void UnlinkEvent(EventSystem eventSystem)
+    public void UnlinkEvent(EventSystemBase eventSystem)
     {
         if (linkedEvents.Contains(eventSystem))
         {
@@ -118,7 +118,7 @@ public class EventSystem : ScriptableObject
     /// <summary>
     /// Adiciona um evento filho
     /// </summary>
-    public void AddChildEvent(EventSystem childEvent)
+    public void AddChildEvent(EventSystemBase childEvent)
     {
         if (!childEvents.Contains(childEvent))
         {
@@ -132,7 +132,7 @@ public class EventSystem : ScriptableObject
     /// <summary>
     /// Remove um evento filho
     /// </summary>
-    public void RemoveChildEvent(EventSystem childEvent)
+    public void RemoveChildEvent(EventSystemBase childEvent)
     {
         if (childEvents.Contains(childEvent))
         {
@@ -154,7 +154,7 @@ public class EventSystem : ScriptableObject
 
     #endregion
 
-    #region Métodos Privados
+    #region MÃ©todos Privados
 
     private void ExecuteListeners(object data)
     {
@@ -171,7 +171,7 @@ public class EventSystem : ScriptableObject
 
         isExecuting = false;
 
-        // Remove listeners marcados para remoção
+        // Remove listeners marcados para remoÃ§Ã£o
         foreach (var listener in listenersToRemove)
         {
             if (listeners.Contains(listener))

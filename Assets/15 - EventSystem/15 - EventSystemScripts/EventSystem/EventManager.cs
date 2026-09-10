@@ -1,29 +1,29 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    [Header("Referências Globais")]
+    [Header("ReferÃªncias Globais")]
     public static EventManager Instance { get; private set; }
 
     [Header("Eventos Principais")]
-    [SerializeField] private EventSystem gameStartEvent;
-    [SerializeField] private EventSystem gameOverEvent;
-    [SerializeField] private EventSystem playerDeathEvent;
-    [SerializeField] private EventSystem playerScoreEvent;
-    [SerializeField] private EventSystem levelCompleteEvent;
+    [SerializeField] private EventSystemBase gameStartEvent;
+    [SerializeField] private EventSystemBase gameOverEvent;
+    [SerializeField] private EventSystemBase playerDeathEvent;
+    [SerializeField] private EventSystemBase playerScoreEvent;
+    [SerializeField] private EventSystemBase levelCompleteEvent;
 
     [Header("Eventos de Sistema")]
-    [SerializeField] private EventSystem inputEvent;
-    [SerializeField] private EventSystem audioEvent;
-    [SerializeField] private EventSystem uiEvent;
+    [SerializeField] private EventSystemBase inputEvent;
+    [SerializeField] private EventSystemBase audioEvent;
+    [SerializeField] private EventSystemBase uiEvent;
 
     [Header("Eventos de Dados")]
-    [SerializeField] private EventSystem dataSavedEvent;
-    [SerializeField] private EventSystem dataLoadedEvent;
+    [SerializeField] private EventSystemBase dataSavedEvent;
+    [SerializeField] private EventSystemBase dataLoadedEvent;
 
-    // Dicionário para acesso rápido por nome
-    private Dictionary<string, EventSystem> eventDictionary = new Dictionary<string, EventSystem>();
+    // DicionÃ¡rio para acesso rÃ¡pido por nome
+    private Dictionary<string, EventSystemBase> eventDictionary = new Dictionary<string, EventSystemBase>();
 
     #region Unity Lifecycle
 
@@ -43,11 +43,11 @@ public class EventManager : MonoBehaviour
 
     #endregion
 
-    #region Inicialização
+    #region InicializaÃ§Ã£o
 
     private void InitializeEvents()
     {
-        // Registra todos os eventos no dicionário
+        // Registra todos os eventos no dicionÃ¡rio
         RegisterEvent("GameStart", gameStartEvent);
         RegisterEvent("GameOver", gameOverEvent);
         RegisterEvent("PlayerDeath", playerDeathEvent);
@@ -63,7 +63,7 @@ public class EventManager : MonoBehaviour
         SetupEventHierarchy();
     }
 
-    private void RegisterEvent(string name, EventSystem eventSystem)
+    private void RegisterEvent(string name, EventSystemBase eventSystem)
     {
         if (eventSystem != null && !eventDictionary.ContainsKey(name))
         {
@@ -73,7 +73,7 @@ public class EventManager : MonoBehaviour
 
     private void SetupEventHierarchy()
     {
-        // Exemplo: PlayerDeath dispara GameOver se for a última vida
+        // Exemplo: PlayerDeath dispara GameOver se for a Ãºltima vida
         if (playerDeathEvent != null && gameOverEvent != null)
         {
             playerDeathEvent.LinkEvent(gameOverEvent);
@@ -91,17 +91,17 @@ public class EventManager : MonoBehaviour
 
     #endregion
 
-    #region Métodos Públicos
+    #region MÃ©todos PÃºblicos
 
     /// <summary>
-    /// Obtém um evento por nome
+    /// ObtÃ©m um evento por nome
     /// </summary>
-    public EventSystem GetEvent(string name)
+    public EventSystemBase GetEvent(string name)
     {
-        if (eventDictionary.TryGetValue(name, out EventSystem eventSystem))
+        if (eventDictionary.TryGetValue(name, out EventSystemBase eventSystem))
             return eventSystem;
 
-        Debug.LogWarning($"[EventManager] Evento '{name}' não encontrado!");
+        Debug.LogWarning($"[EventManager] Evento '{name}' nÃ£o encontrado!");
         return null;
     }
 
@@ -123,7 +123,7 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// Registra um novo evento em runtime
     /// </summary>
-    public void RegisterRuntimeEvent(string name, EventSystem eventSystem)
+    public void RegisterRuntimeEvent(string name, EventSystemBase eventSystem)
     {
         if (!eventDictionary.ContainsKey(name))
         {
@@ -131,24 +131,24 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"[EventManager] Evento '{name}' já existe!");
+            Debug.LogWarning($"[EventManager] Evento '{name}' jÃ¡ existe!");
         }
     }
 
     #endregion
 
-    #region Getters Públicos
+    #region Getters PÃºblicos
 
-    public EventSystem GameStart => gameStartEvent;
-    public EventSystem GameOver => gameOverEvent;
-    public EventSystem PlayerDeath => playerDeathEvent;
-    public EventSystem PlayerScore => playerScoreEvent;
-    public EventSystem LevelComplete => levelCompleteEvent;
-    public EventSystem InputEvent => inputEvent;
-    public EventSystem AudioEvent => audioEvent;
-    public EventSystem UIEvent => uiEvent;
-    public EventSystem DataSaved => dataSavedEvent;
-    public EventSystem DataLoaded => dataLoadedEvent;
+    public EventSystemBase GameStart => gameStartEvent;
+    public EventSystemBase GameOver => gameOverEvent;
+    public EventSystemBase PlayerDeath => playerDeathEvent;
+    public EventSystemBase PlayerScore => playerScoreEvent;
+    public EventSystemBase LevelComplete => levelCompleteEvent;
+    public EventSystemBase InputEvent => inputEvent;
+    public EventSystemBase AudioEvent => audioEvent;
+    public EventSystemBase UIEvent => uiEvent;
+    public EventSystemBase DataSaved => dataSavedEvent;
+    public EventSystemBase DataLoaded => dataLoadedEvent;
 
     #endregion
 }

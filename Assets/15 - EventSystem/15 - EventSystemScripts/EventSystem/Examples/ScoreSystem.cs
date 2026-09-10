@@ -1,4 +1,4 @@
-// Sistema de PontuaÁ„o
+Ôªø// Sistema de Pontua√ß√£o
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,8 +21,8 @@ public class UISystem : MonoBehaviour
 
     private void Start()
     {
-        // ConfiguraÁ„o via Inspector ou cÛdigo
-        scoreListener.EventSystem = EventManager.Instance.PlayerScore;
+        // Configura√ß√£o via Inspector ou c√≥digo
+        scoreListener.EventSystemBase = EventManager.Instance.PlayerScore;
         scoreListener.onEventRaisedWithData.AddListener(UpdateScoreUI);
     }
 
@@ -33,7 +33,7 @@ public class UISystem : MonoBehaviour
     }
 }
 
-// Sistema de ¡udio
+// Sistema de √Åudio
 public class AudioSystem : MonoBehaviour
 {
     public EventListener gameOverListener;
@@ -41,7 +41,7 @@ public class AudioSystem : MonoBehaviour
 
     private void Start()
     {
-        gameOverListener.EventSystem = EventManager.Instance.GameOver;
+        gameOverListener.EventSystemBase = EventManager.Instance.GameOver;
         gameOverListener.onEventRaised.AddListener(PlayGameOverSound);
     }
 
